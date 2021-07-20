@@ -1,4 +1,4 @@
-import { COMPUTER_LIST_FAIL } from '../../../PCStore/frontend/src/constants/computerConstants'
+
 import {
     COMPUTER_LEAD_REQUEST,
     COMPUTER_LEAD_SUCCESS,
