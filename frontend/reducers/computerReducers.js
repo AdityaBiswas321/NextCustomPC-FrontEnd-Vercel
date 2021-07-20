@@ -12,7 +12,7 @@ export const computerLeadsReducer = (state={}, action) => {
             return {loading: true}
         case COMPUTER_LEAD_SUCCESS:
             return { loading: false, success: true, lead: action.payload}
-        case COMPUTER_LIST_FAIL:
+        case COMPUTER_LEAD_FAIL:
             return { loading: false, error: action.payload }
         case COMPUTER_LEAD_RESET:
             return {}
