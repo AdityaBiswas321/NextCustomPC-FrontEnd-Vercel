@@ -2,4 +2,4 @@
 Under Development
 NextJs, Redux, React-Bootstrap
 
-https://next-custom-pc-front-end-vercel-jtt7n8cnz-adityabiswas321.vercel.app/
+https://next-custom-pc-front-end-vercel-3qmfjt7jh-adityabiswas321.vercel.app/
