@@ -26,26 +26,25 @@ export default function HomeScreen() {
     <>
     <Row>
       <Col sm={12} md={6} lg={4} xl={3}>
-      <Card>
-        <Link href="computer1">
-          <a>Computer1</a>
+      <Card class="btn btn-dark">
+        <Link class="btn btn-primary" href="computer1">
+          <a><span style={{color:"white"}}>Computer1</span></a>
         </Link>
+        </Card>
+        <Card>
         <Image 
         src={'https://secondbucketforcustompc.s3.us-east-2.amazonaws.com/playstation.jpg'}
         width={25}
         height={25}
         layout="responsive"
         />
-      </Card>
+        </Card>
+        
+      
       </Col>
     </Row>
       
-      <Button
-          type='button'
-          className='btn-block' 
-          onClick={() => Testclick()}>
-            Test Button
-        </Button>
+      
     </>
   )
 }
