@@ -25,15 +25,16 @@ export default function HomeScreen() {
   return (
     <>
     <Row>
-      <Col>
+      <Col sm={12} md={6} lg={4} xl={3}>
       <Card>
         <Link href="computer1">
           <a>Computer1</a>
         </Link>
         <Image 
         src={'https://secondbucketforcustompc.s3.us-east-2.amazonaws.com/playstation.jpg'}
-        width={170}
-        height={100}
+        width={25}
+        height={25}
+        layout="responsive"
         />
       </Card>
       </Col>
