@@ -1,14 +1,14 @@
 import { useState, useEffect } from 'react'
 import { ListGroup, Button, Row, Col, Form } from 'react-bootstrap'
 import FormContainer from '../components/FormContainer'
-// import { useDispatch, useSelector } from 'react-redux'
-// import { saveLeadForm } from '../actions/computerActions'
+import { useDispatch, useSelector } from 'react-redux'
+import { saveLeadForm } from '../actions/computerActions'
 
 const Qualify = ({ Ctype }) => {
-//   const dispatch = useDispatch()
+  const dispatch = useDispatch()
 
-//   const computerLead = useSelector((state) => state.computerLeads)
-//   const { lead } = computerLead
+  const computerLead = useSelector((state) => state.computerLeads)
+  const { lead } = computerLead
 
   const [step1, setStep1] = useState(true)
   const [step2, setStep2] = useState(false)
@@ -51,17 +51,17 @@ const Qualify = ({ Ctype }) => {
     console.log(postal)
     console.log(Ctype)
 
-    // dispatch(
-    //   saveLeadForm({ type, tab, app, name, email, phone, postal, Ctype })
-    // )
+    dispatch(
+      saveLeadForm({ type, tab, app, name, email, phone, postal, Ctype })
+    )
   }
 
-//   useEffect(() => {
-//     if (lead) {
-//       console.log(lead)
-//       console.log('from useEffect')
-//     }
-//   }, [lead])
+  useEffect(() => {
+    if (lead) {
+      console.log(lead)
+      console.log('from useEffect')
+    }
+  }, [lead])
 
   return (
     <>

@@ -7,10 +7,10 @@ import {
     COMPUTER_LEAD_RESET
 } from '../constants/computerConstants'
 
-export const saveLeadForm = () => async (dispatch) => {
+export const saveLeadForm = (lead) => async (dispatch) => {
     try {
         dispatch({ type: COMPUTER_LEAD_REQUEST})
-        const { data } = await axios.get(`${API_URL}/api/lead`)
+        const { data } = await axios.post(`${API_URL}/api/lead`, lead)
         console.log(data)
         dispatch({ type: COMPUTER_LEAD_SUCCESS, payload: data})
         
