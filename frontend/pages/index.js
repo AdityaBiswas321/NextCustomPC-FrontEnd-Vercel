@@ -24,6 +24,8 @@ export default function HomeScreen() {
   
   return (
     <>
+    <Row>
+      <Col>
       <Card>
         <Link href="computer1">
           <a>Computer1</a>
@@ -34,6 +36,9 @@ export default function HomeScreen() {
         height={100}
         />
       </Card>
+      </Col>
+    </Row>
+      
       <Button
           type='button'
           className='btn-block' 
