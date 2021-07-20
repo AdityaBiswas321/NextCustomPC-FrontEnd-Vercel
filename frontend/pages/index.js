@@ -26,8 +26,8 @@ export default function HomeScreen() {
     <>
     <Row>
       <Col sm={12} md={6} lg={4} xl={3}>
-      <Card class="btn btn-dark">
-        <Link class="btn btn-primary" href="computer1">
+      <Card id="gh"type="button" className="btn btn-dark ">
+        <Link href="computer1">
           <a><span style={{color:"white"}}>Computer1</span></a>
         </Link>
         </Card>
