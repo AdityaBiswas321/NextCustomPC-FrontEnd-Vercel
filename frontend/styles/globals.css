@@ -4,18 +4,20 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 #gh {
-  background: black
+  background: black;
 }
 
 #gh:hover {
-  background: grey
+  background: grey;
 }
 
 span {
-  color: white
+  color: white;
 }
 
 a {
@@ -25,4 +27,12 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+#caro {
+  margin: auto;
+}
+
+#computer {
+  margin: auto;
 }
