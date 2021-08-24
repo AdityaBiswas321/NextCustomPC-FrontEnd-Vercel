@@ -36,3 +36,11 @@ a {
 #computer {
   margin: auto;
 }
+
+#bh {
+  text-align: center;
+}
+
+.hello:hover {
+  background-color: lightgray;
+}

@@ -26,7 +26,6 @@ export default function HomeScreen() {
 
   return (
     <>
-      <Header />
       <Row>
         <Col id="caro" sm={12} md={12} lg={6} xl={6}>
           <Carousel>
@@ -48,10 +47,18 @@ export default function HomeScreen() {
 
       <Row>
         <Col>
-          <Card id="text">
+          <Card>
             <Card.Body>
-              Copywrite PC Description. Office Ready Personal Computer. Free
-              Quotation, Gaurantee Pricing 30 days.
+              <Card.Text id="bh">
+                Tailor Made Computer Designs <br></br>Products, Specification,
+                and Installation <br></br>Exact Quotation in Writing and
+                Gauranteed for 30 days <br></br>
+                <Link href="computer1">
+                  <a>
+                    <u className="hello">Book a no obligation quotation</u>
+                  </a>
+                </Link>
+              </Card.Text>
             </Card.Body>
           </Card>
         </Col>
@@ -67,14 +74,16 @@ export default function HomeScreen() {
             </Link>
           </Card>
           <Card>
-            <Image
-              src={
-                "https://secondbucketforcustompc.s3.us-east-2.amazonaws.com/playstation.jpg"
-              }
-              width={25}
-              height={25}
-              layout="responsive"
-            />
+            <Link href="computer1">
+              <Image
+                src={
+                  "https://secondbucketforcustompc.s3.us-east-2.amazonaws.com/playstation.jpg"
+                }
+                width={25}
+                height={25}
+                layout="responsive"
+              />
+            </Link>
           </Card>
         </Col>
         <Col sm={12} md={6} lg={4} xl={4}>
