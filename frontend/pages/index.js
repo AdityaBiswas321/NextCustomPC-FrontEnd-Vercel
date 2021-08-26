@@ -26,20 +26,17 @@ export default function HomeScreen() {
 
   return (
     <>
-      <Row>
+      <Row className="w">
         <Col id="caro" sm={12} md={12} lg={6} xl={6}>
-          <Carousel>
+          <Carousel showStatus={false} showThumbs={false}>
             <div>
               <img src="https://secondbucketforcustompc.s3.us-east-2.amazonaws.com/playstation.jpg" />
-              <p className="legend">Legend 1</p>
             </div>
             <div>
               <img src="https://secondbucketforcustompc.s3.us-east-2.amazonaws.com/playstation.jpg" />
-              <p className="legend">Legend 2</p>
             </div>
             <div>
               <img src="https://secondbucketforcustompc.s3.us-east-2.amazonaws.com/playstation.jpg" />
-              <p className="legend">Legend 3</p>
             </div>
           </Carousel>
         </Col>
