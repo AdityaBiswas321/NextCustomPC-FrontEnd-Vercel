@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { ListGroup, Button, Row, Col, Form } from "react-bootstrap";
+import { ListGroup, Button, Row, Col, Form, Card } from "react-bootstrap";
 import FormContainer from "../components/FormContainer";
 import { useDispatch, useSelector } from "react-redux";
 import { saveLeadForm } from "../actions/computerActions";
@@ -77,7 +77,21 @@ const Qualify = () => {
           <ListGroup.Item>
             <Row>
               <Col className="text-center py-2">
-                <h5>Select usage</h5>
+                <h5>
+                  <strong>Select usage</strong>
+                </h5>
+              </Col>
+            </Row>
+            <Row style={{ textAlign: "center" }}>
+              <Col className="text-center py-2">
+                <text>
+                  Identifying the usage determines the types of parts requied.
+                  <br></br>
+                  For example, most work related computers do not require an
+                  additional graphics card, however a gaming computer will most
+                  likely need a graphic card to function. <br></br>Both of which
+                  affect price and effectiveness of your machine!
+                </text>
               </Col>
             </Row>
           </ListGroup.Item>
@@ -113,6 +127,18 @@ const Qualify = () => {
                 <h5>Select Tab Usage</h5>
               </Col>
             </Row>
+            <Row style={{ textAlign: "center" }}>
+              <Col className="text-center py-2">
+                <text>
+                  Tab usage determines the amount and type of RAM is required.
+                  <br></br>
+                  This can be more complex to determine however, someone who
+                  uses 24 tabs and multiple application will require more RAM
+                  <br></br>to be efficient than someone who operates in a
+                  minimalistic fashion with their machine.
+                </text>
+              </Col>
+            </Row>
           </ListGroup.Item>
           <ListGroup.Item>
             <Button
@@ -146,6 +172,17 @@ const Qualify = () => {
                 <h5>Select Application Usage</h5>
               </Col>
             </Row>
+            <Row style={{ textAlign: "center" }}>
+              <Col className="text-center py-2">
+                <text>
+                  Application usage determines the type of cpu required, which
+                  affects how efficient the machine runs. <br></br>For example,
+                  an Executive Assistant would require multiple application
+                  running during an online board meeting presentation than a
+                  video producer.
+                </text>
+              </Col>
+            </Row>
           </ListGroup.Item>
           <ListGroup.Item>
             <Button
@@ -177,6 +214,13 @@ const Qualify = () => {
             <Row>
               <Col className="text-center py-2">
                 <h5>Select Budget</h5>
+              </Col>
+            </Row>
+            <Row style={{ textAlign: "center" }}>
+              <Col className="text-center py-2">
+                <text>
+                  To determine types of parts we can build the machine with
+                </text>
               </Col>
             </Row>
           </ListGroup.Item>

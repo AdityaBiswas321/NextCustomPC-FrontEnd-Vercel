@@ -44,3 +44,7 @@ a {
 .hello:hover {
   background-color: lightgray;
 }
+
+.QCAlign {
+  text-align: center;
+}

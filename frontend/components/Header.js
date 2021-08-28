@@ -1,4 +1,6 @@
 import React from "react";
+import Link from "next/link";
+
 import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
 
 const Header = () => {
@@ -7,7 +9,11 @@ const Header = () => {
       <div></div>
       <Navbar bg="light" expand="lg">
         <Container>
-          <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+          <Navbar.Brand>
+            <Link href="/">
+              <a>NPX Computers</a>
+            </Link>
+          </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ml-auto">
