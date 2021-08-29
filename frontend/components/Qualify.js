@@ -164,7 +164,12 @@ const Qualify = () => {
         </ListGroup>
       ) : step2 ? (
         <ListGroup>
-          <OrderSteps step1 step2 Click2={() => Click2()} />
+          <OrderSteps
+            step1
+            step2
+            Click1={() => Click1()}
+            Click2={() => Click2()}
+          />
           <ListGroup.Item>
             <Row>
               <Col className="text-center py-2">
@@ -210,7 +215,14 @@ const Qualify = () => {
         </ListGroup>
       ) : step3 ? (
         <ListGroup>
-          <OrderSteps step1 step2 step3 Click3={() => Click3()} />
+          <OrderSteps
+            step1
+            step2
+            step3
+            Click1={() => Click1()}
+            Click2={() => Click2()}
+            Click3={() => Click3()}
+          />
           <ListGroup.Item>
             <Row>
               <Col className="text-center py-2">
@@ -255,7 +267,16 @@ const Qualify = () => {
         </ListGroup>
       ) : step4 ? (
         <ListGroup>
-          <OrderSteps step1 step2 step3 step4 Click4={() => Click4()} />
+          <OrderSteps
+            step1
+            step2
+            step3
+            step4
+            Click1={() => Click1()}
+            Click2={() => Click2()}
+            Click3={() => Click3()}
+            Click4={() => Click4()}
+          />
           <ListGroup.Item>
             <Row>
               <Col className="text-center py-2">
@@ -297,7 +318,18 @@ const Qualify = () => {
       ) : (
         step5 && (
           <>
-            <OrderSteps step1 step2 step3 step4 step5 Click5={() => Click5()} />
+            <OrderSteps
+              step1
+              step2
+              step3
+              step4
+              step5
+              Click1={() => Click1()}
+              Click2={() => Click2()}
+              Click3={() => Click3()}
+              Click4={() => Click4()}
+              Click5={() => Click5()}
+            />
             <FormContainer>
               <Form onSubmit={submitHandler}>
                 <Form.Group controlId="name">
