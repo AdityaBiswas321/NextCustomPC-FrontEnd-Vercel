@@ -3,6 +3,8 @@ import { ListGroup, Button, Row, Col, Form, Card } from "react-bootstrap";
 import FormContainer from "../components/FormContainer";
 import { useDispatch, useSelector } from "react-redux";
 import { saveLeadForm } from "../actions/computerActions";
+import Message from "./Message";
+import OrderSteps from "./OrderSteps";
 
 const Qualify = () => {
   const dispatch = useDispatch();
@@ -25,6 +27,42 @@ const Qualify = () => {
   const [phone, setPhone] = useState("");
   const [postal, setPostal] = useState("");
   const [Ctype, setCtype] = useState("");
+
+  const Click1 = () => {
+    setStep1(true);
+    setStep2(false);
+    setStep3(false);
+    setStep4(false);
+    setStep5(false);
+  };
+  const Click2 = () => {
+    setStep1(false);
+    setStep2(true);
+    setStep3(false);
+    setStep4(false);
+    setStep5(false);
+  };
+  const Click3 = () => {
+    setStep1(false);
+    setStep2(false);
+    setStep3(true);
+    setStep4(false);
+    setStep5(false);
+  };
+  const Click4 = () => {
+    setStep1(false);
+    setStep2(false);
+    setStep3(false);
+    setStep4(true);
+    setStep5(false);
+  };
+  const Click5 = () => {
+    setStep1(false);
+    setStep2(false);
+    setStep3(false);
+    setStep4(false);
+    setStep5(true);
+  };
 
   const alertclick = (type) => {
     setStep1(false);
@@ -72,8 +110,13 @@ const Qualify = () => {
 
   return (
     <>
+      {lead && (
+        <Message variant="success">{`Success!
+         Your ID is ${lead._id}`}</Message>
+      )}
       {step1 ? (
         <ListGroup>
+          <OrderSteps step1 Click1={() => Click1()} />
           <ListGroup.Item>
             <Row>
               <Col className="text-center py-2">
@@ -121,6 +164,7 @@ const Qualify = () => {
         </ListGroup>
       ) : step2 ? (
         <ListGroup>
+          <OrderSteps step1 step2 Click2={() => Click2()} />
           <ListGroup.Item>
             <Row>
               <Col className="text-center py-2">
@@ -166,6 +210,7 @@ const Qualify = () => {
         </ListGroup>
       ) : step3 ? (
         <ListGroup>
+          <OrderSteps step1 step2 step3 Click3={() => Click3()} />
           <ListGroup.Item>
             <Row>
               <Col className="text-center py-2">
@@ -210,6 +255,7 @@ const Qualify = () => {
         </ListGroup>
       ) : step4 ? (
         <ListGroup>
+          <OrderSteps step1 step2 step3 step4 Click4={() => Click4()} />
           <ListGroup.Item>
             <Row>
               <Col className="text-center py-2">
@@ -250,56 +296,59 @@ const Qualify = () => {
         </ListGroup>
       ) : (
         step5 && (
-          <FormContainer>
-            <Form onSubmit={submitHandler}>
-              <Form.Group controlId="name">
-                <Form.Label>Name</Form.Label>
-                <Form.Control
-                  type="text"
-                  placeholder="Enter Name"
-                  value={name}
-                  required
-                  onChange={(e) => setName(e.target.value)}
-                ></Form.Control>
-              </Form.Group>
+          <>
+            <OrderSteps step1 step2 step3 step4 step5 Click5={() => Click5()} />
+            <FormContainer>
+              <Form onSubmit={submitHandler}>
+                <Form.Group controlId="name">
+                  <Form.Label>Name</Form.Label>
+                  <Form.Control
+                    type="text"
+                    placeholder="Enter Name"
+                    value={name}
+                    required
+                    onChange={(e) => setName(e.target.value)}
+                  ></Form.Control>
+                </Form.Group>
 
-              <Form.Group controlId="email">
-                <Form.Label>Email</Form.Label>
-                <Form.Control
-                  type="text"
-                  placeholder="Enter Name"
-                  value={email}
-                  required
-                  onChange={(e) => setEmail(e.target.value)}
-                ></Form.Control>
-              </Form.Group>
+                <Form.Group controlId="email">
+                  <Form.Label>Email</Form.Label>
+                  <Form.Control
+                    type="text"
+                    placeholder="Enter Name"
+                    value={email}
+                    required
+                    onChange={(e) => setEmail(e.target.value)}
+                  ></Form.Control>
+                </Form.Group>
 
-              <Form.Group controlId="phone">
-                <Form.Label>Phone</Form.Label>
-                <Form.Control
-                  type="text"
-                  placeholder="Enter Phone"
-                  value={phone}
-                  required
-                  onChange={(e) => setPhone(e.target.value)}
-                ></Form.Control>
-              </Form.Group>
+                <Form.Group controlId="phone">
+                  <Form.Label>Phone</Form.Label>
+                  <Form.Control
+                    type="text"
+                    placeholder="Enter Phone"
+                    value={phone}
+                    required
+                    onChange={(e) => setPhone(e.target.value)}
+                  ></Form.Control>
+                </Form.Group>
 
-              <Form.Group controlId="postal">
-                <Form.Label>Postal</Form.Label>
-                <Form.Control
-                  type="text"
-                  placeholder="Enter Postal"
-                  value={postal}
-                  required
-                  onChange={(e) => setPostal(e.target.value)}
-                ></Form.Control>
-              </Form.Group>
-              <Button type="submit" variant="primary">
-                Continue
-              </Button>
-            </Form>
-          </FormContainer>
+                <Form.Group controlId="postal">
+                  <Form.Label>Postal</Form.Label>
+                  <Form.Control
+                    type="text"
+                    placeholder="Enter Postal"
+                    value={postal}
+                    required
+                    onChange={(e) => setPostal(e.target.value)}
+                  ></Form.Control>
+                </Form.Group>
+                <Button type="submit" variant="primary">
+                  Continue
+                </Button>
+              </Form>
+            </FormContainer>
+          </>
         )
       )}
     </>
