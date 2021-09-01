@@ -6,14 +6,7 @@ import {
   STEPFIVE_CONVERT,
 } from "../constants/qualifyConstants";
 
-export const qualifyReducers = (
-  step1 = true,
-  step2 = false,
-  step3 = false,
-  step4 = false,
-  step5 = false,
-  action
-) => {
+export const qualifyReducers = (state = {}, action) => {
   switch (action.type) {
     case STEPONE_CONVERT:
       return {

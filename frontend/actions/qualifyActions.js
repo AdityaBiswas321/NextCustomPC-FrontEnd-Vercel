@@ -6,7 +6,7 @@ import {
   STEPFIVE_CONVERT,
 } from "../constants/qualifyConstants";
 
-export const stepOne = () => (dispatch) => {
+export const stepOne = () => async (dispatch) => {
   try {
     dispatch({ type: STEPONE_CONVERT });
   } catch (error) {
