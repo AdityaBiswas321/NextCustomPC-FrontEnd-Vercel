@@ -12,6 +12,9 @@ const Qualify = () => {
   const computerLead = useSelector((state) => state.computerLeads);
   const { lead } = computerLead;
 
+  const qualify = useSelector((state) => state.qualify);
+  const { step1, step2, step3, step4, step5 } = qualify;
+
   const [step1, setStep1] = useState(true);
   const [step2, setStep2] = useState(false);
   const [step3, setStep3] = useState(false);
