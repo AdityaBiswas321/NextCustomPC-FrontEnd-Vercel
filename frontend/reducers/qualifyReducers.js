@@ -15,6 +15,11 @@ export const qualifyReducers = (state = {}, action) => {
         step3: false,
         step4: false,
         step5: false,
+        phase1: true,
+        phase2: false,
+        phase3: false,
+        phase4: false,
+        phase5: false,
       };
     case STEPTWO_CONVERT:
       return {
@@ -23,6 +28,11 @@ export const qualifyReducers = (state = {}, action) => {
         step3: false,
         step4: false,
         step5: false,
+        phase1: true,
+        phase2: true,
+        phase3: false,
+        phase4: false,
+        phase5: false,
       };
     case STEPTHREE_CONVERT:
       return {
@@ -31,6 +41,11 @@ export const qualifyReducers = (state = {}, action) => {
         step3: true,
         step4: false,
         step5: false,
+        phase1: true,
+        phase2: true,
+        phase3: true,
+        phase4: false,
+        phase5: false,
       };
     case STEPFOUR_CONVERT:
       return {
@@ -39,6 +54,11 @@ export const qualifyReducers = (state = {}, action) => {
         step3: false,
         step4: true,
         step5: false,
+        phase1: true,
+        phase2: true,
+        phase3: true,
+        phase4: true,
+        phase5: false,
       };
     case STEPFIVE_CONVERT:
       return {
@@ -47,6 +67,11 @@ export const qualifyReducers = (state = {}, action) => {
         step3: false,
         step4: false,
         step5: true,
+        phase1: true,
+        phase2: true,
+        phase3: true,
+        phase4: true,
+        phase5: true,
       };
     default:
       return state;

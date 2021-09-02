@@ -17,6 +17,11 @@ const initialState = {
     step3: false,
     step4: false,
     step5: false,
+    phase1: true,
+    phase2: false,
+    phase3: false,
+    phase4: false,
+    phase5: false,
   },
 };
 

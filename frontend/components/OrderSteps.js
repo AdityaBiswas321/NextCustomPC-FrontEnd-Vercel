@@ -13,12 +13,12 @@ const OrderSteps = () => {
   const dispatch = useDispatch();
 
   const qualify = useSelector((state) => state.qualify);
-  const { step1, step2, step3, step4, step5 } = qualify;
+  const { phase1, phase2, phase3, phase4, phase5 } = qualify;
 
   return (
     <Nav className="justify-content-center mb-4">
       <Nav.Item>
-        {step1 ? (
+        {phase1 ? (
           <Button
             onClick={() => {
               dispatch(stepOne());
@@ -31,7 +31,7 @@ const OrderSteps = () => {
         )}
       </Nav.Item>
       <Nav.Item>
-        {step2 ? (
+        {phase2 ? (
           <Button
             onClick={() => {
               dispatch(stepTwo());
@@ -44,7 +44,7 @@ const OrderSteps = () => {
         )}
       </Nav.Item>
       <Nav.Item>
-        {step3 ? (
+        {phase3 ? (
           <Button
             onClick={() => {
               dispatch(stepThree());
@@ -57,7 +57,7 @@ const OrderSteps = () => {
         )}
       </Nav.Item>
       <Nav.Item>
-        {step4 ? (
+        {phase4 ? (
           <Button
             onClick={() => {
               dispatch(stepFour());
@@ -70,7 +70,7 @@ const OrderSteps = () => {
         )}
       </Nav.Item>
       <Nav.Item>
-        {step5 ? (
+        {phase5 ? (
           <Button
             onClick={() => {
               dispatch(stepFive());
