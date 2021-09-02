@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { saveLeadForm } from "../actions/computerActions";
 import Message from "./Message";
 import OrderSteps from "./OrderSteps";
+import { stepOne } from "../actions/qualifyActions";
 
 const Qualify = () => {
   const dispatch = useDispatch();
@@ -15,11 +16,11 @@ const Qualify = () => {
   const qualify = useSelector((state) => state.qualify);
   const { step1, step2, step3, step4, step5 } = qualify;
 
-  const [step1, setStep1] = useState(true);
-  const [step2, setStep2] = useState(false);
-  const [step3, setStep3] = useState(false);
-  const [step4, setStep4] = useState(false);
-  const [step5, setStep5] = useState(false);
+  // const [step1, setStep1] = useState(true);
+  // const [step2, setStep2] = useState(false);
+  // const [step3, setStep3] = useState(false);
+  // const [step4, setStep4] = useState(false);
+  // const [step5, setStep5] = useState(false);
 
   const [type, setType] = useState("");
   const [tab, setTab] = useState("");
@@ -68,23 +69,19 @@ const Qualify = () => {
   };
 
   const alertclick = (type) => {
-    setStep1(false);
-    setStep2(true);
+    dispatch(stepTwo());
     setType(type);
   };
   const alertclick2 = (tab) => {
-    setStep2(false);
-    setStep3(true);
+    dispatch(stepThree());
     setTab(tab);
   };
   const alertclick3 = (app) => {
-    setStep3(false);
-    setStep4(true);
+    dispatch(stepFour());
     setApp(app);
   };
   const alertclick4 = (Ctype) => {
-    setStep4(false);
-    setStep5(true);
+    dispatch(stepFive());
     setCtype(Ctype);
   };
 
@@ -119,7 +116,7 @@ const Qualify = () => {
       )}
       {step1 ? (
         <ListGroup>
-          <OrderSteps step1 Click1={() => Click1()} />
+          <OrderSteps />
           <ListGroup.Item>
             <Row>
               <Col className="text-center py-2">
@@ -167,12 +164,7 @@ const Qualify = () => {
         </ListGroup>
       ) : step2 ? (
         <ListGroup>
-          <OrderSteps
-            step1
-            step2
-            Click1={() => Click1()}
-            Click2={() => Click2()}
-          />
+          <OrderSteps />
           <ListGroup.Item>
             <Row>
               <Col className="text-center py-2">
@@ -218,14 +210,7 @@ const Qualify = () => {
         </ListGroup>
       ) : step3 ? (
         <ListGroup>
-          <OrderSteps
-            step1
-            step2
-            step3
-            Click1={() => Click1()}
-            Click2={() => Click2()}
-            Click3={() => Click3()}
-          />
+          <OrderSteps />
           <ListGroup.Item>
             <Row>
               <Col className="text-center py-2">
@@ -270,16 +255,7 @@ const Qualify = () => {
         </ListGroup>
       ) : step4 ? (
         <ListGroup>
-          <OrderSteps
-            step1
-            step2
-            step3
-            step4
-            Click1={() => Click1()}
-            Click2={() => Click2()}
-            Click3={() => Click3()}
-            Click4={() => Click4()}
-          />
+          <OrderSteps />
           <ListGroup.Item>
             <Row>
               <Col className="text-center py-2">
@@ -321,18 +297,7 @@ const Qualify = () => {
       ) : (
         step5 && (
           <>
-            <OrderSteps
-              step1
-              step2
-              step3
-              step4
-              step5
-              Click1={() => Click1()}
-              Click2={() => Click2()}
-              Click3={() => Click3()}
-              Click4={() => Click4()}
-              Click5={() => Click5()}
-            />
+            <OrderSteps />
             <FormContainer>
               <Form onSubmit={submitHandler}>
                 <Form.Group controlId="name">
