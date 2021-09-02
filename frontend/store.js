@@ -10,8 +10,22 @@ const reducer = combineReducers({
   qualify: qualifyReducers,
 });
 
+const initialState = {
+  qualify: {
+    step1: true,
+    step2: false,
+    step3: false,
+    step4: false,
+    step5: false,
+  },
+};
+
 const middleware = [thunk];
 const makeStore = (context) =>
-  createStore(reducer, composeWithDevTools(applyMiddleware(...middleware)));
+  createStore(
+    reducer,
+    initialState,
+    composeWithDevTools(applyMiddleware(...middleware))
+  );
 
 export const wrapper = createWrapper(makeStore, { debug: true });

@@ -3,9 +3,14 @@ import { ListGroup, Button, Row, Col, Form, Card } from "react-bootstrap";
 import FormContainer from "../components/FormContainer";
 import { useDispatch, useSelector } from "react-redux";
 import { saveLeadForm } from "../actions/computerActions";
+import {
+  stepTwo,
+  stepThree,
+  stepFour,
+  stepFive,
+} from "../actions/qualifyActions";
 import Message from "./Message";
 import OrderSteps from "./OrderSteps";
-import { stepOne } from "../actions/qualifyActions";
 
 const Qualify = () => {
   const dispatch = useDispatch();

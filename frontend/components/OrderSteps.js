@@ -1,7 +1,13 @@
 import React from "react";
 import { Nav, Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { stepFour } from "../actions/qualifyActions";
+import {
+  stepOne,
+  stepTwo,
+  stepThree,
+  stepFour,
+  stepFive,
+} from "../actions/qualifyActions";
 
 const OrderSteps = () => {
   const dispatch = useDispatch();
