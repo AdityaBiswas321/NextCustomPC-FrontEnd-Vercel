@@ -10,7 +10,7 @@ import {
   stepFive,
 } from "../actions/qualifyActions";
 import Message from "./Message";
-import OrderSteps from "./OrderSteps";
+import OrderSteps from "./OrderSteps/OrderSteps";
 
 const Qualify = () => {
   const dispatch = useDispatch();

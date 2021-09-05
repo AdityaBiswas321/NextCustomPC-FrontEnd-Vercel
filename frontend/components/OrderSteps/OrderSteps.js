@@ -1,5 +1,5 @@
 import React from "react";
-import { Nav, Button } from "react-bootstrap";
+import { Nav, Button, Row, Col, Container } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import {
   stepOne,
@@ -7,13 +7,17 @@ import {
   stepThree,
   stepFour,
   stepFive,
-} from "../actions/qualifyActions";
+} from "../../actions/qualifyActions";
+import styles from "./OrderSteps.module.css";
 
 const OrderSteps = () => {
   const dispatch = useDispatch();
 
   const qualify = useSelector((state) => state.qualify);
   const { phase1, phase2, phase3, phase4, phase5 } = qualify;
+  <Row>
+    <Col sm={3} md={3} lg={3} xl={3}></Col>
+  </Row>;
 
   return (
     <Nav className="justify-content-center mb-4">
@@ -30,7 +34,8 @@ const OrderSteps = () => {
           <Button disabled>Usage</Button>
         )}
       </Nav.Item>
-      <Nav.Item>
+
+      <Nav.Item className={styles.scale}>
         {phase2 ? (
           <Button
             onClick={() => {
@@ -43,20 +48,22 @@ const OrderSteps = () => {
           <Button disabled>Tabs</Button>
         )}
       </Nav.Item>
-      <Nav.Item>
+
+      <Nav.Item className={styles.scale}>
         {phase3 ? (
           <Button
             onClick={() => {
               dispatch(stepThree());
             }}
           >
-            Application
+            Apps
           </Button>
         ) : (
-          <Button disabled>Application</Button>
+          <Button disabled>Apps</Button>
         )}
       </Nav.Item>
-      <Nav.Item>
+
+      <Nav.Item className={styles.scale}>
         {phase4 ? (
           <Button
             onClick={() => {
@@ -69,7 +76,8 @@ const OrderSteps = () => {
           <Button disabled>Budget</Button>
         )}
       </Nav.Item>
-      <Nav.Item>
+
+      <Nav.Item className={styles.scale}>
         {phase5 ? (
           <Button
             onClick={() => {
