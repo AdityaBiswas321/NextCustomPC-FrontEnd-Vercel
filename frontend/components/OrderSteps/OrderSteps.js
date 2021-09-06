@@ -20,77 +20,79 @@ const OrderSteps = () => {
   </Row>;
 
   return (
-    <Nav className="justify-content-center mb-4">
-      <Nav.Item>
-        {phase1 ? (
-          <Button
-            onClick={() => {
-              dispatch(stepOne());
-            }}
-          >
-            Usage
-          </Button>
-        ) : (
-          <Button disabled>Usage</Button>
-        )}
-      </Nav.Item>
+    <div className={styles.width}>
+      <Nav className="justify-content-center mb-4 mt-4 ml-auto">
+        <Nav.Item style={{ marginRight: "0rem" }}>
+          {phase1 ? (
+            <Button
+              onClick={() => {
+                dispatch(stepOne());
+              }}
+            >
+              Usage
+            </Button>
+          ) : (
+            <Button disabled>Usage</Button>
+          )}
+        </Nav.Item>
 
-      <Nav.Item className={styles.scale}>
-        {phase2 ? (
-          <Button
-            onClick={() => {
-              dispatch(stepTwo());
-            }}
-          >
-            Tabs
-          </Button>
-        ) : (
-          <Button disabled>Tabs</Button>
-        )}
-      </Nav.Item>
+        <Nav.Item>
+          {phase2 ? (
+            <Button
+              onClick={() => {
+                dispatch(stepTwo());
+              }}
+            >
+              Tabs
+            </Button>
+          ) : (
+            <Button disabled>Tabs</Button>
+          )}
+        </Nav.Item>
 
-      <Nav.Item className={styles.scale}>
-        {phase3 ? (
-          <Button
-            onClick={() => {
-              dispatch(stepThree());
-            }}
-          >
-            Apps
-          </Button>
-        ) : (
-          <Button disabled>Apps</Button>
-        )}
-      </Nav.Item>
+        <Nav.Item>
+          {phase3 ? (
+            <Button
+              onClick={() => {
+                dispatch(stepThree());
+              }}
+            >
+              Apps
+            </Button>
+          ) : (
+            <Button disabled>Apps</Button>
+          )}
+        </Nav.Item>
 
-      <Nav.Item className={styles.scale}>
-        {phase4 ? (
-          <Button
-            onClick={() => {
-              dispatch(stepFour());
-            }}
-          >
-            Budget
-          </Button>
-        ) : (
-          <Button disabled>Budget</Button>
-        )}
-      </Nav.Item>
+        <Nav.Item>
+          {phase4 ? (
+            <Button
+              onClick={() => {
+                dispatch(stepFour());
+              }}
+            >
+              Budget
+            </Button>
+          ) : (
+            <Button disabled>Budget</Button>
+          )}
+        </Nav.Item>
 
-      <Nav.Item className={styles.scale}>
-        {phase5 ? (
-          <Button
-            onClick={() => {
-              dispatch(stepFive());
-            }}
-          >
-            Submit
-          </Button>
-        ) : (
-          <Button disabled>Submit</Button>
-        )}
-      </Nav.Item>
-    </Nav>
+        <Nav.Item>
+          {phase5 ? (
+            <Button
+              onClick={() => {
+                dispatch(stepFive());
+              }}
+            >
+              Submit
+            </Button>
+          ) : (
+            <Button disabled>Submit</Button>
+          )}
+        </Nav.Item>
+      </Nav>
+    </div>
   );
 };
 
