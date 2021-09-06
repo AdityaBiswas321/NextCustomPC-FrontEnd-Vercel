@@ -20,9 +20,9 @@ const OrderSteps = () => {
   </Row>;
 
   return (
-    <div className={styles.width}>
+    <div>
       <Nav className="justify-content-center mb-4 mt-4 ml-auto">
-        <Nav.Item style={{ marginRight: "0rem" }}>
+        <Nav.Item className={styles.width}>
           {phase1 ? (
             <Button
               onClick={() => {
@@ -36,7 +36,7 @@ const OrderSteps = () => {
           )}
         </Nav.Item>
 
-        <Nav.Item>
+        <Nav.Item className={styles.width}>
           {phase2 ? (
             <Button
               onClick={() => {
@@ -50,7 +50,7 @@ const OrderSteps = () => {
           )}
         </Nav.Item>
 
-        <Nav.Item>
+        <Nav.Item className={styles.width}>
           {phase3 ? (
             <Button
               onClick={() => {
@@ -64,7 +64,7 @@ const OrderSteps = () => {
           )}
         </Nav.Item>
 
-        <Nav.Item>
+        <Nav.Item className={styles.width}>
           {phase4 ? (
             <Button
               onClick={() => {
@@ -78,7 +78,7 @@ const OrderSteps = () => {
           )}
         </Nav.Item>
 
-        <Nav.Item>
+        <Nav.Item className={styles.width5}>
           {phase5 ? (
             <Button
               onClick={() => {
