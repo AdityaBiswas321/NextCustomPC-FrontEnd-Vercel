@@ -9,16 +9,12 @@ import {
   stepFive,
 } from "../../actions/qualifyActions";
 import styles from "./OrderSteps.module.css";
+import useOrderSteps from "./useOrderSteps";
 
 const OrderSteps = () => {
   const dispatch = useDispatch();
 
-  const qualify = useSelector((state) => state.qualify);
-  const { phase1, phase2, phase3, phase4, phase5 } = qualify;
-  <Row>
-    <Col sm={3} md={3} lg={3} xl={3}></Col>
-  </Row>;
-
+  const { phase1, phase2, phase3, phase4, phase5 } = useOrderSteps();
   return (
     <div>
       <Nav className="justify-content-center mb-4 mt-4 ml-auto">

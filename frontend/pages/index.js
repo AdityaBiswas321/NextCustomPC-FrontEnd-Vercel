@@ -26,9 +26,6 @@ export default function HomeScreen() {
 
     console.log("button worked");
   };
-  const DynamicComponentWithNoSSR = dynamic(() => import("react-livechat"), {
-    ssr: false,
-  });
 
   return (
     <>
@@ -46,7 +43,6 @@ export default function HomeScreen() {
                 <img src="https://secondbucketforcustompc.s3.us-east-2.amazonaws.com/playstation.jpg" />
               </div>
             </Carousel>
-            <DynamicComponentWithNoSSR license={"13099728"} />
           </Col>
         </Row>
 

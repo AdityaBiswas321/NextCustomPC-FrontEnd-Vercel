@@ -1,11 +1,17 @@
 import React from "react";
 import Link from "next/link";
+import dynamic from "next/dynamic";
 
 import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
 
 const Header = () => {
+  const DynamicComponentWithNoSSR = dynamic(() => import("react-livechat"), {
+    ssr: false,
+  });
+
   return (
     <div>
+      <DynamicComponentWithNoSSR license={"13099728"} />
       <div></div>
       <Navbar bg="light" expand="lg">
         <Container>
