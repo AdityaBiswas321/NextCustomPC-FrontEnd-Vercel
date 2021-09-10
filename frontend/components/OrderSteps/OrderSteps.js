@@ -9,7 +9,7 @@ import {
   stepFive,
 } from "../../actions/qualifyActions";
 import styles from "./OrderSteps.module.css";
-import useStepsAndPhases from "../../Hooks/useStepsAndPhases";
+import useStepsAndPhases from "../../GlobalHooks/useStepsAndPhases";
 
 const OrderSteps = () => {
   const dispatch = useDispatch();

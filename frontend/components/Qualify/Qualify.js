@@ -6,10 +6,9 @@ import { saveLeadForm } from "../../actions/computerActions";
 
 import Message from "../Message/Message";
 import OrderSteps from "../OrderSteps/OrderSteps";
-import useLead from "../../Hooks/useLead";
-import useQualifySteps from "./useQualifySteps";
+import useLead from "../../GlobalHooks/useLead";
 import useQualifyData from "./useQualifyData";
-import useStepsAndPhases from "../../Hooks/useStepsAndPhases";
+import useStepsAndPhases from "../../GlobalHooks/useStepsAndPhases";
 
 const Qualify = () => {
   const dispatch = useDispatch();
