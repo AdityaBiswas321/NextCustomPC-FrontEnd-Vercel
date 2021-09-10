@@ -1,16 +1,12 @@
 import { useState, useEffect } from "react";
 import { ListGroup, Button, Row, Col, Form, Card } from "react-bootstrap";
-import FormContainer from "../components/FormContainer";
+import FormContainer from "../FormContainer";
 import { useDispatch, useSelector } from "react-redux";
-import { saveLeadForm } from "../actions/computerActions";
-import {
-  stepTwo,
-  stepThree,
-  stepFour,
-  stepFive,
-} from "../actions/qualifyActions";
-import Message from "./Message";
-import OrderSteps from "./OrderSteps/OrderSteps";
+import { saveLeadForm } from "../../actions/computerActions";
+
+import Message from "../Message";
+import OrderSteps from "../OrderSteps/OrderSteps";
+import useQualify from "./useQualify";
 
 const Qualify = () => {
   const dispatch = useDispatch();
@@ -27,68 +23,20 @@ const Qualify = () => {
   // const [step4, setStep4] = useState(false);
   // const [step5, setStep5] = useState(false);
 
-  const [type, setType] = useState("");
-  const [tab, setTab] = useState("");
-  const [app, setApp] = useState("");
-
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
-  const [postal, setPostal] = useState("");
-  const [Ctype, setCtype] = useState("");
-
-  const Click1 = () => {
-    setStep1(true);
-    setStep2(false);
-    setStep3(false);
-    setStep4(false);
-    setStep5(false);
-  };
-  const Click2 = () => {
-    setStep1(false);
-    setStep2(true);
-    setStep3(false);
-    setStep4(false);
-    setStep5(false);
-  };
-  const Click3 = () => {
-    setStep1(false);
-    setStep2(false);
-    setStep3(true);
-    setStep4(false);
-    setStep5(false);
-  };
-  const Click4 = () => {
-    setStep1(false);
-    setStep2(false);
-    setStep3(false);
-    setStep4(true);
-    setStep5(false);
-  };
-  const Click5 = () => {
-    setStep1(false);
-    setStep2(false);
-    setStep3(false);
-    setStep4(false);
-    setStep5(true);
-  };
-
-  const alertclick = (type) => {
-    dispatch(stepTwo());
-    setType(type);
-  };
-  const alertclick2 = (tab) => {
-    dispatch(stepThree());
-    setTab(tab);
-  };
-  const alertclick3 = (app) => {
-    dispatch(stepFour());
-    setApp(app);
-  };
-  const alertclick4 = (Ctype) => {
-    dispatch(stepFive());
-    setCtype(Ctype);
-  };
+  const {
+    type,
+    tab,
+    app,
+    name,
+    email,
+    phone,
+    postal,
+    Ctype,
+    alertclick,
+    alertclick2,
+    alertclick3,
+    alertclick4,
+  } = useQualify();
 
   const submitHandler = (e) => {
     e.preventDefault();

@@ -15,6 +15,7 @@ const OrderSteps = () => {
   const dispatch = useDispatch();
 
   const { phase1, phase2, phase3, phase4, phase5 } = useOrderSteps();
+
   return (
     <div>
       <Nav className="justify-content-center mb-4 mt-4 ml-auto">
@@ -25,7 +26,7 @@ const OrderSteps = () => {
                 dispatch(stepOne());
               }}
             >
-              Usage
+              <u>Usage</u>
             </Button>
           ) : (
             <Button disabled>Usage</Button>
@@ -39,7 +40,7 @@ const OrderSteps = () => {
                 dispatch(stepTwo());
               }}
             >
-              Tabs
+              <u>Tabs</u>
             </Button>
           ) : (
             <Button disabled>Tabs</Button>
@@ -53,7 +54,7 @@ const OrderSteps = () => {
                 dispatch(stepThree());
               }}
             >
-              Apps
+              <u>Apps</u>
             </Button>
           ) : (
             <Button disabled>Apps</Button>
@@ -67,7 +68,7 @@ const OrderSteps = () => {
                 dispatch(stepFour());
               }}
             >
-              Budget
+              <u>Budget</u>
             </Button>
           ) : (
             <Button disabled>Budget</Button>
@@ -81,7 +82,7 @@ const OrderSteps = () => {
                 dispatch(stepFive());
               }}
             >
-              Submit
+              <u>Submit</u>
             </Button>
           ) : (
             <Button disabled>Submit</Button>
