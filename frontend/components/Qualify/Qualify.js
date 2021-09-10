@@ -9,6 +9,7 @@ import OrderSteps from "../OrderSteps/OrderSteps";
 import useLead from "../../Hooks/useLead";
 import useQualifySteps from "./useQualifySteps";
 import useQualifyData from "./useQualifyData";
+import useStepsAndPhases from "../../Hooks/useStepsAndPhases";
 
 const Qualify = () => {
   const dispatch = useDispatch();
@@ -19,9 +20,7 @@ const Qualify = () => {
 
   //Steps Changes based on functions activated from button clicks, managed by useQualifyData
 
-  // const { step1, step2, step3, step4, step5 } = useQualifySteps;
-  const qualify = useSelector((state) => state.qualify);
-  const { step1, step2, step3, step4, step5 } = qualify;
+  const { step1, step2, step3, step4, step5 } = useStepsAndPhases();
 
   //Local state data collected from form, functions which update local state and steps (steps alter ternary to change what is rendered)
 

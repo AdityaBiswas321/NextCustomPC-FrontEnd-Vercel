@@ -9,12 +9,12 @@ import {
   stepFive,
 } from "../../actions/qualifyActions";
 import styles from "./OrderSteps.module.css";
-import useOrderSteps from "./useOrderSteps";
+import useStepsAndPhases from "../../Hooks/useStepsAndPhases";
 
 const OrderSteps = () => {
   const dispatch = useDispatch();
 
-  const { phase1, phase2, phase3, phase4, phase5 } = useOrderSteps();
+  const { phase1, phase2, phase3, phase4, phase5 } = useStepsAndPhases();
 
   return (
     <div>
