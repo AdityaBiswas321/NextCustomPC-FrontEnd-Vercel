@@ -1,27 +1,29 @@
 import { useState, useEffect } from "react";
 import { ListGroup, Button, Row, Col, Form, Card } from "react-bootstrap";
-import FormContainer from "../FormContainer";
+import FormContainer from "../FormContainer/FormContainer";
 import { useDispatch, useSelector } from "react-redux";
 import { saveLeadForm } from "../../actions/computerActions";
 
-import Message from "../Message";
+import Message from "../Message/Message";
 import OrderSteps from "../OrderSteps/OrderSteps";
-import useQualify from "./useQualify";
+import useLead from "../../Hooks/useLead";
+import useQualifySteps from "./useQualifySteps";
+import useQualifyData from "./useQualifyData";
 
 const Qualify = () => {
   const dispatch = useDispatch();
 
-  const computerLead = useSelector((state) => state.computerLeads);
-  const { lead } = computerLead;
+  const { lead } = useLead();
 
+  //Global state, switching what is displayed to user based on data collected. Changes based on progression.
+
+  //Steps Changes based on functions activated from button clicks, managed by useQualifyData
+
+  // const { step1, step2, step3, step4, step5 } = useQualifySteps;
   const qualify = useSelector((state) => state.qualify);
   const { step1, step2, step3, step4, step5 } = qualify;
 
-  // const [step1, setStep1] = useState(true);
-  // const [step2, setStep2] = useState(false);
-  // const [step3, setStep3] = useState(false);
-  // const [step4, setStep4] = useState(false);
-  // const [step5, setStep5] = useState(false);
+  //Local state data collected from form, functions which update local state and steps (steps alter ternary to change what is rendered)
 
   const {
     type,
@@ -36,7 +38,11 @@ const Qualify = () => {
     alertclick2,
     alertclick3,
     alertclick4,
-  } = useQualify();
+    setEmail,
+    setName,
+    setPhone,
+    setPostal,
+  } = useQualifyData();
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -49,10 +55,13 @@ const Qualify = () => {
     console.log(postal);
     console.log(Ctype);
 
+    //Save data to global state
     dispatch(
       saveLeadForm({ type, tab, app, name, email, phone, postal, Ctype })
     );
   };
+
+  console.log(step1);
 
   useEffect(() => {
     if (lead) {

@@ -3,7 +3,7 @@ import "../styles/bootstrap.min.css";
 import Head from "next/head";
 import { Provider } from "react-redux";
 import { wrapper } from "../store";
-import Layout from "../components/Layout";
+import Layout from "../components/Layout/Layout";
 
 function MyApp({ Component, pageProps }) {
   return (

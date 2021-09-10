@@ -11,6 +11,8 @@ import {
 const useQualify = () => {
   const dispatch = useDispatch();
 
+  //Reaction to button click in Qualify.js, updating state & changing to next step of the qualifying logic
+
   const alertclick = (type) => {
     dispatch(stepTwo());
     setType(type);
@@ -28,6 +30,10 @@ const useQualify = () => {
     setCtype(Ctype);
   };
 
+  //Data collection for ideal computer generation logic (in progress), or lead form
+
+  //Local state until Qualify.js lead form is submitted. Data transfers to global state, see ../Hooks/useLead.js
+
   const [type, setType] = useState("");
   const [tab, setTab] = useState("");
   const [app, setApp] = useState("");
@@ -36,6 +42,8 @@ const useQualify = () => {
   const [phone, setPhone] = useState("");
   const [postal, setPostal] = useState("");
   const [Ctype, setCtype] = useState("");
+
+  //return setState for email, name, phone, postal due to onChange on form in Qualify.js
 
   return {
     type,
@@ -50,6 +58,10 @@ const useQualify = () => {
     alertclick2,
     alertclick3,
     alertclick4,
+    setEmail,
+    setName,
+    setPhone,
+    setPostal,
   };
 };
 

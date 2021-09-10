@@ -14,19 +14,8 @@ import axios from "axios";
 
 import { saveLeadForm } from "../actions/computerActions";
 import { API_URL } from "../config/index";
-import Header from "../components/Header";
 
 export default function HomeScreen() {
-  const dispatch = useDispatch();
-
-  const Testclick = async () => {
-    // const { data } = await axios.get(`${API_URL}/api/lead`)
-    //     console.log(data)
-    dispatch(saveLeadForm());
-
-    console.log("button worked");
-  };
-
   return (
     <>
       <>
