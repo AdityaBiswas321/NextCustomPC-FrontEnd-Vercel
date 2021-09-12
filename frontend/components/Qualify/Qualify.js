@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { saveLeadForm } from "../../actions/computerActions";
 
 import Message from "../Message/Message";
+
 import OrderSteps from "../OrderSteps/OrderSteps";
 import useLead from "../../GlobalHooks/useLead";
 import useQualifyData from "./useQualifyData";
@@ -12,6 +13,7 @@ import useStepsAndPhases from "../../GlobalHooks/useStepsAndPhases";
 import Script from "next/script";
 
 import { CardElement } from "@stripe/react-stripe-js";
+import { API_URL } from "../../config";
 
 const Qualify = () => {
   const dispatch = useDispatch();
@@ -45,7 +47,7 @@ const Qualify = () => {
     setPostal,
   } = useQualifyData();
 
-  const submitHandler = (e) => {
+  const submitHandler = async (e) => {
     e.preventDefault();
     console.log(type);
     console.log(tab);
@@ -60,6 +62,25 @@ const Qualify = () => {
     dispatch(
       saveLeadForm({ type, tab, app, name, email, phone, postal, Ctype })
     );
+
+    const { data: clientSecret } = await axios.post(
+      `${API_URL}/api/payment_intents`,
+      {
+        amount: price * 100,
+      }
+    );
+
+    console.log(clientSecret);
+    // create a payment intent on the server
+    //sclient_secret of that payment intent
+
+    // need reference  to the cardElement
+    // need stripe.js
+    //create a payment method
+
+    // confirm the card payments
+    //payment method if
+    //client_secret
   };
 
   console.log(step1);
@@ -306,8 +327,26 @@ const Qualify = () => {
                     onChange={(e) => setPostal(e.target.value)}
                   ></Form.Control>
                 </Form.Group>
-
-                <CardElement />
+                <Form.Group>
+                  <Form.Label>Card Details</Form.Label>
+                  <CardElement
+                    options={{
+                      style: {
+                        base: {
+                          fontSize: "16px",
+                          color: "#424770",
+                          "::placeholder": {
+                            color: "#aab7c4",
+                          },
+                        },
+                        invalid: {
+                          color: "#9e2146",
+                        },
+                      },
+                      hidePostalCode: true,
+                    }}
+                  />
+                </Form.Group>
 
                 <Button type="submit" variant="primary">
                   Continue
