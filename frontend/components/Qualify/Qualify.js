@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { ListGroup, Button, Row, Col, Form, Card } from "react-bootstrap";
 import FormContainer from "../FormContainer/FormContainer";
 import { useDispatch, useSelector } from "react-redux";
+import axios from "axios";
+
 import { saveLeadForm } from "../../actions/computerActions";
 
 import Message from "../Message/Message";
@@ -47,6 +49,8 @@ const Qualify = () => {
     setPostal,
   } = useQualifyData();
 
+  const price = 20;
+
   const submitHandler = async (e) => {
     e.preventDefault();
     console.log(type);
@@ -64,13 +68,13 @@ const Qualify = () => {
     );
 
     const { data: clientSecret } = await axios.post(
-      `${API_URL}/api/payment_intents`,
+      `http://localhost:5000/api/payment_intents`,
       {
         amount: price * 100,
       }
     );
 
-    console.log(clientSecret);
+    console.log(`Your client id is: ${clientSecret}`);
     // create a payment intent on the server
     //sclient_secret of that payment intent
 

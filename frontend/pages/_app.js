@@ -8,7 +8,7 @@ import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 
 const stripePromise = loadStripe(
-  "pk_live_51JYnmdLGF4kichPFG0rO3QfGD0ALUGmo8b8yCiWuR5X05O6M1vVYfSsKbL8GxgnVVwANYIoHZowXFRtgI0XvYl9T00sTiYyH8U"
+  "pk_test_51JYnmdLGF4kichPFTGiaPYHrXX6PYQZ3TkGeU8UA3pk9hwxuff6sxTp4BtmEunnWw8K74s6KQtivj4E0KSbT42Ov00K5LpCIM2"
 );
 
 function MyApp({ Component, pageProps }) {
