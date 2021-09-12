@@ -14,7 +14,7 @@ import useQualifyData from "./useQualifyData";
 import useStepsAndPhases from "../../GlobalHooks/useStepsAndPhases";
 import Script from "next/script";
 
-import { CardElement } from "@stripe/react-stripe-js";
+import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { API_URL } from "../../config";
 
 const Qualify = () => {
@@ -51,6 +51,9 @@ const Qualify = () => {
 
   const price = 20;
 
+  const stripe = useStripe();
+  const elements = useElements();
+
   const submitHandler = async (e) => {
     e.preventDefault();
     console.log(type);
@@ -67,6 +70,15 @@ const Qualify = () => {
       saveLeadForm({ type, tab, app, name, email, phone, postal, Ctype })
     );
 
+    const billingDetails = {
+      name: name,
+      email: email,
+      address: {
+        postal_code: postal,
+      },
+    };
+
+    //disable submit button on loading soon
     const { data: clientSecret } = await axios.post(
       `http://localhost:5000/api/payment_intents`,
       {
@@ -74,14 +86,28 @@ const Qualify = () => {
       }
     );
 
-    console.log(`Your client id is: ${clientSecret}`);
+    // console.log(`Your client id is: ${clientSecret}`);
     // create a payment intent on the server
     //sclient_secret of that payment intent
 
+    const cardElement = elements.getElement(CardElement);
+
+    const paymentMethodReq = await stripe.createPaymentMethod({
+      type: "card",
+      card: cardElement,
+      billing_details: billingDetails,
+    });
+
+    console.log(paymentMethodReq);
     // need reference  to the cardElement
     // need stripe.js
     //create a payment method
 
+    const confirmCardPayment = await stripe.confirmCardPayment(clientSecret, {
+      payment_method: paymentMethodReq.paymentMethod.id,
+    });
+
+    console.log(confirmCardPayment);
     // confirm the card payments
     //payment method if
     //client_secret
