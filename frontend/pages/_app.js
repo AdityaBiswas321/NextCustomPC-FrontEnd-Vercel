@@ -4,15 +4,22 @@ import Head from "next/head";
 import { Provider } from "react-redux";
 import { wrapper } from "../store";
 import Layout from "../components/Layout/Layout";
+import { Elements } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
+
+const stripePromise = loadStripe(process.env.PUBLISHABLE_KEY);
 
 function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <script src="https://www.paypal.com/sdk/js?client-id=YOUR_CLIENT_ID"></script>
       </Head>
       <Layout>
-        <Component {...pageProps} />
+        <Elements stripe={stripePromise}>
+          <Component {...pageProps} />
+        </Elements>
       </Layout>
     </>
   );

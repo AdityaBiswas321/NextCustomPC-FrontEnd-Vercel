@@ -9,6 +9,9 @@ import OrderSteps from "../OrderSteps/OrderSteps";
 import useLead from "../../GlobalHooks/useLead";
 import useQualifyData from "./useQualifyData";
 import useStepsAndPhases from "../../GlobalHooks/useStepsAndPhases";
+import Script from "next/script";
+
+import { CardElement } from "@stripe/react-stripe-js";
 
 const Qualify = () => {
   const dispatch = useDispatch();
@@ -303,6 +306,9 @@ const Qualify = () => {
                     onChange={(e) => setPostal(e.target.value)}
                   ></Form.Control>
                 </Form.Group>
+
+                <CardElement />
+
                 <Button type="submit" variant="primary">
                   Continue
                 </Button>
