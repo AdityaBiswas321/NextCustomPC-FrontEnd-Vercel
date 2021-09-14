@@ -16,6 +16,8 @@ import Script from "next/script";
 
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { API_URL } from "../../config";
+import PaymentsDetail from "../Payments/PaymentsDetail";
+import Payments from "../Payments/Payments";
 
 const Qualify = () => {
   const dispatch = useDispatch();
@@ -46,6 +48,9 @@ const Qualify = () => {
     setEmail,
     setName,
     setPhone,
+    setAddress,
+    setCity,
+    setProvince,
     setPostal,
   } = useQualifyData();
 
@@ -111,6 +116,16 @@ const Qualify = () => {
     // confirm the card payments
     //payment method if
     //client_secret
+
+    console.log(
+      setEmail,
+      setName,
+      setPhone,
+      setPostal,
+      setAddress,
+      setCity,
+      setProvince
+    );
   };
 
   console.log(step1);
@@ -314,7 +329,15 @@ const Qualify = () => {
             <OrderSteps />
             <FormContainer>
               <Form onSubmit={submitHandler}>
-                <Form.Group controlId="name">
+                <Payments
+                  setEmail={setEmail}
+                  setName={setName}
+                  setPostal={setPostal}
+                  setAddress={setAddress}
+                  setCity={setCity}
+                  setProvince={setProvince}
+                />
+                {/* <Form.Group controlId="name">
                   <Form.Label>Name</Form.Label>
                   <Form.Control
                     type="text"
@@ -376,7 +399,7 @@ const Qualify = () => {
                       hidePostalCode: true,
                     }}
                   />
-                </Form.Group>
+                </Form.Group> */}
 
                 <Button type="submit" variant="primary">
                   Continue

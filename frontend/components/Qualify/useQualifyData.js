@@ -39,6 +39,9 @@ const useQualify = () => {
   const [app, setApp] = useState("");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [address, setAddress] = useState("");
+  const [city, setCity] = useState("");
+  const [province, setProvince] = useState("");
   const [phone, setPhone] = useState("");
   const [postal, setPostal] = useState("");
   const [Ctype, setCtype] = useState("");
@@ -62,6 +65,9 @@ const useQualify = () => {
     setName,
     setPhone,
     setPostal,
+    setAddress,
+    setCity,
+    setProvince,
   };
 };
 
