@@ -113,6 +113,7 @@ const Qualify = () => {
     });
 
     console.log(confirmCardPayment);
+    console.log("confirmCardPayment");
     // confirm the card payments
     //payment method if
     //client_secret
