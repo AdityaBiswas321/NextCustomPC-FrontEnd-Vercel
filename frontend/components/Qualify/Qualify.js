@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 
 import { saveLeadForm } from "../../actions/computerActions";
+import { makePayment } from "../../actions/paymentsActions";
 
 import Message from "../Message/Message";
 

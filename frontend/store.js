@@ -4,10 +4,12 @@ import { composeWithDevTools } from "redux-devtools-extension";
 import { createWrapper, Context, HYDRATE } from "next-redux-wrapper";
 import { computerLeadsReducer } from "./reducers/computerReducers";
 import { qualifyReducers } from "./reducers/qualifyReducers";
+import { paymentsReducer } from "./reducers/paymentsReducers";
 
 const reducer = combineReducers({
   computerLeads: computerLeadsReducer,
   qualify: qualifyReducers,
+  clientSecret: paymentsReducer,
 });
 
 const initialState = {
