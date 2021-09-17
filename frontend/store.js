@@ -9,7 +9,7 @@ import { paymentsReducer } from "./reducers/paymentsReducers";
 const reducer = combineReducers({
   computerLeads: computerLeadsReducer,
   qualify: qualifyReducers,
-  clientSecret: paymentsReducer,
+  payments: paymentsReducer,
 });
 
 const initialState = {

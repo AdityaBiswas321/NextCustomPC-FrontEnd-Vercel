@@ -5,7 +5,11 @@ import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 
 import { saveLeadForm } from "../../actions/computerActions";
-import { makePayment } from "../../actions/paymentsActions";
+import {
+  createConfirmCardPayment,
+  makePayment,
+} from "../../actions/paymentsActions";
+import { createPaymentMethod } from "../../actions/paymentsActions";
 
 import Message from "../Message/Message";
 
@@ -31,6 +35,9 @@ const Qualify = () => {
 
   const { step1, step2, step3, step4, step5 } = useStepsAndPhases();
 
+  const payments = useSelector((state) => state.payments);
+  const { clientSecret, paymentMethodReq, confirmCardPayment, loading } =
+    payments;
   //Local state data collected from form, functions which update local state and steps (steps alter ternary to change what is rendered)
 
   const {
@@ -55,10 +62,29 @@ const Qualify = () => {
     setPostal,
   } = useQualifyData();
 
-  const price = 20;
+  const price = 30;
 
   const stripe = useStripe();
   const elements = useElements();
+
+  const dispatchChaining = async (
+    dispatch,
+    stripe,
+    price,
+    cardElement,
+    billingDetails,
+    clientSecret,
+    paymentMethodReq
+  ) => {
+    await Promise.all([
+      dispatch(makePayment(price)),
+      dispatch(createPaymentMethod(cardElement, billingDetails, stripe)),
+    ]);
+
+    return dispatch(
+      createConfirmCardPayment(clientSecret, paymentMethodReq, stripe)
+    );
+  };
 
   const submitHandler = async (e) => {
     e.preventDefault();
@@ -83,38 +109,50 @@ const Qualify = () => {
         postal_code: postal,
       },
     };
+    const cardElement = elements.getElement(CardElement);
+    dispatchChaining(
+      dispatch,
+      stripe,
+      price,
+      cardElement,
+      billingDetails,
+      clientSecret,
+      paymentMethodReq
+    );
 
     //disable submit button on loading soon
-    const { data: clientSecret } = await axios.post(
-      `http://localhost:5000/api/payment_intents`,
-      {
-        amount: price * 100,
-      }
-    );
+    // const { data: clientSecret } = await axios.post(
+    //   `http://localhost:5000/api/payment_intents`,
+    //   {
+    //     amount: price * 100,
+    //   }
+    // );
+
+    // dispatch(makePayment(price));
 
     // console.log(`Your client id is: ${clientSecret}`);
     // create a payment intent on the server
     //sclient_secret of that payment intent
 
-    const cardElement = elements.getElement(CardElement);
+    // const paymentMethodReq = await stripe.createPaymentMethod({
+    //   type: "card",
+    //   card: cardElement,
+    //   billing_details: billingDetails,
+    // });
 
-    const paymentMethodReq = await stripe.createPaymentMethod({
-      type: "card",
-      card: cardElement,
-      billing_details: billingDetails,
-    });
+    // console.log(paymentMethodReq);
 
-    console.log(paymentMethodReq);
+    // dispatch(createPaymentMethod(cardElement, billingDetails));
     // need reference  to the cardElement
     // need stripe.js
     //create a payment method
 
-    const confirmCardPayment = await stripe.confirmCardPayment(clientSecret, {
-      payment_method: paymentMethodReq.paymentMethod.id,
-    });
+    // const confirmCardPayment = await stripe.confirmCardPayment(clientSecret, {
+    //   payment_method: paymentMethodReq.paymentMethod.id,
+    // });
 
-    console.log(confirmCardPayment);
-    console.log("confirmCardPayment");
+    // console.log(confirmCardPayment);
+    // console.log("confirmCardPayment");
     // confirm the card payments
     //payment method if
     //client_secret
@@ -129,8 +167,10 @@ const Qualify = () => {
       setProvince
     );
   };
-
-  console.log(step1);
+  console.log("LOOK HERE!!!!! TO SEE IF IT WORKED!");
+  console.log(`ClientSecret: ${clientSecret}`);
+  console.log(`PaymentMethodReq: ${paymentMethodReq}`);
+  console.log(`confirmCardPayment: ${confirmCardPayment}`);
 
   useEffect(() => {
     if (lead) {
