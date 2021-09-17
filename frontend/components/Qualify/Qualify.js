@@ -112,7 +112,10 @@ const Qualify = () => {
       },
     };
     const cardElement = elements.getElement(CardElement);
-    dispatch(dispatchChaining(stripe, price, cardElement, billingDetails));
+    // dispatch(dispatchChaining(stripe, price, cardElement, billingDetails));
+
+    dispatch(makePayment(price));
+    dispatch(createPaymentMethod(cardElement, billingDetails, stripe));
 
     //disable submit button on loading soon
     // const { data: clientSecret } = await axios.post(
