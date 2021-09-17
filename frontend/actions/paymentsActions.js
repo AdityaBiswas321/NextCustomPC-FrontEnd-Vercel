@@ -52,8 +52,10 @@ export const createConfirmCardPayment =
   (clientSecret, paymentMethodReq, stripe) => async (dispatch) => {
     try {
       dispatch({ type: CONFIRM_PAYMENT_REQUEST });
-      const confirmCardPayment = await stripe.confirmCardPayment(clientSecret);
-      console.log(`createConfirmCardPayment Action: ${confirmCardPayment}`);
+      const confirmCardPayment = await stripe.confirmCardPayment(clientSecret, {
+        payment_method: paymentMethodReq.paymentMethod.id,
+      });
+      console.log(confirmCardPayment);
       dispatch({ type: CONFIRM_PAYMENT_SUCCESS, payload: confirmCardPayment });
     } catch (error) {
       dispatch({ type: CONFIRM_PAYMENT_FAIL, payload: error.response });

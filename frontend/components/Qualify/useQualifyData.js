@@ -8,8 +8,21 @@ import {
   stepFive,
 } from "../../actions/qualifyActions";
 
+import { saveLeadForm } from "../../actions/computerActions";
+
+import {
+  createConfirmCardPayment,
+  makePayment,
+} from "../../actions/paymentsActions";
+import { createPaymentMethod } from "../../actions/paymentsActions";
+
+import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
+
 const useQualify = () => {
   const dispatch = useDispatch();
+
+  const stripe = useStripe();
+  const elements = useElements();
 
   //Reaction to button click in Qualify.js, updating state & changing to next step of the qualifying logic
 
@@ -46,6 +59,37 @@ const useQualify = () => {
   const [postal, setPostal] = useState("");
   const [Ctype, setCtype] = useState("");
 
+  const price = 30;
+
+  const submitHandler = async (e) => {
+    e.preventDefault();
+    console.log(type);
+    console.log(tab);
+    console.log(app);
+    console.log(name);
+    console.log(email);
+    console.log(phone);
+    console.log(postal);
+    console.log(Ctype);
+
+    //Save data to global state
+    dispatch(
+      saveLeadForm({ type, tab, app, name, email, phone, postal, Ctype })
+    );
+
+    const billingDetails = {
+      name: name,
+      email: email,
+      address: {
+        postal_code: postal,
+      },
+    };
+    const cardElement = elements.getElement(CardElement);
+
+    dispatch(makePayment(price));
+    dispatch(createPaymentMethod(cardElement, billingDetails, stripe));
+  };
+
   //return setState for email, name, phone, postal due to onChange on form in Qualify.js
 
   return {
@@ -68,6 +112,8 @@ const useQualify = () => {
     setAddress,
     setCity,
     setProvince,
+    submitHandler,
+    stripe,
   };
 };
 

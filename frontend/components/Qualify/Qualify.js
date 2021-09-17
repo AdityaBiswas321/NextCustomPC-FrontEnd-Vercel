@@ -4,7 +4,6 @@ import FormContainer from "../FormContainer/FormContainer";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 
-import { saveLeadForm } from "../../actions/computerActions";
 import {
   createConfirmCardPayment,
   makePayment,
@@ -20,7 +19,6 @@ import useQualifyData from "./useQualifyData";
 import useStepsAndPhases from "../../GlobalHooks/useStepsAndPhases";
 import Script from "next/script";
 
-import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { API_URL } from "../../config";
 import PaymentsDetail from "../Payments/PaymentsDetail";
 import Payments from "../Payments/Payments";
@@ -61,114 +59,12 @@ const Qualify = () => {
     setCity,
     setProvince,
     setPostal,
+    submitHandler,
+    stripe,
   } = useQualifyData();
 
-  const price = 30;
-
-  const stripe = useStripe();
-  const elements = useElements();
-
-  // const dispatchChaining = async (
-  //   dispatch,
-  //   stripe,
-  //   price,
-  //   cardElement,
-  //   billingDetails,
-  //   clientSecret,
-  //   paymentMethodReq
-  // ) => {
-  //   await Promise.all([
-  //     dispatch(makePayment(price)),
-  //     dispatch(createPaymentMethod(cardElement, billingDetails, stripe)),
-  //   ]);
-
-  //   return (
-  //     dispatch(
-  //     createConfirmCardPayment(clientSecret, paymentMethodReq, stripe),
-  //   ))
-  // };
-
-  const submitHandler = async (e) => {
-    e.preventDefault();
-    console.log(type);
-    console.log(tab);
-    console.log(app);
-    console.log(name);
-    console.log(email);
-    console.log(phone);
-    console.log(postal);
-    console.log(Ctype);
-
-    //Save data to global state
-    dispatch(
-      saveLeadForm({ type, tab, app, name, email, phone, postal, Ctype })
-    );
-
-    const billingDetails = {
-      name: name,
-      email: email,
-      address: {
-        postal_code: postal,
-      },
-    };
-    const cardElement = elements.getElement(CardElement);
-    // dispatch(dispatchChaining(stripe, price, cardElement, billingDetails));
-
-    dispatch(makePayment(price));
-    dispatch(createPaymentMethod(cardElement, billingDetails, stripe));
-
-    //disable submit button on loading soon
-    // const { data: clientSecret } = await axios.post(
-    //   `http://localhost:5000/api/payment_intents`,
-    //   {
-    //     amount: price * 100,
-    //   }
-    // );
-
-    // dispatch(makePayment(price));
-
-    // console.log(`Your client id is: ${clientSecret}`);
-    // create a payment intent on the server
-    //sclient_secret of that payment intent
-
-    // const paymentMethodReq = await stripe.createPaymentMethod({
-    //   type: "card",
-    //   card: cardElement,
-    //   billing_details: billingDetails,
-    // });
-
-    // console.log(paymentMethodReq);
-
-    // dispatch(createPaymentMethod(cardElement, billingDetails));
-    // need reference  to the cardElement
-    // need stripe.js
-    //create a payment method
-
-    // console.log(confirmCardPayment);
-    // console.log("confirmCardPayment");
-    // confirm the card payments
-    //payment method if
-    //client_secret
-
-    console.log(
-      setEmail,
-      setName,
-      setPhone,
-      setPostal,
-      setAddress,
-      setCity,
-      setProvince
-    );
-  };
-
   useEffect(() => {
-    // console.log("LOOK HERE!!!!! TO SEE IF IT WORKED!");
-    // console.log(`ClientSecret: ${clientSecret}`);
-    // console.log(`PaymentMethodReq: ${paymentMethodReq}`);
-    // console.log(`confirmCardPayment: ${confirmCardPayment}`);
-
     dispatch(createConfirmCardPayment(clientSecret, paymentMethodReq, stripe));
-    console.log(confirmCardPayment);
   }, [paymentMethodReq]);
 
   return (
