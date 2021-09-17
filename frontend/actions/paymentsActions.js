@@ -21,7 +21,7 @@ export const makePayment = (price) => async (dispatch) => {
         amount: price * 100,
       }
     );
-    console.log(clientSecret);
+    console.log(`makePayment Action ClientSecret:${clientSecret}`);
     dispatch({ type: PAYMENT_SUCCESS, payload: clientSecret });
   } catch (error) {
     dispatch({ type: PAYMENT_FAIL, payload: error.response });
@@ -37,7 +37,7 @@ export const createPaymentMethod =
         card: cardElement,
         billing_details: billingDetails,
       });
-      console.log(paymentMethodReq);
+      console.log(`createPaymentMethod Action: ${paymentMethodReq}`);
 
       dispatch({
         type: MAKE_PAYMENT_METHOD_SUCCESS,
@@ -52,10 +52,8 @@ export const createConfirmCardPayment =
   (clientSecret, paymentMethodReq, stripe) => async (dispatch) => {
     try {
       dispatch({ type: CONFIRM_PAYMENT_REQUEST });
-      const confirmCardPayment = await stripe.confirmCardPayment(clientSecret, {
-        payment_method: paymentMethodReq.paymentMethod.id,
-      });
-      console.log(confirmCardPayment);
+      const confirmCardPayment = await stripe.confirmCardPayment(clientSecret);
+      console.log(`createConfirmCardPayment Action: ${confirmCardPayment}`);
       dispatch({ type: CONFIRM_PAYMENT_SUCCESS, payload: confirmCardPayment });
     } catch (error) {
       dispatch({ type: CONFIRM_PAYMENT_FAIL, payload: error.response });

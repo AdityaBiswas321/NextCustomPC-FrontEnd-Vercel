@@ -13,6 +13,7 @@ import { createPaymentMethod } from "../../actions/paymentsActions";
 
 import Message from "../Message/Message";
 
+import { dispatchChaining } from "../../actions/dispatchChaining";
 import OrderSteps from "../OrderSteps/OrderSteps";
 import useLead from "../../GlobalHooks/useLead";
 import useQualifyData from "./useQualifyData";
@@ -67,24 +68,25 @@ const Qualify = () => {
   const stripe = useStripe();
   const elements = useElements();
 
-  const dispatchChaining = async (
-    dispatch,
-    stripe,
-    price,
-    cardElement,
-    billingDetails,
-    clientSecret,
-    paymentMethodReq
-  ) => {
-    await Promise.all([
-      dispatch(makePayment(price)),
-      dispatch(createPaymentMethod(cardElement, billingDetails, stripe)),
-    ]);
+  // const dispatchChaining = async (
+  //   dispatch,
+  //   stripe,
+  //   price,
+  //   cardElement,
+  //   billingDetails,
+  //   clientSecret,
+  //   paymentMethodReq
+  // ) => {
+  //   await Promise.all([
+  //     dispatch(makePayment(price)),
+  //     dispatch(createPaymentMethod(cardElement, billingDetails, stripe)),
+  //   ]);
 
-    return dispatch(
-      createConfirmCardPayment(clientSecret, paymentMethodReq, stripe)
-    );
-  };
+  //   return (
+  //     dispatch(
+  //     createConfirmCardPayment(clientSecret, paymentMethodReq, stripe),
+  //   ))
+  // };
 
   const submitHandler = async (e) => {
     e.preventDefault();
@@ -110,15 +112,7 @@ const Qualify = () => {
       },
     };
     const cardElement = elements.getElement(CardElement);
-    dispatchChaining(
-      dispatch,
-      stripe,
-      price,
-      cardElement,
-      billingDetails,
-      clientSecret,
-      paymentMethodReq
-    );
+    dispatch(dispatchChaining(stripe, price, cardElement, billingDetails));
 
     //disable submit button on loading soon
     // const { data: clientSecret } = await axios.post(
@@ -147,10 +141,6 @@ const Qualify = () => {
     // need stripe.js
     //create a payment method
 
-    // const confirmCardPayment = await stripe.confirmCardPayment(clientSecret, {
-    //   payment_method: paymentMethodReq.paymentMethod.id,
-    // });
-
     // console.log(confirmCardPayment);
     // console.log("confirmCardPayment");
     // confirm the card payments
@@ -167,17 +157,16 @@ const Qualify = () => {
       setProvince
     );
   };
-  console.log("LOOK HERE!!!!! TO SEE IF IT WORKED!");
-  console.log(`ClientSecret: ${clientSecret}`);
-  console.log(`PaymentMethodReq: ${paymentMethodReq}`);
-  console.log(`confirmCardPayment: ${confirmCardPayment}`);
 
   useEffect(() => {
-    if (lead) {
-      console.log(lead);
-      console.log("from useEffect");
-    }
-  }, [lead]);
+    // console.log("LOOK HERE!!!!! TO SEE IF IT WORKED!");
+    // console.log(`ClientSecret: ${clientSecret}`);
+    // console.log(`PaymentMethodReq: ${paymentMethodReq}`);
+    // console.log(`confirmCardPayment: ${confirmCardPayment}`);
+
+    dispatch(createConfirmCardPayment(clientSecret, paymentMethodReq, stripe));
+    console.log(confirmCardPayment);
+  }, [paymentMethodReq]);
 
   return (
     <>

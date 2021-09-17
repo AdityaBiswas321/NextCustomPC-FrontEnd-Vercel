@@ -1,10 +1,21 @@
+import { makePayment } from "./paymentsActions";
+import { createPaymentMethod } from "./paymentsActions";
+import { createConfirmCardPayment } from "./paymentsActions";
+
 export const dispatchChaining =
-  (price, cardElement, billingDetails, clientSecret, paymentMethodReq) =>
+  (
+    stripe,
+    price,
+    cardElement,
+    billingDetails,
+    clientSecret,
+    paymentMethodReq
+  ) =>
   async (dispatch) => {
     await Promise.all([
       dispatch(makePayment(price)),
-      dispatch(createPaymentMethod(cardElement, billingDetails)),
+      dispatch(createPaymentMethod(cardElement, billingDetails, stripe)),
     ]);
 
-    return dispatch(confirmCardPayment(clientSecret, paymentMethodReq));
+    // dispatch(createConfirmCardPayment(clientSecret, paymentMethodReq, stripe));
   };
