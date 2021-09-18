@@ -267,69 +267,6 @@ const Qualify = () => {
                   setCity={setCity}
                   setProvince={setProvince}
                 />
-                {/* <Form.Group controlId="name">
-                  <Form.Label>Name</Form.Label>
-                  <Form.Control
-                    type="text"
-                    placeholder="Enter Name"
-                    value={name}
-                    required
-                    onChange={(e) => setName(e.target.value)}
-                  ></Form.Control>
-                </Form.Group>
-
-                <Form.Group controlId="email">
-                  <Form.Label>Email</Form.Label>
-                  <Form.Control
-                    type="text"
-                    placeholder="Enter Name"
-                    value={email}
-                    required
-                    onChange={(e) => setEmail(e.target.value)}
-                  ></Form.Control>
-                </Form.Group>
-
-                <Form.Group controlId="phone">
-                  <Form.Label>Phone</Form.Label>
-                  <Form.Control
-                    type="text"
-                    placeholder="Enter Phone"
-                    value={phone}
-                    required
-                    onChange={(e) => setPhone(e.target.value)}
-                  ></Form.Control>
-                </Form.Group>
-
-                <Form.Group controlId="postal">
-                  <Form.Label>Postal</Form.Label>
-                  <Form.Control
-                    type="text"
-                    placeholder="Enter Postal"
-                    value={postal}
-                    required
-                    onChange={(e) => setPostal(e.target.value)}
-                  ></Form.Control>
-                </Form.Group>
-                <Form.Group>
-                  <Form.Label>Card Details</Form.Label>
-                  <CardElement
-                    options={{
-                      style: {
-                        base: {
-                          fontSize: "16px",
-                          color: "#424770",
-                          "::placeholder": {
-                            color: "#aab7c4",
-                          },
-                        },
-                        invalid: {
-                          color: "#9e2146",
-                        },
-                      },
-                      hidePostalCode: true,
-                    }}
-                  />
-                </Form.Group> */}
 
                 <Button type="submit" variant="primary">
                   Continue

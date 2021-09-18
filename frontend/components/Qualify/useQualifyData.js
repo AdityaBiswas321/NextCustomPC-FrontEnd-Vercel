@@ -1,4 +1,5 @@
 import React from "react";
+import Router from "next/router";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import {
@@ -41,6 +42,7 @@ const useQualify = () => {
   const alertclick4 = (Ctype) => {
     dispatch(stepFive());
     setCtype(Ctype);
+    Router.push("/product");
   };
 
   //Data collection for ideal computer generation logic (in progress), or lead form
