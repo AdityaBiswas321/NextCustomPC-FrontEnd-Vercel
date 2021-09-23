@@ -8,6 +8,27 @@ import {
   stepFour,
   stepFive,
 } from "../../actions/qualifyActions";
+import {
+  setType,
+  setTab,
+  setApp,
+  setCtype,
+} from "../../actions/productActions";
+
+import {
+  SET_TYPE,
+  SET_TAB,
+  SET_APP,
+  SET_C_TYPE,
+} from "../../constants/productConstants";
+
+import {
+  STEPONE_CONVERT,
+  STEPTWO_CONVERT,
+  STEPTHREE_CONVERT,
+  STEPFOUR_CONVERT,
+  STEPFIVE_CONVERT,
+} from "../../constants/qualifyConstants";
 
 import { saveLeadForm } from "../../actions/computerActions";
 
@@ -28,20 +49,20 @@ const useQualify = () => {
   //Reaction to button click in Qualify.js, updating state & changing to next step of the qualifying logic
 
   const alertclick = (type) => {
-    dispatch(stepTwo());
-    setType(type);
+    dispatch({ type: STEPTWO_CONVERT });
+    dispatch({ type: SET_TYPE, payload: type });
   };
   const alertclick2 = (tab) => {
-    dispatch(stepThree());
-    setTab(tab);
+    dispatch({ type: STEPTHREE_CONVERT });
+    dispatch({ type: SET_TAB, payload: tab });
   };
   const alertclick3 = (app) => {
-    dispatch(stepFour());
-    setApp(app);
+    dispatch({ type: STEPFOUR_CONVERT });
+    dispatch({ type: SET_APP, payload: app });
   };
   const alertclick4 = (Ctype) => {
-    dispatch(stepFive());
-    setCtype(Ctype);
+    dispatch({ type: STEPFIVE_CONVERT });
+    dispatch({ type: SET_C_TYPE, payload: Ctype });
     Router.push("/product");
   };
 
