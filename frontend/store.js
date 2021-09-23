@@ -6,12 +6,14 @@ import { computerLeadsReducer } from "./reducers/computerReducers";
 import { qualifyReducers } from "./reducers/qualifyReducers";
 import { paymentsReducer } from "./reducers/paymentsReducers";
 import { productReducers } from "./reducers/productReducers";
+import ProductOneReducer from "./ProductData/ProductOne";
 
 const reducer = combineReducers({
   computerLeads: computerLeadsReducer,
   qualify: qualifyReducers,
   payments: paymentsReducer,
   product: productReducers,
+  productOne: ProductOneReducer,
 });
 
 const initialState = {
