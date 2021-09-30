@@ -101,21 +101,21 @@ const Qualify = () => {
             <Button
               type="button"
               className="btn-block"
-              onClick={() => alertclick("1")}
+              onClick={() => alertclick("Home Office")}
             >
               Home Office
             </Button>
             <Button
               type="button"
               className="btn-block"
-              onClick={() => alertclick("2")}
+              onClick={() => alertclick("Content Creation")}
             >
               Content Creation
             </Button>
             <Button
               type="button"
               className="btn-block"
-              onClick={() => alertclick("3")}
+              onClick={() => alertclick("Gaming")}
             >
               Gaming
             </Button>
@@ -147,23 +147,23 @@ const Qualify = () => {
             <Button
               type="button"
               className="btn-block"
-              onClick={() => alertclick2("1")}
+              onClick={() => alertclick2(1)}
             >
-              Few Tabs - less than 4
+              Few Tabs - less than 5
             </Button>
             <Button
               type="button"
               className="btn-block"
-              onClick={() => alertclick2("2")}
+              onClick={() => alertclick2(2)}
             >
-              Moderate Tabs - between 4 - 8
+              Moderate Tabs - between 5 - 10
             </Button>
             <Button
               type="button"
               className="btn-block"
-              onClick={() => alertclick2("3")}
+              onClick={() => alertclick2(3)}
             >
-              Many Tabs - more than 8
+              Many Tabs - more than 10
             </Button>
           </ListGroup.Item>
         </ListGroup>
@@ -192,21 +192,21 @@ const Qualify = () => {
             <Button
               type="button"
               className="btn-block"
-              onClick={() => alertclick3("1")}
+              onClick={() => alertclick3(1)}
             >
               Couple Applications - ex chrome, word
             </Button>
             <Button
               type="button"
               className="btn-block"
-              onClick={() => alertclick3("2")}
+              onClick={() => alertclick3(2)}
             >
               Few Applications - ex chrome, word, zoom
             </Button>
             <Button
               type="button"
               className="btn-block"
-              onClick={() => alertclick3("3")}
+              onClick={() => alertclick3(3)}
             >
               Many Applications - ex more than 4
             </Button>
@@ -233,21 +233,21 @@ const Qualify = () => {
             <Button
               type="button"
               className="btn-block"
-              onClick={() => alertclick4("1")}
+              onClick={() => alertclick4(500)}
             >
               Budget: $150 - $500
             </Button>
             <Button
               type="button"
               className="btn-block"
-              onClick={() => alertclick4("2")}
+              onClick={() => alertclick4(1200)}
             >
               Mid-Tier: $500 - $1200
             </Button>
             <Button
               type="button"
               className="btn-block"
-              onClick={() => alertclick4("3")}
+              onClick={() => alertclick4(3000)}
             >
               High-End: +$1200
             </Button>
