@@ -212,68 +212,48 @@ const Qualify = () => {
             </Button>
           </ListGroup.Item>
         </ListGroup>
-      ) : step4 ? (
-        <ListGroup>
-          <OrderSteps />
-          <ListGroup.Item>
-            <Row>
-              <Col className="text-center py-2">
-                <h5>Select Budget</h5>
-              </Col>
-            </Row>
-            <Row style={{ textAlign: "center" }}>
-              <Col className="text-center py-2">
-                <text>
-                  To determine types of parts we can build the machine with
-                </text>
-              </Col>
-            </Row>
-          </ListGroup.Item>
-          <ListGroup.Item>
-            <Button
-              type="button"
-              className="btn-block"
-              onClick={() => alertclick4(500)}
-            >
-              Budget: $150 - $500
-            </Button>
-            <Button
-              type="button"
-              className="btn-block"
-              onClick={() => alertclick4(1200)}
-            >
-              Mid-Tier: $500 - $1200
-            </Button>
-            <Button
-              type="button"
-              className="btn-block"
-              onClick={() => alertclick4(3000)}
-            >
-              High-End: +$1200
-            </Button>
-          </ListGroup.Item>
-        </ListGroup>
       ) : (
-        step5 && (
-          <>
+        step4 && (
+          <ListGroup>
             <OrderSteps />
-            <FormContainer>
-              <Form onSubmit={submitHandler}>
-                <Payments
-                  setEmail={setEmail}
-                  setName={setName}
-                  setPostal={setPostal}
-                  setAddress={setAddress}
-                  setCity={setCity}
-                  setProvince={setProvince}
-                />
-
-                <Button type="submit" variant="primary">
-                  Continue
-                </Button>
-              </Form>
-            </FormContainer>
-          </>
+            <ListGroup.Item>
+              <Row>
+                <Col className="text-center py-2">
+                  <h5>Select Budget</h5>
+                </Col>
+              </Row>
+              <Row style={{ textAlign: "center" }}>
+                <Col className="text-center py-2">
+                  <text>
+                    To determine types of parts we can build the machine with
+                  </text>
+                </Col>
+              </Row>
+            </ListGroup.Item>
+            <ListGroup.Item>
+              <Button
+                type="button"
+                className="btn-block"
+                onClick={() => alertclick4(500)}
+              >
+                Budget: $150 - $500
+              </Button>
+              <Button
+                type="button"
+                className="btn-block"
+                onClick={() => alertclick4(1200)}
+              >
+                Mid-Tier: $500 - $1200
+              </Button>
+              <Button
+                type="button"
+                className="btn-block"
+                onClick={() => alertclick4(3000)}
+              >
+                High-End: +$1200
+              </Button>
+            </ListGroup.Item>
+          </ListGroup>
         )
       )}
     </>
