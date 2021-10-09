@@ -33,47 +33,6 @@ const product = () => {
           Des4={test4[len].Des4}
         />
       )}
-
-      {/* {type == "1" &&
-      (tab == "1") | (tab == "2") &&
-      (app == "1") | (app == "2") &&
-      ctype == "1" ? (
-        <Product
-          Img={product[0].Img}
-          id={product[0].id}
-          Description={product[0].Description}
-        />
-      ) : (type == "1") | (type == "2") &&
-        (tab == "1") | (tab == "2") &&
-        (app == "1") | (app == "2") | (app == "3") &&
-        ctype == "2" ? (
-        <Product
-          Img={product[1].Img}
-          id={product[1].id}
-          Description={product[1].Description}
-        />
-      ) : (type == "1") | (type == "2") | (type == "3") &&
-        (tab == "1") | (tab == "2") &&
-        (app == "1") | (app == "2") | (app == "3") ? (
-        ctype == "3" && (
-          <Product
-            Img={product[2].Img}
-            id={product[2].id}
-            Description={product[2].Description}
-          />
-        )
-      ) : (
-        (type == "1") | (type == "2") | (type == "3") &&
-        tab == "3" &&
-        (app == "1") | (app == "2") | (app == "3") &&
-        ctype == "3" && (
-          <Product
-            Img={product[3].Img}
-            id={product[3].id}
-            Description={product[3].Description}
-          />
-        )
-      )} */}
     </>
   );
 };
