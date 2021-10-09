@@ -2,8 +2,9 @@ import React from "react";
 import Image from "next/image";
 import Payments from "../Payments/Payments";
 import useQualifyData from "../Qualify/useQualifyData";
+import { Card } from "react-bootstrap";
 
-const Product = ({ Img, id, Description }) => {
+const Product = ({ Img, Img2, id, Des, Des2, Des3, Des4 }) => {
   console.log(Img);
   const {
     type,
@@ -30,19 +31,30 @@ const Product = ({ Img, id, Description }) => {
   } = useQualifyData();
 
   return (
-    <>
-      <Image src={Img} width={25} height={25} layout="responsive" />
-      <div>{id}</div>
-      <div>{Description}</div>
-      <Payments
-        setEmail={setEmail}
-        setName={setName}
-        setPostal={setPostal}
-        setAddress={setAddress}
-        setCity={setCity}
-        setProvince={setProvince}
-      />
-    </>
+    <Card>
+      <Card>
+        <Card className="al">
+          <Image src={Img} width={25} height={25} layout="responsive" rounded />
+
+          <Card.Title>{Des}</Card.Title>
+          <Card.Body>{Des2}</Card.Body>
+        </Card>
+        <Card className="al">
+          <Image src={Img2} width={25} height={25} layout="responsive" />
+
+          <Card.Title>{Des3}</Card.Title>
+          <Card.Body>{Des4}</Card.Body>
+        </Card>
+        <Payments
+          setEmail={setEmail}
+          setName={setName}
+          setPostal={setPostal}
+          setAddress={setAddress}
+          setCity={setCity}
+          setProvince={setProvince}
+        />
+      </Card>
+    </Card>
   );
 };
 

@@ -24,8 +24,12 @@ const product = () => {
     <>
       <Product
         Img={test4[len].Img}
+        Img2={test4[len].Img2}
         id={test4[len].id}
-        Description={test4[len].Description}
+        Des={test4[len].Des}
+        Des2={test4[len].Des2}
+        Des3={test4[len].Des3}
+        Des4={test4[len].Des4}
       />
 
       {/* {type == "1" &&

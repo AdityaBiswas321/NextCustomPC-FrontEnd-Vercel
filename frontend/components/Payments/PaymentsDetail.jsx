@@ -1,5 +1,5 @@
 import React from "react";
-import { Form } from "react-bootstrap";
+import { Card, Form } from "react-bootstrap";
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 
 const PaymentsDetail = ({
@@ -12,7 +12,7 @@ const PaymentsDetail = ({
   setEmail,
 }) => {
   return (
-    <>
+    <Card className="al">
       <Form.Label>Name</Form.Label>
       <Form.Control
         name="name"
@@ -85,7 +85,7 @@ const PaymentsDetail = ({
           }}
         />
       </Form.Group>
-    </>
+    </Card>
   );
 };
 
