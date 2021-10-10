@@ -30,9 +30,9 @@ const initialState = {
   },
   product: {
     type: "Home Office",
-    tab: 1,
+    tab: 3,
     app: 1,
-    Ctype: 500,
+    ctype: 500,
   },
 };
 

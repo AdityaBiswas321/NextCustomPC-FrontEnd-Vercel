@@ -20,6 +20,7 @@ const product = () => {
 
   const test3 = test2.filter((test) => test.app >= app);
   console.log(test3);
+  console.log("TEST 3");
 
   const test4 = test2.filter((test) => test.budget <= ctype);
   const len = test4.length - 1;
@@ -27,7 +28,7 @@ const product = () => {
   console.log("TEST4");
   return (
     <>
-      {test4 && (
+      {test4.length === 0 ? (
         <Product
           Img={test4[len].Img}
           Img2={test4[len].Img2}
@@ -37,6 +38,8 @@ const product = () => {
           Des3={test4[len].Des3}
           Des4={test4[len].Des4}
         />
+      ) : (
+        <span>HELLO</span>
       )}
     </>
   );
