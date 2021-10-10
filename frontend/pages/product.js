@@ -28,7 +28,7 @@ const product = () => {
   console.log("TEST4");
   return (
     <>
-      {test4.length === 0 ? (
+      {test4.length !== 0 ? (
         <Product
           Img={test4[len].Img}
           Img2={test4[len].Img2}
@@ -39,7 +39,7 @@ const product = () => {
           Des4={test4[len].Des4}
         />
       ) : (
-        <span>HELLO</span>
+        <p>HELLO</p>
       )}
     </>
   );
