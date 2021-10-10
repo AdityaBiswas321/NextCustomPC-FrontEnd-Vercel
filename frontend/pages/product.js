@@ -6,6 +6,7 @@ import Product from "../components/Product/Product";
 const product = () => {
   const productType = useSelector((state) => state.product);
   const { type, tab, app, ctype } = productType;
+
   const product = useSelector((state) => state.productOne);
 
   const test1 = product.filter((test) => test.type === type);

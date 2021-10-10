@@ -29,6 +29,7 @@ const initialState = {
     phase4: false,
     phase5: false,
   },
+  productOne: { ProductOneReducer },
 };
 
 const middleware = [thunk];
