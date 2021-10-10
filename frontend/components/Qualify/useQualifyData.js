@@ -64,6 +64,7 @@ const useQualify = () => {
     dispatch({ type: STEPFIVE_CONVERT });
     dispatch({ type: SET_C_TYPE, payload: Ctype });
     Router.push("/product");
+    dispatch({ type: STEPONE_CONVERT });
   };
 
   //Data collection for ideal computer generation logic (in progress), or lead form
