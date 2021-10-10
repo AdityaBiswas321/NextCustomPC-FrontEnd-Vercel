@@ -28,6 +28,12 @@ const initialState = {
     phase4: false,
     phase5: false,
   },
+  product: {
+    type: "Home Office",
+    tab: 1,
+    app: 1,
+    Ctype: 500,
+  },
 };
 
 const middleware = [thunk];
