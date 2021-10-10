@@ -32,28 +32,28 @@ const Product = ({ Img, Img2, id, Des, Des2, Des3, Des4 }) => {
 
   return (
     <Card>
-      <Card>
-        <Card className="al">
-          <Image src={Img} width={25} height={25} layout="responsive" rounded />
+      <Card className="thumb">
+        <Image src={Img} width={25} height={25} layout="responsive" />
 
-          <Card.Title>{Des}</Card.Title>
-          <Card.Body>{Des2}</Card.Body>
-        </Card>
-        <Card className="al">
-          <Image src={Img2} width={25} height={25} layout="responsive" />
-
-          <Card.Title>{Des3}</Card.Title>
-          <Card.Body>{Des4}</Card.Body>
-        </Card>
-        <Payments
-          setEmail={setEmail}
-          setName={setName}
-          setPostal={setPostal}
-          setAddress={setAddress}
-          setCity={setCity}
-          setProvince={setProvince}
-        />
+        <Card.Title>{Des}</Card.Title>
+        <Card.Body>{Des2}</Card.Body>
       </Card>
+
+      <Card className="thumb">
+        <Image src={Img2} width={25} height={25} layout="responsive" />
+
+        <Card.Title>{Des3}</Card.Title>
+        <Card.Body>{Des4}</Card.Body>
+      </Card>
+
+      <Payments
+        setEmail={setEmail}
+        setName={setName}
+        setPostal={setPostal}
+        setAddress={setAddress}
+        setCity={setCity}
+        setProvince={setProvince}
+      />
     </Card>
   );
 };

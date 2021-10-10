@@ -12,7 +12,7 @@ const PaymentsDetail = ({
   setEmail,
 }) => {
   return (
-    <Card className="al">
+    <Card className="thumb">
       <Form.Label>Name</Form.Label>
       <Form.Control
         name="name"
