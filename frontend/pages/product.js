@@ -5,24 +5,25 @@ import Product from "../components/Product/Product";
 
 const product = () => {
   useEffect(() => {
-    const product = useSelector((state) => state.productOne);
+    const productType = useSelector((state) => state.product);
+    const { type, tab, app, ctype } = productType;
+
+    const productTest = useSelector((state) => state.productOne);
+
+    const test1 = productTest.filter((test) => test.type === type);
+    console.log(test1);
+
+    const test2 = test1.filter((test) => test.tab >= tab);
+    console.log(test2);
+
+    const test3 = test2.filter((test) => test.app >= app);
+    console.log(test3);
+
+    const test4 = test2.filter((test) => test.budget <= ctype);
+    const len = test4.length - 1;
+    console.log(test4);
   }, []);
 
-  const productType = useSelector((state) => state.product);
-  const { type, tab, app, ctype } = productType;
-
-  const test1 = product.filter((test) => test.type === type);
-  console.log(test1);
-
-  const test2 = test1.filter((test) => test.tab >= tab);
-  console.log(test2);
-
-  const test3 = test2.filter((test) => test.app >= app);
-  console.log(test3);
-
-  const test4 = test2.filter((test) => test.budget <= ctype);
-  const len = test4.length - 1;
-  console.log(test4);
   return (
     <>
       {productType && (
