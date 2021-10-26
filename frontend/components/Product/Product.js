@@ -4,7 +4,21 @@ import Payments from "../Payments/Payments";
 import useQualifyData from "../Qualify/useQualifyData";
 import { Card } from "react-bootstrap";
 
-const Product = ({ Img, Img2, id, Des, Des2, Des3, Des4 }) => {
+const Product = ({
+  Img,
+  Img2,
+  Img3,
+  Img4,
+  Img5,
+  id,
+  Des,
+  Des2,
+  Des3,
+  Des4,
+  Des5,
+  Des6,
+  Des7,
+}) => {
   console.log(Img);
   const {
     type,
@@ -44,6 +58,24 @@ const Product = ({ Img, Img2, id, Des, Des2, Des3, Des4 }) => {
 
         <Card.Title>{Des3}</Card.Title>
         <Card.Body>{Des4}</Card.Body>
+      </Card>
+      <Card className="thumb">
+        <Image src={Img3} width={25} height={25} layout="responsive" />
+
+        <Card.Title>{Des}</Card.Title>
+        <Card.Body>{Des5}</Card.Body>
+      </Card>
+      <Card className="thumb">
+        <Image src={Img4} width={25} height={25} layout="responsive" />
+
+        <Card.Title>{Des}</Card.Title>
+        <Card.Body>{Des6}</Card.Body>
+      </Card>
+      <Card className="thumb">
+        <Image src={Img5} width={25} height={25} layout="responsive" />
+
+        <Card.Title>{Des}</Card.Title>
+        <Card.Body>{Des7}</Card.Body>
       </Card>
 
       <Payments

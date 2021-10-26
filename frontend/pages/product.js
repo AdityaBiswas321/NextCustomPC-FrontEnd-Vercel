@@ -12,6 +12,8 @@ const product = () => {
   console.log(productData);
   console.log("HELLO");
 
+  //quasi neural network sorting algorithm
+
   const test1 = productData.filter((test) => test.type === type);
   console.log(test1);
 
@@ -37,6 +39,12 @@ const product = () => {
           Des2={test4[len].Des2}
           Des3={test4[len].Des3}
           Des4={test4[len].Des4}
+          Img3={test4[len].Img3}
+          Des5={test4[len].Des5}
+          Img4={test4[len].Img4}
+          Des6={test4[len].Des6}
+          Img5={test4[len].Img5}
+          Des7={test4[len].Des7}
         />
       ) : (
         <p>HELLO</p>
