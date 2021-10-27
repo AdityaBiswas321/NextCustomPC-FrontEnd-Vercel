@@ -23,13 +23,13 @@ export default function HomeScreen() {
           <Col id="caro" sm={12} md={12} lg={6} xl={6}>
             <Carousel showStatus={false} showThumbs={false}>
               <div>
-                <img src="https://secondbucketforcustompc.s3.us-east-2.amazonaws.com/playstation.jpg" />
+                <img src="https://secondbucketforcustompc.s3.us-east-2.amazonaws.com/TestPC1.jpg" />
               </div>
               <div>
-                <img src="https://secondbucketforcustompc.s3.us-east-2.amazonaws.com/playstation.jpg" />
+                <img src="https://secondbucketforcustompc.s3.us-east-2.amazonaws.com/TestPC1.jpg" />
               </div>
               <div>
-                <img src="https://secondbucketforcustompc.s3.us-east-2.amazonaws.com/playstation.jpg" />
+                <img src="https://secondbucketforcustompc.s3.us-east-2.amazonaws.com/TestPC1.jpg" />
               </div>
             </Carousel>
           </Col>
@@ -59,7 +59,7 @@ export default function HomeScreen() {
             <Card id="gh" type="button" className="btn btn-dark ">
               <Link href="computer1">
                 <a>
-                  <span>Computer1</span>
+                  <span>View Products</span>
                 </a>
               </Link>
             </Card>
@@ -67,7 +67,7 @@ export default function HomeScreen() {
               <Link href="computer1">
                 <Image
                   src={
-                    "https://secondbucketforcustompc.s3.us-east-2.amazonaws.com/playstation.jpg"
+                    "https://secondbucketforcustompc.s3.us-east-2.amazonaws.com/TestPC1.jpg"
                   }
                   width={25}
                   height={25}
@@ -80,38 +80,42 @@ export default function HomeScreen() {
             <Card id="gh" type="button" className="btn btn-dark ">
               <Link href="computer1">
                 <a>
-                  <span>Computer1</span>
+                  <span>About Us</span>
                 </a>
               </Link>
             </Card>
             <Card>
-              <Image
-                src={
-                  "https://secondbucketforcustompc.s3.us-east-2.amazonaws.com/playstation.jpg"
-                }
-                width={25}
-                height={25}
-                layout="responsive"
-              />
+              <Link href="computer1">
+                <Image
+                  src={
+                    "https://secondbucketforcustompc.s3.us-east-2.amazonaws.com/TestPC1.jpg"
+                  }
+                  width={25}
+                  height={25}
+                  layout="responsive"
+                />
+              </Link>
             </Card>
           </Col>
           <Col sm={12} md={6} lg={4} xl={4}>
             <Card id="gh" type="button" className="btn btn-dark ">
               <Link href="computer1">
                 <a>
-                  <span>Computer1</span>
+                  <span>Our Design</span>
                 </a>
               </Link>
             </Card>
             <Card>
-              <Image
-                src={
-                  "https://secondbucketforcustompc.s3.us-east-2.amazonaws.com/playstation.jpg"
-                }
-                width={25}
-                height={25}
-                layout="responsive"
-              />
+              <Link href="computer1">
+                <Image
+                  src={
+                    "https://secondbucketforcustompc.s3.us-east-2.amazonaws.com/TestPC1.jpg"
+                  }
+                  width={25}
+                  height={25}
+                  layout="responsive"
+                />
+              </Link>
             </Card>
           </Col>
         </Row>
