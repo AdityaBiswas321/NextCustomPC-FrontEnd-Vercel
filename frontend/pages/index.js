@@ -17,6 +17,16 @@ import { API_URL } from "../config/index";
 import { motion } from "framer-motion";
 import { Motion } from "react-motion";
 
+// cont fadeInUp = {
+//   inital: {
+//     y: 60,
+//     opacity: 0
+//   }
+//   animate: {
+//     y: 0,
+//   }
+// }
+
 export default function HomeScreen() {
   return (
     <>

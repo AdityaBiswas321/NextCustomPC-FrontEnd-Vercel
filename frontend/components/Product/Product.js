@@ -3,6 +3,7 @@ import Image from "next/image";
 import Payments from "../Payments/Payments";
 import useQualifyData from "../Qualify/useQualifyData";
 import { Card } from "react-bootstrap";
+import { motion } from "framer-motion";
 
 const Product = ({
   Img,
@@ -45,48 +46,54 @@ const Product = ({
   } = useQualifyData();
 
   return (
-    <Card>
-      <Card className="thumb">
-        <Image src={Img} width={25} height={25} layout="responsive" />
+    <motion.div
+      exit={{ opacity: 0 }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+    >
+      <Card>
+        <Card className="thumb">
+          <Image src={Img} width={25} height={25} layout="responsive" />
 
-        <Card.Title>{Des}</Card.Title>
-        <Card.Body>{Des2}</Card.Body>
+          <Card.Title>{Des}</Card.Title>
+          <Card.Body>{Des2}</Card.Body>
+        </Card>
+
+        <Card className="thumb">
+          <Image src={Img2} width={25} height={25} layout="responsive" />
+
+          <Card.Title>{Des3}</Card.Title>
+          <Card.Body>{Des4}</Card.Body>
+        </Card>
+        <Card className="thumb">
+          <Image src={Img3} width={25} height={25} layout="responsive" />
+
+          <Card.Title>{Des}</Card.Title>
+          <Card.Body>{Des5}</Card.Body>
+        </Card>
+        <Card className="thumb">
+          <Image src={Img4} width={25} height={25} layout="responsive" />
+
+          <Card.Title>{Des}</Card.Title>
+          <Card.Body>{Des6}</Card.Body>
+        </Card>
+        <Card className="thumb">
+          <Image src={Img5} width={25} height={25} layout="responsive" />
+
+          <Card.Title>{Des}</Card.Title>
+          <Card.Body>{Des7}</Card.Body>
+        </Card>
+
+        <Payments
+          setEmail={setEmail}
+          setName={setName}
+          setPostal={setPostal}
+          setAddress={setAddress}
+          setCity={setCity}
+          setProvince={setProvince}
+        />
       </Card>
-
-      <Card className="thumb">
-        <Image src={Img2} width={25} height={25} layout="responsive" />
-
-        <Card.Title>{Des3}</Card.Title>
-        <Card.Body>{Des4}</Card.Body>
-      </Card>
-      <Card className="thumb">
-        <Image src={Img3} width={25} height={25} layout="responsive" />
-
-        <Card.Title>{Des}</Card.Title>
-        <Card.Body>{Des5}</Card.Body>
-      </Card>
-      <Card className="thumb">
-        <Image src={Img4} width={25} height={25} layout="responsive" />
-
-        <Card.Title>{Des}</Card.Title>
-        <Card.Body>{Des6}</Card.Body>
-      </Card>
-      <Card className="thumb">
-        <Image src={Img5} width={25} height={25} layout="responsive" />
-
-        <Card.Title>{Des}</Card.Title>
-        <Card.Body>{Des7}</Card.Body>
-      </Card>
-
-      <Payments
-        setEmail={setEmail}
-        setName={setName}
-        setPostal={setPostal}
-        setAddress={setAddress}
-        setCity={setCity}
-        setProvince={setProvince}
-      />
-    </Card>
+    </motion.div>
   );
 };
 
