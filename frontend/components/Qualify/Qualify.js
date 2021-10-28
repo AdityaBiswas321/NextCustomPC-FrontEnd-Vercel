@@ -134,13 +134,9 @@ const Qualify = () => {
         </ListGroup>
       ) : step2 ? (
         <motion.div
-          exit={{ x: 0, opacity: 0 }}
-          initial={{ x: 100, opacity: 0 }}
-          animate={{
-            x: 0,
-            opacity: 1,
-            transition: { duration: 0.7, ease: "easeOut" },
-          }}
+          exit={{ opacity: 0 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
         >
           <ListGroup>
             <OrderSteps />
@@ -189,64 +185,27 @@ const Qualify = () => {
           </ListGroup>
         </motion.div>
       ) : step3 ? (
-        <ListGroup>
-          <OrderSteps />
-          <ListGroup.Item>
-            <Row>
-              <Col className="text-center py-2">
-                <h5>Select Application Usage</h5>
-              </Col>
-            </Row>
-            <Row style={{ textAlign: "center" }}>
-              <Col className="text-center py-2">
-                <text>
-                  Application usage determines the type of cpu required, which
-                  affects how efficient the machine runs. <br></br>For example,
-                  an Executive Assistant would require multiple application
-                  running during an online board meeting presentation than a
-                  video producer.
-                </text>
-              </Col>
-            </Row>
-          </ListGroup.Item>
-          <ListGroup.Item>
-            <Button
-              type="button"
-              className="btn-block"
-              onClick={() => alertclick3(1)}
-            >
-              Couple Applications - ex chrome, word
-            </Button>
-            <Button
-              type="button"
-              className="btn-block"
-              onClick={() => alertclick3(2)}
-            >
-              Few Applications - ex chrome, word, zoom
-            </Button>
-            <Button
-              type="button"
-              className="btn-block"
-              onClick={() => alertclick3(3)}
-            >
-              Many Applications - ex more than 4
-            </Button>
-          </ListGroup.Item>
-        </ListGroup>
-      ) : (
-        step4 && (
+        <motion.div
+          exit={{ opacity: 0 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+        >
           <ListGroup>
             <OrderSteps />
             <ListGroup.Item>
               <Row>
                 <Col className="text-center py-2">
-                  <h5>Select Budget</h5>
+                  <h5>Select Application Usage</h5>
                 </Col>
               </Row>
               <Row style={{ textAlign: "center" }}>
                 <Col className="text-center py-2">
                   <text>
-                    To determine types of parts we can build the machine with
+                    Application usage determines the type of cpu required, which
+                    affects how efficient the machine runs. <br></br>For
+                    example, an Executive Assistant would require multiple
+                    application running during an online board meeting
+                    presentation than a video producer.
                   </text>
                 </Col>
               </Row>
@@ -255,26 +214,75 @@ const Qualify = () => {
               <Button
                 type="button"
                 className="btn-block"
-                onClick={() => alertclick4(500)}
+                onClick={() => alertclick3(1)}
               >
-                Budget: $150 - $500
+                Couple Applications - ex chrome, word
               </Button>
               <Button
                 type="button"
                 className="btn-block"
-                onClick={() => alertclick4(1200)}
+                onClick={() => alertclick3(2)}
               >
-                Mid-Tier: $500 - $1200
+                Few Applications - ex chrome, word, zoom
               </Button>
               <Button
                 type="button"
                 className="btn-block"
-                onClick={() => alertclick4(3000)}
+                onClick={() => alertclick3(3)}
               >
-                High-End: +$1200
+                Many Applications - ex more than 4
               </Button>
             </ListGroup.Item>
           </ListGroup>
+        </motion.div>
+      ) : (
+        step4 && (
+          <motion.div
+            exit={{ opacity: 0 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+          >
+            <ListGroup>
+              <OrderSteps />
+              <ListGroup.Item>
+                <Row>
+                  <Col className="text-center py-2">
+                    <h5>Select Budget</h5>
+                  </Col>
+                </Row>
+                <Row style={{ textAlign: "center" }}>
+                  <Col className="text-center py-2">
+                    <text>
+                      To determine types of parts we can build the machine with
+                    </text>
+                  </Col>
+                </Row>
+              </ListGroup.Item>
+              <ListGroup.Item>
+                <Button
+                  type="button"
+                  className="btn-block"
+                  onClick={() => alertclick4(500)}
+                >
+                  Budget: $150 - $500
+                </Button>
+                <Button
+                  type="button"
+                  className="btn-block"
+                  onClick={() => alertclick4(1200)}
+                >
+                  Mid-Tier: $500 - $1200
+                </Button>
+                <Button
+                  type="button"
+                  className="btn-block"
+                  onClick={() => alertclick4(3000)}
+                >
+                  High-End: +$1200
+                </Button>
+              </ListGroup.Item>
+            </ListGroup>
+          </motion.div>
         )
       )}
     </motion.div>
