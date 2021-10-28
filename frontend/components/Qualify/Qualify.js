@@ -3,6 +3,7 @@ import { ListGroup, Button, Row, Col, Form, Card } from "react-bootstrap";
 import FormContainer from "../FormContainer/FormContainer";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
+import Link from "next/link";
 
 import {
   createConfirmCardPayment,
@@ -22,6 +23,12 @@ import Script from "next/script";
 import { API_URL } from "../../config";
 import PaymentsDetail from "../Payments/PaymentsDetail";
 import Payments from "../Payments/Payments";
+
+import { motion } from "framer-motion";
+
+//animate: defines animation
+//initial: defines initial state
+//exit: defines aimation when component exits
 
 const Qualify = () => {
   const dispatch = useDispatch();
@@ -68,7 +75,11 @@ const Qualify = () => {
   }, [paymentMethodReq]);
 
   return (
-    <>
+    <motion.div
+      exit={{ opacity: 0 }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+    >
       {lead && (
         <Message variant="success">{`Success!
          Your ID is ${lead._id}`}</Message>
@@ -256,7 +267,7 @@ const Qualify = () => {
           </ListGroup>
         )
       )}
-    </>
+    </motion.div>
   );
 };
 

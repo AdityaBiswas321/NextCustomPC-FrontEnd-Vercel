@@ -6,6 +6,7 @@ import { wrapper } from "../store";
 import Layout from "../components/Layout/Layout";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
+import { AnimatePresence } from "framer-motion";
 
 const stripePromise = loadStripe(
   "pk_test_51JYnmdLGF4kichPFTGiaPYHrXX6PYQZ3TkGeU8UA3pk9hwxuff6sxTp4BtmEunnWw8K74s6KQtivj4E0KSbT42Ov00K5LpCIM2"
@@ -20,7 +21,9 @@ function MyApp({ Component, pageProps }) {
       </Head>
       <Layout>
         <Elements stripe={stripePromise}>
-          <Component {...pageProps} />
+          <AnimatePresence exitBeforeEnter>
+            <Component {...pageProps} />
+          </AnimatePresence>
         </Elements>
       </Layout>
     </>

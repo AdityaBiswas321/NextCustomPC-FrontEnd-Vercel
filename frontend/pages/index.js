@@ -14,11 +14,17 @@ import axios from "axios";
 
 import { saveLeadForm } from "../actions/computerActions";
 import { API_URL } from "../config/index";
+import { motion } from "framer-motion";
+import { Motion } from "react-motion";
 
 export default function HomeScreen() {
   return (
     <>
-      <>
+      <motion.div
+        exit={{ opacity: 0 }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+      >
         <Row className="w">
           <Col id="caro" sm={12} md={12} lg={6} xl={6}>
             <Carousel showStatus={false} showThumbs={false}>
@@ -76,6 +82,7 @@ export default function HomeScreen() {
               </Link>
             </Card>
           </Col>
+
           <Col sm={12} md={6} lg={4} xl={4}>
             <Card id="gh" type="button" className="btn btn-dark ">
               <Link href="computer1">
@@ -119,7 +126,7 @@ export default function HomeScreen() {
             </Card>
           </Col>
         </Row>
-      </>
+      </motion.div>
     </>
   );
 }
