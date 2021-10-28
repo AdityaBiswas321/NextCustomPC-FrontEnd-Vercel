@@ -133,51 +133,61 @@ const Qualify = () => {
           </ListGroup.Item>
         </ListGroup>
       ) : step2 ? (
-        <ListGroup>
-          <OrderSteps />
-          <ListGroup.Item>
-            <Row>
-              <Col className="text-center py-2">
-                <h5>Select Tab Usage</h5>
-              </Col>
-            </Row>
-            <Row style={{ textAlign: "center" }}>
-              <Col className="text-center py-2">
-                <text>
-                  Tab usage determines the amount and type of RAM is required.
-                  <br></br>
-                  This can be more complex to determine however, someone who
-                  uses 24 tabs and multiple application will require more RAM
-                  <br></br>to be efficient than someone who operates in a
-                  minimalistic fashion with their machine.
-                </text>
-              </Col>
-            </Row>
-          </ListGroup.Item>
-          <ListGroup.Item>
-            <Button
-              type="button"
-              className="btn-block"
-              onClick={() => alertclick2(1)}
-            >
-              Few Tabs - less than 5
-            </Button>
-            <Button
-              type="button"
-              className="btn-block"
-              onClick={() => alertclick2(2)}
-            >
-              Moderate Tabs - between 5 - 10
-            </Button>
-            <Button
-              type="button"
-              className="btn-block"
-              onClick={() => alertclick2(3)}
-            >
-              Many Tabs - more than 10
-            </Button>
-          </ListGroup.Item>
-        </ListGroup>
+        <motion.div
+          exit={{ x: 0, opacity: 0 }}
+          initial={{ x: 100, opacity: 0 }}
+          animate={{
+            x: 0,
+            opacity: 1,
+            transition: { duration: 0.7, ease: "easeOut" },
+          }}
+        >
+          <ListGroup>
+            <OrderSteps />
+            <ListGroup.Item>
+              <Row>
+                <Col className="text-center py-2">
+                  <h5>Select Tab Usage</h5>
+                </Col>
+              </Row>
+              <Row style={{ textAlign: "center" }}>
+                <Col className="text-center py-2">
+                  <text>
+                    Tab usage determines the amount and type of RAM is required.
+                    <br></br>
+                    This can be more complex to determine however, someone who
+                    uses 24 tabs and multiple application will require more RAM
+                    <br></br>to be efficient than someone who operates in a
+                    minimalistic fashion with their machine.
+                  </text>
+                </Col>
+              </Row>
+            </ListGroup.Item>
+            <ListGroup.Item>
+              <Button
+                type="button"
+                className="btn-block"
+                onClick={() => alertclick2(1)}
+              >
+                Few Tabs - less than 5
+              </Button>
+              <Button
+                type="button"
+                className="btn-block"
+                onClick={() => alertclick2(2)}
+              >
+                Moderate Tabs - between 5 - 10
+              </Button>
+              <Button
+                type="button"
+                className="btn-block"
+                onClick={() => alertclick2(3)}
+              >
+                Many Tabs - more than 10
+              </Button>
+            </ListGroup.Item>
+          </ListGroup>
+        </motion.div>
       ) : step3 ? (
         <ListGroup>
           <OrderSteps />

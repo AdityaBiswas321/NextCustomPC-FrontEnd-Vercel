@@ -24,6 +24,7 @@ import { Motion } from "react-motion";
 //   }
 //   animate: {
 //     y: 0,
+//     opacity:1
 //   }
 // }
 
