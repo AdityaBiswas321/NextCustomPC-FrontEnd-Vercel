@@ -24,11 +24,24 @@ import { API_URL } from "../../config";
 import PaymentsDetail from "../Payments/PaymentsDetail";
 import Payments from "../Payments/Payments";
 
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 
 //animate: defines animation
 //initial: defines initial state
 //exit: defines aimation when component exits
+
+const variants = {
+  exit: {
+    opacity: 0,
+  },
+  initial: {
+    opacity: 0,
+  },
+  animate: {
+    opacity: 1,
+  },
+  // You can do whatever you want here, if you just want it to stop completely use `rotate: 0`
+};
 
 const Qualify = () => {
   const dispatch = useDispatch();
@@ -75,185 +88,40 @@ const Qualify = () => {
   }, [paymentMethodReq]);
 
   return (
-    <motion.div
-      exit={{ opacity: 0 }}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-    >
+    <>
       {lead && (
         <Message variant="success">{`Success!
          Your ID is ${lead._id}`}</Message>
       )}
-      {step1 ? (
-        <ListGroup>
-          <OrderSteps />
-          <ListGroup.Item>
-            <Row>
-              <Col className="text-center py-2">
-                <h5>
-                  <strong>Select usage</strong>
-                </h5>
-              </Col>
-            </Row>
-            <Row style={{ textAlign: "center" }}>
-              <Col className="text-center py-2">
-                <text>
-                  Identifying the usage determines the types of parts requied.
-                  <br></br>
-                  For example, most work related computers do not require an
-                  additional graphics card, however a gaming computer will most
-                  likely need a graphic card to function. <br></br>Both of which
-                  affect price and effectiveness of your machine!
-                </text>
-              </Col>
-            </Row>
-          </ListGroup.Item>
-          <ListGroup.Item>
-            <Button
-              type="button"
-              className="btn-block"
-              onClick={() => alertclick("Home Office")}
-            >
-              Home Office
-            </Button>
-            <Button
-              type="button"
-              className="btn-block"
-              onClick={() => alertclick("Content Creation")}
-            >
-              Content Creation
-            </Button>
-            <Button
-              type="button"
-              className="btn-block"
-              onClick={() => alertclick("Gaming")}
-            >
-              Gaming
-            </Button>
-          </ListGroup.Item>
-        </ListGroup>
-      ) : step2 ? (
-        <motion.div
-          exit={{ opacity: 0 }}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-        >
-          <ListGroup>
-            <OrderSteps />
-            <ListGroup.Item>
-              <Row>
-                <Col className="text-center py-2">
-                  <h5>Select Tab Usage</h5>
-                </Col>
-              </Row>
-              <Row style={{ textAlign: "center" }}>
-                <Col className="text-center py-2">
-                  <text>
-                    Tab usage determines the amount and type of RAM is required.
-                    <br></br>
-                    This can be more complex to determine however, someone who
-                    uses 24 tabs and multiple application will require more RAM
-                    <br></br>to be efficient than someone who operates in a
-                    minimalistic fashion with their machine.
-                  </text>
-                </Col>
-              </Row>
-            </ListGroup.Item>
-            <ListGroup.Item>
-              <Button
-                type="button"
-                className="btn-block"
-                onClick={() => alertclick2(1)}
-              >
-                Few Tabs - less than 5
-              </Button>
-              <Button
-                type="button"
-                className="btn-block"
-                onClick={() => alertclick2(2)}
-              >
-                Moderate Tabs - between 5 - 10
-              </Button>
-              <Button
-                type="button"
-                className="btn-block"
-                onClick={() => alertclick2(3)}
-              >
-                Many Tabs - more than 10
-              </Button>
-            </ListGroup.Item>
-          </ListGroup>
-        </motion.div>
-      ) : step3 ? (
-        <motion.div
-          exit={{ opacity: 0 }}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-        >
-          <ListGroup>
-            <OrderSteps />
-            <ListGroup.Item>
-              <Row>
-                <Col className="text-center py-2">
-                  <h5>Select Application Usage</h5>
-                </Col>
-              </Row>
-              <Row style={{ textAlign: "center" }}>
-                <Col className="text-center py-2">
-                  <text>
-                    Application usage determines the type of cpu required, which
-                    affects how efficient the machine runs. <br></br>For
-                    example, an Executive Assistant would require multiple
-                    application running during an online board meeting
-                    presentation than a video producer.
-                  </text>
-                </Col>
-              </Row>
-            </ListGroup.Item>
-            <ListGroup.Item>
-              <Button
-                type="button"
-                className="btn-block"
-                onClick={() => alertclick3(1)}
-              >
-                Couple Applications - ex chrome, word
-              </Button>
-              <Button
-                type="button"
-                className="btn-block"
-                onClick={() => alertclick3(2)}
-              >
-                Few Applications - ex chrome, word, zoom
-              </Button>
-              <Button
-                type="button"
-                className="btn-block"
-                onClick={() => alertclick3(3)}
-              >
-                Many Applications - ex more than 4
-              </Button>
-            </ListGroup.Item>
-          </ListGroup>
-        </motion.div>
-      ) : (
-        step4 && (
+      <AnimatePresence>
+        {step1 ? (
           <motion.div
-            exit={{ opacity: 0 }}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
+            variants={variants}
+            key="1"
+            exit={step1 === false && "exit"}
+            initial="initial"
+            animate={step1 ? "animate" : "exit"}
           >
             <ListGroup>
               <OrderSteps />
               <ListGroup.Item>
                 <Row>
                   <Col className="text-center py-2">
-                    <h5>Select Budget</h5>
+                    <h5>
+                      <strong>Select usage</strong>
+                    </h5>
                   </Col>
                 </Row>
                 <Row style={{ textAlign: "center" }}>
                   <Col className="text-center py-2">
                     <text>
-                      To determine types of parts we can build the machine with
+                      Identifying the usage determines the types of parts
+                      requied.
+                      <br></br>
+                      For example, most work related computers do not require an
+                      additional graphics card, however a gaming computer will
+                      most likely need a graphic card to function. <br></br>Both
+                      of which affect price and effectiveness of your machine!
                     </text>
                   </Col>
                 </Row>
@@ -262,30 +130,191 @@ const Qualify = () => {
                 <Button
                   type="button"
                   className="btn-block"
-                  onClick={() => alertclick4(500)}
+                  onClick={() => alertclick("Home Office")}
                 >
-                  Budget: $150 - $500
+                  Home Office
                 </Button>
                 <Button
                   type="button"
                   className="btn-block"
-                  onClick={() => alertclick4(1200)}
+                  onClick={() => alertclick("Content Creation")}
                 >
-                  Mid-Tier: $500 - $1200
+                  Content Creation
                 </Button>
                 <Button
                   type="button"
                   className="btn-block"
-                  onClick={() => alertclick4(3000)}
+                  onClick={() => alertclick("Gaming")}
                 >
-                  High-End: +$1200
+                  Gaming
                 </Button>
               </ListGroup.Item>
             </ListGroup>
           </motion.div>
-        )
-      )}
-    </motion.div>
+        ) : step2 ? (
+          <motion.div
+            variants={variants}
+            key="2"
+            exit={step2 === false && "exit"}
+            initial="initial"
+            animate={step2 ? "animate" : "exit"}
+          >
+            <ListGroup>
+              <OrderSteps />
+              <ListGroup.Item>
+                <Row>
+                  <Col className="text-center py-2">
+                    <h5>Select Tab Usage</h5>
+                  </Col>
+                </Row>
+                <Row style={{ textAlign: "center" }}>
+                  <Col className="text-center py-2">
+                    <text>
+                      Tab usage determines the amount and type of RAM is
+                      required.
+                      <br></br>
+                      This can be more complex to determine however, someone who
+                      uses 24 tabs and multiple application will require more
+                      RAM
+                      <br></br>to be efficient than someone who operates in a
+                      minimalistic fashion with their machine.
+                    </text>
+                  </Col>
+                </Row>
+              </ListGroup.Item>
+              <ListGroup.Item>
+                <Button
+                  type="button"
+                  className="btn-block"
+                  onClick={() => alertclick2(1)}
+                >
+                  Few Tabs - less than 5
+                </Button>
+                <Button
+                  type="button"
+                  className="btn-block"
+                  onClick={() => alertclick2(2)}
+                >
+                  Moderate Tabs - between 5 - 10
+                </Button>
+                <Button
+                  type="button"
+                  className="btn-block"
+                  onClick={() => alertclick2(3)}
+                >
+                  Many Tabs - more than 10
+                </Button>
+              </ListGroup.Item>
+            </ListGroup>
+          </motion.div>
+        ) : step3 ? (
+          <motion.div
+            variants={variants}
+            key="3"
+            exit={step3 === false && "exit"}
+            initial="initial"
+            animate={step3 && "animate"}
+          >
+            <ListGroup>
+              <OrderSteps />
+              <ListGroup.Item>
+                <Row>
+                  <Col className="text-center py-2">
+                    <h5>Select Application Usage</h5>
+                  </Col>
+                </Row>
+                <Row style={{ textAlign: "center" }}>
+                  <Col className="text-center py-2">
+                    <text>
+                      Application usage determines the type of cpu required,
+                      which affects how efficient the machine runs. <br></br>For
+                      example, an Executive Assistant would require multiple
+                      application running during an online board meeting
+                      presentation than a video producer.
+                    </text>
+                  </Col>
+                </Row>
+              </ListGroup.Item>
+              <ListGroup.Item>
+                <Button
+                  type="button"
+                  className="btn-block"
+                  onClick={() => alertclick3(1)}
+                >
+                  Couple Applications - ex chrome, word
+                </Button>
+                <Button
+                  type="button"
+                  className="btn-block"
+                  onClick={() => alertclick3(2)}
+                >
+                  Few Applications - ex chrome, word, zoom
+                </Button>
+                <Button
+                  type="button"
+                  className="btn-block"
+                  onClick={() => alertclick3(3)}
+                >
+                  Many Applications - ex more than 4
+                </Button>
+              </ListGroup.Item>
+            </ListGroup>
+          </motion.div>
+        ) : (
+          step4 && (
+            <motion.div
+              variants={variants}
+              key="4"
+              exit={step4 === false && "exit"}
+              initial="initial"
+              animate={step4 && "animate"}
+            >
+              <ListGroup>
+                <OrderSteps />
+                <ListGroup.Item>
+                  <Row>
+                    <Col className="text-center py-2">
+                      <h5>Select Budget</h5>
+                    </Col>
+                  </Row>
+                  <Row style={{ textAlign: "center" }}>
+                    <Col className="text-center py-2">
+                      <text>
+                        To determine types of parts we can build the machine
+                        with
+                      </text>
+                    </Col>
+                  </Row>
+                </ListGroup.Item>
+                <ListGroup.Item>
+                  <Button
+                    type="button"
+                    className="btn-block"
+                    onClick={() => alertclick4(500)}
+                  >
+                    Budget: $150 - $500
+                  </Button>
+                  <Button
+                    type="button"
+                    className="btn-block"
+                    onClick={() => alertclick4(1200)}
+                  >
+                    Mid-Tier: $500 - $1200
+                  </Button>
+                  <Button
+                    type="button"
+                    className="btn-block"
+                    onClick={() => alertclick4(3000)}
+                  >
+                    High-End: +$1200
+                  </Button>
+                </ListGroup.Item>
+              </ListGroup>
+            </motion.div>
+          )
+        )}
+      </AnimatePresence>
+    </>
   );
 };
 
