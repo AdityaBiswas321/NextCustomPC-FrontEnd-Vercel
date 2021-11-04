@@ -47,9 +47,9 @@ const Product = ({
 
   const controls = useAnimation();
   const [ref, inView] = useInView({ threshold: 0.2 });
-  const [ref2, inView2] = useInView();
-  const [ref3, inView3] = useInView();
-  const [ref4, inView4] = useInView();
+  const [ref2, inView2] = useInView({ threshold: 0.2 });
+  const [ref3, inView3] = useInView({ threshold: 0.2 });
+  const [ref4, inView4] = useInView({ threshold: 0.2 });
 
   const variants = {
     exit: {
@@ -67,36 +67,40 @@ const Product = ({
   };
 
   const boxVariants = {
-    hidden: { scale: 0 },
+    hidden: { x: 200, opacity: 0 },
     visible: {
-      scale: 1,
+      x: 0,
+      opacity: 1,
       transition: {
         duration: 0.5,
       },
     },
   };
   const boxVariants2 = {
-    hidden2: { scale: 0 },
+    hidden2: { x: 200, opacity: 0 },
     visible2: {
-      scale: 1,
+      x: 0,
+      opacity: 1,
       transition: {
         duration: 0.5,
       },
     },
   };
   const boxVariants3 = {
-    hidden3: { scale: 0 },
+    hidden3: { x: 200, opacity: 0 },
     visible3: {
-      scale: 1,
+      x: 0,
+      opacity: 1,
       transition: {
         duration: 0.5,
       },
     },
   };
   const boxVariants4 = {
-    hidden4: { scale: 0 },
+    hidden4: { x: 200, opacity: 0 },
     visible4: {
-      scale: 1,
+      x: 0,
+      opacity: 1,
       transition: {
         duration: 0.5,
       },
