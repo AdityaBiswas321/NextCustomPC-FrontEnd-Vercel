@@ -46,10 +46,12 @@ const Product = ({
   } = useQualifyData();
 
   const controls = useAnimation();
+  //can use multiple ref if using array destructuring
   const [ref, inView] = useInView({ threshold: 0.2 });
   const [ref2, inView2] = useInView({ threshold: 0.2 });
   const [ref3, inView3] = useInView({ threshold: 0.2 });
   const [ref4, inView4] = useInView({ threshold: 0.2 });
+  const [ref5, inView5] = useInView({ threshold: 0.2 });
 
   const variants = {
     exit: {
@@ -106,6 +108,16 @@ const Product = ({
       },
     },
   };
+  const boxVariants5 = {
+    hidden5: { x: 200, opacity: 0 },
+    visible5: {
+      x: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.5,
+      },
+    },
+  };
 
   useEffect(() => {
     console.log("use Effect hook inView:", inView);
@@ -134,7 +146,13 @@ const Product = ({
     if (!inView4) {
       controls.start("hidden4");
     }
-  }, [controls, inView, inView2, inView3, inView4]);
+    if (inView5) {
+      controls.start("visible5");
+    }
+    if (!inView5) {
+      controls.start("hidden5");
+    }
+  }, [controls, inView, inView2, inView3, inView4, inView5]);
 
   return (
     <motion.div
@@ -213,14 +231,22 @@ const Product = ({
           </Card>
         </motion.div>
 
-        <Payments
-          setEmail={setEmail}
-          setName={setName}
-          setPostal={setPostal}
-          setAddress={setAddress}
-          setCity={setCity}
-          setProvince={setProvince}
-        />
+        <motion.div
+          key="4"
+          initial="hidden"
+          animate={controls}
+          variants={boxVariants5}
+          ref={ref5}
+        >
+          <Payments
+            setEmail={setEmail}
+            setName={setName}
+            setPostal={setPostal}
+            setAddress={setAddress}
+            setCity={setCity}
+            setProvince={setProvince}
+          />
+        </motion.div>
       </Card>
     </motion.div>
   );

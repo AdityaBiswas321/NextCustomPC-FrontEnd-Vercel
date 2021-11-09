@@ -28,6 +28,9 @@ const product = () => {
   const len = test4.length - 1;
   console.log(test4);
   console.log("TEST4");
+
+  //test4.length needs to be true so page doesn't show error when refreshed
+  //Add reroute later
   return (
     <>
       {test4.length !== 0 ? (
