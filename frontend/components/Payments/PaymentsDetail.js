@@ -41,9 +41,10 @@ const PaymentsDetail = ({
     },
   };
 
-  const areaSwitch = () => {
+  const areaSwitch = async () => {
     setStep(false);
     setStep2(true);
+    const { data } = await axios.get("https://XX/rs/ship/price");
   };
   const shipSwitch = () => {
     setStep2(false);
