@@ -1,21 +1,24 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Card, Form, Button } from "react-bootstrap";
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import axios from "axios";
+import { API_URL } from "../../config/index.js";
+import useQualifyData from "../Qualify/useQualifyData";
 
-const PaymentsDetail = ({
-  setName,
-  setPhone,
-  setPostal,
-  setAddress,
-  setCity,
-  setProvince,
-  setEmail,
-}) => {
+const PaymentsDetail = ({}) => {
   // build ternary operator chain here
 
   const controls = useAnimation();
+
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [address, setAddress] = useState("");
+  const [city, setCity] = useState("");
+  const [province, setProvince] = useState("");
+  const [phone, setPhone] = useState("");
+  const [postal, setPostal] = useState("");
 
   const [area, setArea] = useState("");
   const [step1, setStep] = useState(true);
@@ -41,14 +44,32 @@ const PaymentsDetail = ({
     },
   };
 
+  let user_data = {
+    user_name: name,
+    user_phone: phone,
+    user_postal: postal,
+    user_address: address,
+    user_city: city,
+    user_province: province,
+    user_email: email,
+  };
+
   const areaSwitch = async () => {
     setStep(false);
     setStep2(true);
-    const { data } = await axios.get("https://XX/rs/ship/price");
+    // const { data } = await axios.post(`${API_URL}/api/ship`);
   };
-  const shipSwitch = () => {
+  const shipSwitch = async () => {
     setStep2(false);
     setStep3(true);
+    // const { data } = await axios.post(`${API_URL}/api/ship`);
+  };
+
+  const testData = async () => {
+    console.log(user_data);
+    const { data } = await axios.post(`${API_URL}/api/ship`, user_data);
+    console.log("FROM SERVER");
+    console.log(data);
   };
 
   return (
@@ -153,6 +174,13 @@ const PaymentsDetail = ({
                 required
                 onChange={(e) => setPostal(e.target.value)}
               />
+              <Button
+                type="button"
+                className="btn-block"
+                onClick={() => testData()}
+              >
+                Submit
+              </Button>
 
               <Form.Group>
                 <Form.Label>Card Details</Form.Label>
