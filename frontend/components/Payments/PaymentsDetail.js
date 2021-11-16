@@ -19,6 +19,7 @@ const PaymentsDetail = ({}) => {
   const [province, setProvince] = useState("");
   const [phone, setPhone] = useState("");
   const [postal, setPostal] = useState("");
+  const [rate, setRate] = useState("");
 
   const [area, setArea] = useState("");
   const [step1, setStep] = useState(true);
@@ -68,121 +69,91 @@ const PaymentsDetail = ({}) => {
   const testData = async () => {
     console.log(user_data);
     const { data } = await axios.post(`${API_URL}/api/ship`, user_data);
+    const rate = data.rates[0].amount_local;
+    console.log("rate");
+    console.log(rate);
+    setRate(rate);
+    setStep(false);
+    setStep2(true);
     console.log("FROM SERVER");
     console.log(data);
+    return rate;
   };
 
   return (
     <>
       {step1 ? (
         <Card className="thumb">
-          <Form.Label>Enter Postal Code</Form.Label>
+          <Card.Title className="text-center ship">
+            <u>CALCULATE SHIPPING</u>
+          </Card.Title>
+          <Form.Label>Name</Form.Label>
           <Form.Control
             name="name"
             type="text"
-            placeholder="V5W 3P9"
+            placeholder="Jane Doe"
             required
-            onChange={(e) => setArea(e.target.value)}
+            onChange={(e) => setName(e.target.value)}
+          />
+          <Form.Label>Email</Form.Label>
+          <Form.Control
+            name="email"
+            type="email"
+            placeholder="jane.doe@example.com"
+            required
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <Form.Label>Address</Form.Label>
+          <Form.Control
+            name="address"
+            type="text"
+            placeholder="185 Berry St. Suite 550"
+            required
+            onChange={(e) => setAddress(e.target.value)}
+          />
+          <Form.Label>City</Form.Label>
+          <Form.Control
+            name="city"
+            type="text"
+            placeholder="San Francisco"
+            required
+            onChange={(e) => setCity(e.target.value)}
+          />
+          <Form.Label>State/Province</Form.Label>
+          <Form.Control
+            name="state/province"
+            type="text"
+            placeholder="California / British Columbia"
+            required
+            onChange={(e) => setProvince(e.target.value)}
+          />
+          <Form.Label>Zip/Postal</Form.Label>
+          <Form.Control
+            name="zip/postal"
+            type="text"
+            placeholder="94103/V5X 2C6"
+            required
+            onChange={(e) => setPostal(e.target.value)}
           />
           <Button
             type="button"
-            className="btn-block postalbtn"
-            onClick={() => areaSwitch()}
+            className="btn-block"
+            onClick={() => testData()}
           >
             Submit
           </Button>
         </Card>
-      ) : step2 ? (
-        <motion.div
-          key="2"
-          initial="hidden"
-          animate={step2 && "animate"}
-          variants={boxVariants}
-        >
-          <Card className="thumb">
-            <Form.Label>Enter Delivery Address</Form.Label>
-            <Form.Control
-              name="name"
-              type="text"
-              placeholder="V5W 3P9"
-              required
-              onChange={(e) => setShip(e.target.value)}
-            />
-            <Button
-              type="button"
-              className="btn-block"
-              onClick={() => shipSwitch()}
-            >
-              Submit
-            </Button>
-          </Card>
-        </motion.div>
       ) : (
-        <>
+        step2 && (
           <motion.div
-            key="3"
+            key="2"
             initial="hidden"
-            animate={step3 && "animate"}
+            animate={step2 && "animate"}
             variants={boxVariants}
           >
-            <Card className="thumb">
-              <Form.Label>Name</Form.Label>
-              <Form.Control
-                name="name"
-                type="text"
-                placeholder="Jane Doe"
-                required
-                onChange={(e) => setName(e.target.value)}
-              />
-              <Form.Label>Email</Form.Label>
-              <Form.Control
-                name="email"
-                type="email"
-                placeholder="jane.doe@example.com"
-                required
-                onChange={(e) => setEmail(e.target.value)}
-              />
-              <Form.Label>Address</Form.Label>
-              <Form.Control
-                name="address"
-                type="text"
-                placeholder="185 Berry St. Suite 550"
-                required
-                onChange={(e) => setAddress(e.target.value)}
-              />
-              <Form.Label>City</Form.Label>
-              <Form.Control
-                name="city"
-                type="text"
-                placeholder="San Francisco"
-                required
-                onChange={(e) => setCity(e.target.value)}
-              />
-              <Form.Label>State/Province</Form.Label>
-              <Form.Control
-                name="state/province"
-                type="text"
-                placeholder="California / British Columbia"
-                required
-                onChange={(e) => setProvince(e.target.value)}
-              />
-              <Form.Label>Zip/Postal</Form.Label>
-              <Form.Control
-                name="zip/postal"
-                type="text"
-                placeholder="94103/V5X 2C6"
-                required
-                onChange={(e) => setPostal(e.target.value)}
-              />
-              <Button
-                type="button"
-                className="btn-block"
-                onClick={() => testData()}
-              >
-                Submit
-              </Button>
-
+            <Card>
               <Form.Group>
+                <Card.Title className="ship">Shipping:${rate}</Card.Title>
                 <Form.Label>Card Details</Form.Label>
 
                 <CardElement
@@ -207,7 +178,7 @@ const PaymentsDetail = ({}) => {
               </Form.Group>
             </Card>
           </motion.div>
-        </>
+        )
       )}
     </>
   );
