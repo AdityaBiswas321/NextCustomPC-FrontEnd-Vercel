@@ -36,36 +36,48 @@ const PaymentsDetail = ({}) => {
   let cityValue;
   let provinceValue;
 
+  //value is null until api is called
   if (value !== null) {
     console.log(value);
+    //return object that shows the address nicely
     let address = value.value.structured_formatting.main_text;
 
     // let cityValue = value.value.terms[1].value;
     // let provinceValue = value.value.terms[2].value;
+
+    //id necessary for use with geocode to get postalcode/zipcode
     let placeID = value.value.place_id;
 
     console.log("City Value");
     console.log(cityValue);
     console.log(provinceValue);
+
+    //key label is responsible for the input values of auto complete component
     value["label"] = address;
 
-    //Get postal code/ zipcode
+    //Get postal code/ zipcode, needs to be asyncronous
     const postal = async () => {
       let place = await geocodeByPlaceId(placeID);
       console.log("PLACE");
       console.log(place);
 
+      //filter geocode types for postalcode
       let types =
         place[0].address_components.find((c) =>
           c.types.includes("postal_code")
         ) || {};
       let postalCode = types.long_name;
 
+      //cities are mostly in types "locality", but not always
       let cityName =
         place[0].address_components.find((c) => c.types.includes("locality")) ||
         {};
       let cityValue = cityName.long_name;
 
+      //states and provinces are not indexed properly, fluctuates between level1 and level 2 for states
+      //Canadian provinces are mostly if not all under level 1
+      //Some US states under level 2
+      //well discussed design flaw of geocode
       let provinceName =
         place[0].address_components.find((c) =>
           c.types.includes("administrative_area_level_1")
@@ -125,15 +137,15 @@ const PaymentsDetail = ({}) => {
 
   const testData = async () => {
     console.log(user_data);
-    const { data } = await axios.post(`${API_URL}/api/ship`, user_data);
-    const rate = data.rates[0].amount_local;
-    console.log("rate");
-    console.log(rate);
-    setRate(rate);
+    // const { data } = await axios.post(`${API_URL}/api/ship`, user_data);
+    // const rate = data.rates[0].amount_local;
+    // console.log("rate");
+    // console.log(rate);
+    // setRate(rate);
     setStep(false);
     setStep2(true);
-    console.log("FROM SERVER");
-    console.log(data);
+    // console.log("FROM SERVER");
+    // console.log(data);
     return rate;
   };
 
