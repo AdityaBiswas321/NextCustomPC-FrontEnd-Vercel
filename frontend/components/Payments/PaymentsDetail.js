@@ -108,12 +108,34 @@ const PaymentsDetail = ({}) => {
             onChange={(e) => setEmail(e.target.value)}
           />
           <Form.Label>Address</Form.Label>
-          <Form.Control
-            name="address"
-            type="text"
-            placeholder="185 Berry St. Suite 550"
-            required
-            onChange={(e) => setAddress(e.target.value)}
+          <GooglePlacesAutocomplete
+            apiKey="AIzaSyDKfd2R00uZLdD5IJkoGxJo8VxQoIeWxdE"
+            selectProps={{
+              placeholder: "hello",
+              value,
+              onChange: setValue,
+              styles: {
+                dropdownIndicator: (provided) => ({
+                  ...provided,
+                  display: "none",
+                }),
+                control: (provided) => ({
+                  ...provided,
+                  borderRadius: "0px",
+                }),
+                indicatorSeparator: (provided) => ({
+                  ...provided,
+                  display: "none",
+                }),
+                valueContainer: (provided) => ({
+                  ...provided,
+                  padding: "8px 24px",
+                }),
+                placeholder: (provided) => ({
+                  ...provided,
+                }),
+              },
+            }}
           />
           <Form.Label>City</Form.Label>
           <Form.Control
@@ -138,32 +160,6 @@ const PaymentsDetail = ({}) => {
             placeholder="94103/V5X 2C6"
             required
             onChange={(e) => setPostal(e.target.value)}
-          />
-
-          <GooglePlacesAutocomplete
-            apiKey="AIzaSyDKfd2R00uZLdD5IJkoGxJo8VxQoIeWxdE"
-            selectProps={{
-              value,
-              onChange: setValue,
-              styles: {
-                dropdownIndicator: (provided) => ({
-                  ...provided,
-                  display: "none",
-                }),
-                control: (provided) => ({
-                  ...provided,
-                  borderRadius: "0px",
-                }),
-                indicatorSeparator: (provided) => ({
-                  ...provided,
-                  display: "none",
-                }),
-                singleValue: (provided) => ({
-                  ...provided,
-                  color: "blue",
-                }),
-              },
-            }}
           />
 
           <Button
