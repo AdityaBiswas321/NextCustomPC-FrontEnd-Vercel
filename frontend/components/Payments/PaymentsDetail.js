@@ -6,23 +6,16 @@ import { useInView } from "react-intersection-observer";
 import axios from "axios";
 import { API_URL } from "../../config/index.js";
 import useQualifyData from "../Qualify/useQualifyData";
-import GooglePlacesAutocomplete from "react-google-places-autocomplete";
+import GooglePlacesAutocomplete, {
+  geocodeByPlaceId,
+} from "react-google-places-autocomplete";
 
 const PaymentsDetail = ({}) => {
   // build ternary operator chain here
 
   const controls = useAnimation();
 
-  const [value, setValue] = useState("");
-
-  let value2;
-
-  if (value) {
-    let alpha = value.value.terms[0].value;
-    let delta = value.value.terms[1].value;
-    // value["label"] = alpha + " " + delta;
-    console.log(value);
-  }
+  const [value, setValue] = useState(null);
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -38,6 +31,45 @@ const PaymentsDetail = ({}) => {
   const [ship, setShip] = useState("");
   const [step2, setStep2] = useState(false);
   const [step3, setStep3] = useState(false);
+
+  let postalCode;
+  let cityValue;
+  let provinceValue;
+
+  if (value !== null) {
+    console.log(value);
+    let address = value.value.terms[0].value;
+
+    let cityValue = value.value.terms[1].value;
+    let provinceValue = value.value.terms[2].value;
+    let placeID = value.value.place_id;
+
+    console.log("City Value");
+    console.log(cityValue);
+    console.log(provinceValue);
+    value["label"] = address;
+
+    //Get postal code/ zipcode
+    const postal = async () => {
+      let place = await geocodeByPlaceId(placeID);
+      console.log("PLACE");
+      console.log(place);
+      let types =
+        place[0].address_components.find((c) =>
+          c.types.includes("postal_code")
+        ) || {};
+      let postalCode = types.long_name;
+      setCity(cityValue);
+      setProvince(provinceValue);
+      setPostal(postalCode);
+
+      console.log(postalCode);
+      console.log("FUNCTION CITY");
+      console.log(city);
+      console.log(province);
+    };
+    postal();
+  }
 
   const boxVariants = {
     hidden: { x: 200, opacity: 0 },
@@ -92,10 +124,8 @@ const PaymentsDetail = ({}) => {
     return rate;
   };
 
-  useEffect(() => {
-    setCity(value.value.terms[2].value);
-    setProvince(value.value.terms[3].value);
-  }, [value]);
+  //change on posta
+  useEffect(() => {}, [postalCode]);
 
   return (
     <>
@@ -123,9 +153,14 @@ const PaymentsDetail = ({}) => {
           <Form.Label>Address</Form.Label>
           <GooglePlacesAutocomplete
             apiKey="AIzaSyDKfd2R00uZLdD5IJkoGxJo8VxQoIeWxdE"
+            autocompletionRequest={{
+              componentRestrictions: {
+                country: ["us", "ca"],
+              },
+            }}
             selectProps={{
               placeholder: "185 Berry St. Suite 550",
-              value2,
+              value,
               onChange: setValue,
               styles: {
                 dropdownIndicator: (provided) => ({
@@ -164,6 +199,7 @@ const PaymentsDetail = ({}) => {
             type="text"
             placeholder="San Francisco"
             required
+            value={city}
             onChange={(e) => setCity(e.target.value)}
           />
           <Form.Label>State/Province</Form.Label>
@@ -172,6 +208,7 @@ const PaymentsDetail = ({}) => {
             type="text"
             placeholder="California / British Columbia"
             required
+            Value={province}
             onChange={(e) => setProvince(e.target.value)}
           />
           <Form.Label>Zip/Postal</Form.Label>
@@ -180,6 +217,7 @@ const PaymentsDetail = ({}) => {
             type="text"
             placeholder="94103/V5X 2C6"
             required
+            value={postal}
             onChange={(e) => setPostal(e.target.value)}
           />
 
