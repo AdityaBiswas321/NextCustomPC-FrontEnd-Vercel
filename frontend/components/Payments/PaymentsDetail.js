@@ -150,9 +150,9 @@ const PaymentsDetail = ({}) => {
                   ...provided,
                   display: "none",
                 }),
-                option: (provided) => ({
+                control: (provided) => ({
                   ...provided,
-                  color: "blue",
+                  borderRadius: "0px",
                 }),
                 singleValue: (provided) => ({
                   ...provided,
