@@ -148,7 +148,15 @@ const PaymentsDetail = ({}) => {
               styles: {
                 dropdownIndicator: (provided) => ({
                   ...provided,
-                  isDisabled: true,
+                  display: "none",
+                }),
+                option: (provided) => ({
+                  ...provided,
+                  color: "blue",
+                }),
+                singleValue: (provided) => ({
+                  ...provided,
+                  color: "blue",
                 }),
               },
             }}

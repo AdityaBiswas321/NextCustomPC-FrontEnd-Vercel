@@ -61,3 +61,7 @@ a {
 .ship {
   margin-top: 20px;
 }
+
+.css-tlfecz-indicatorContainer {
+  display: none;
+}
