@@ -13,8 +13,16 @@ const PaymentsDetail = ({}) => {
 
   const controls = useAnimation();
 
-  const [value, setValue] = useState(null);
-  console.log(value);
+  const [value, setValue] = useState("");
+
+  let value2;
+
+  if (value) {
+    let alpha = value.value.terms[0].value;
+    let delta = value.value.terms[1].value;
+    // value["label"] = alpha + " " + delta;
+    console.log(value);
+  }
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -84,6 +92,11 @@ const PaymentsDetail = ({}) => {
     return rate;
   };
 
+  useEffect(() => {
+    setCity(value.value.terms[2].value);
+    setProvince(value.value.terms[3].value);
+  }, [value]);
+
   return (
     <>
       {step1 ? (
@@ -112,7 +125,7 @@ const PaymentsDetail = ({}) => {
             apiKey="AIzaSyDKfd2R00uZLdD5IJkoGxJo8VxQoIeWxdE"
             selectProps={{
               placeholder: "185 Berry St. Suite 550",
-              value,
+              value2,
               onChange: setValue,
               styles: {
                 dropdownIndicator: (provided) => ({
@@ -137,6 +150,10 @@ const PaymentsDetail = ({}) => {
                   ...provided,
                   marginLeft: "0",
                   marginRight: "0",
+                }),
+                singleValue: (provided) => ({
+                  ...provided,
+                  color: "#55595C",
                 }),
               },
             }}
