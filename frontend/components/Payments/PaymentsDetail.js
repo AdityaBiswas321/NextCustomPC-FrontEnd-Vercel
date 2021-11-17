@@ -68,7 +68,7 @@ const PaymentsDetail = ({}) => {
 
       let provinceName =
         place[0].address_components.find((c) =>
-          c.types.includes("administrative_area_level_2")
+          c.types.includes("administrative_area_level_1")
         ) || {};
       let provinceValue = provinceName.long_name;
 
