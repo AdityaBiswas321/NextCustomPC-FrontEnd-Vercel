@@ -6,11 +6,15 @@ import { useInView } from "react-intersection-observer";
 import axios from "axios";
 import { API_URL } from "../../config/index.js";
 import useQualifyData from "../Qualify/useQualifyData";
+import GooglePlacesAutocomplete from "react-google-places-autocomplete";
 
 const PaymentsDetail = ({}) => {
   // build ternary operator chain here
 
   const controls = useAnimation();
+
+  const [value, setValue] = useState(null);
+  console.log(value);
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -135,6 +139,21 @@ const PaymentsDetail = ({}) => {
             required
             onChange={(e) => setPostal(e.target.value)}
           />
+
+          <GooglePlacesAutocomplete
+            apiKey="AIzaSyDKfd2R00uZLdD5IJkoGxJo8VxQoIeWxdE"
+            selectProps={{
+              value,
+              onChange: setValue,
+              styles: {
+                dropdownIndicator: (provided) => ({
+                  ...provided,
+                  isDisabled: true,
+                }),
+              },
+            }}
+          />
+
           <Button
             type="button"
             className="btn-block"
@@ -151,7 +170,7 @@ const PaymentsDetail = ({}) => {
             animate={step2 && "animate"}
             variants={boxVariants}
           >
-            <Card>
+            <Card className="thumb">
               <Form.Group>
                 <Card.Title className="ship">Shipping:${rate}</Card.Title>
                 <Form.Label>Card Details</Form.Label>
