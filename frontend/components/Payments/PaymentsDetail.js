@@ -111,7 +111,7 @@ const PaymentsDetail = ({}) => {
           <GooglePlacesAutocomplete
             apiKey="AIzaSyDKfd2R00uZLdD5IJkoGxJo8VxQoIeWxdE"
             selectProps={{
-              placeholder: "hello",
+              placeholder: "185 Berry St. Suite 550",
               value,
               onChange: setValue,
               styles: {
@@ -122,6 +122,8 @@ const PaymentsDetail = ({}) => {
                 control: (provided) => ({
                   ...provided,
                   borderRadius: "0px",
+                  backgroundColor: "#F7F7F9",
+                  borderStyle: "none",
                 }),
                 indicatorSeparator: (provided) => ({
                   ...provided,
@@ -133,6 +135,8 @@ const PaymentsDetail = ({}) => {
                 }),
                 placeholder: (provided) => ({
                   ...provided,
+                  marginLeft: "0",
+                  marginRight: "0",
                 }),
               },
             }}
