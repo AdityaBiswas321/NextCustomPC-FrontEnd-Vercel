@@ -38,10 +38,10 @@ const PaymentsDetail = ({}) => {
 
   if (value !== null) {
     console.log(value);
-    let address = value.value.terms[0].value;
+    let address = value.value.structured_formatting.main_text;
 
-    let cityValue = value.value.terms[1].value;
-    let provinceValue = value.value.terms[2].value;
+    // let cityValue = value.value.terms[1].value;
+    // let provinceValue = value.value.terms[2].value;
     let placeID = value.value.place_id;
 
     console.log("City Value");
@@ -54,11 +54,24 @@ const PaymentsDetail = ({}) => {
       let place = await geocodeByPlaceId(placeID);
       console.log("PLACE");
       console.log(place);
+
       let types =
         place[0].address_components.find((c) =>
           c.types.includes("postal_code")
         ) || {};
       let postalCode = types.long_name;
+
+      let cityName =
+        place[0].address_components.find((c) => c.types.includes("locality")) ||
+        {};
+      let cityValue = cityName.long_name;
+
+      let provinceName =
+        place[0].address_components.find((c) =>
+          c.types.includes("administrative_area_level_2")
+        ) || {};
+      let provinceValue = provinceName.long_name;
+
       setCity(cityValue);
       setProvince(provinceValue);
       setPostal(postalCode);
@@ -208,7 +221,7 @@ const PaymentsDetail = ({}) => {
             type="text"
             placeholder="California / British Columbia"
             required
-            Value={province}
+            value={province}
             onChange={(e) => setProvince(e.target.value)}
           />
           <Form.Label>Zip/Postal</Form.Label>
