@@ -154,6 +154,10 @@ const PaymentsDetail = ({}) => {
                   ...provided,
                   borderRadius: "0px",
                 }),
+                indicatorSeparator: (provided) => ({
+                  ...provided,
+                  display: "none",
+                }),
                 singleValue: (provided) => ({
                   ...provided,
                   color: "blue",
