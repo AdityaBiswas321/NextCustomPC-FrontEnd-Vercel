@@ -137,15 +137,15 @@ const PaymentsDetail = ({}) => {
 
   const testData = async () => {
     console.log(user_data);
-    // const { data } = await axios.post(`${API_URL}/api/ship`, user_data);
-    // const rate = data.rates[0].amount_local;
-    // console.log("rate");
-    // console.log(rate);
-    // setRate(rate);
+    const { data } = await axios.post(`${API_URL}/api/ship`, user_data);
+    const rate = data.rates[0].amount_local;
+    console.log("rate");
+    console.log(rate);
+    setRate(rate);
     setStep(false);
     setStep2(true);
-    // console.log("FROM SERVER");
-    // console.log(data);
+    console.log("FROM SERVER");
+    console.log(data);
     return rate;
   };
 
