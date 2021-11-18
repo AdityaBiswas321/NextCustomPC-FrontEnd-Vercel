@@ -17,6 +17,9 @@ const PaymentsDetail = ({}) => {
 
   const [value, setValue] = useState(null);
 
+  const [cityText, setCityText] = useState("");
+  const [ProvinceText, setProvinceText] = useState("");
+
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [address, setAddress] = useState("");
@@ -37,26 +40,28 @@ const PaymentsDetail = ({}) => {
   let provinceValue;
 
   //value is null until api is called
-  if (value !== null) {
-    console.log(value);
-    //return object that shows the address nicely
-    let address = value.value.structured_formatting.main_text;
 
-    // let cityValue = value.value.terms[1].value;
-    // let provinceValue = value.value.terms[2].value;
+  const addressAutoComplete = async () => {
+    if (value !== null) {
+      console.log(value);
+      //return object that shows the address nicely
+      let address = value.value.structured_formatting.main_text;
 
-    //id necessary for use with geocode to get postalcode/zipcode
-    let placeID = value.value.place_id;
+      // let cityValue = value.value.terms[1].value;
+      // let provinceValue = value.value.terms[2].value;
 
-    console.log("City Value");
-    console.log(cityValue);
-    console.log(provinceValue);
+      //id necessary for use with geocode to get postalcode/zipcode
+      let placeID = value.value.place_id;
 
-    //key label is responsible for the input values of auto complete component
-    value["label"] = address;
+      console.log("City Value");
+      console.log(cityValue);
+      console.log(provinceValue);
 
-    //Get postal code/ zipcode, needs to be asyncronous
-    const postal = async () => {
+      //key label is responsible for the input values of auto complete component
+      value["label"] = address;
+
+      //Get postal code/ zipcode, needs to be asyncronous
+
       let place = await geocodeByPlaceId(placeID);
       console.log("PLACE");
       console.log(place);
@@ -92,9 +97,8 @@ const PaymentsDetail = ({}) => {
       console.log("FUNCTION CITY");
       console.log(city);
       console.log(province);
-    };
-    postal();
-  }
+    }
+  };
 
   const boxVariants = {
     hidden: { x: 200, opacity: 0 },
@@ -137,20 +141,24 @@ const PaymentsDetail = ({}) => {
 
   const testData = async () => {
     console.log(user_data);
+    setStep(false);
+    setStep2(true);
     const { data } = await axios.post(`${API_URL}/api/ship`, user_data);
     const rate = data.rates[0].amount_local;
     console.log("rate");
     console.log(rate);
     setRate(rate);
-    setStep(false);
-    setStep2(true);
+
     console.log("FROM SERVER");
     console.log(data);
     return rate;
   };
 
+  useEffect(() => {
+    addressAutoComplete();
+  }, [value]);
+
   //change on posta
-  useEffect(() => {}, [postalCode]);
 
   return (
     <>
