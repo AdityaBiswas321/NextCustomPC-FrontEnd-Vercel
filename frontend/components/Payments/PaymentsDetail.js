@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { Card, Form, Button } from "react-bootstrap";
+import { connect } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
@@ -9,9 +11,28 @@ import useQualifyData from "../Qualify/useQualifyData";
 import GooglePlacesAutocomplete, {
   geocodeByPlaceId,
 } from "react-google-places-autocomplete";
+import { validate } from "../../actions/validationActions";
+import { shipping } from "../../actions/shippingActions";
+import Loader from "../Loader";
 
-const PaymentsDetail = ({}) => {
+const PaymentsDetail = (props) => {
   // build ternary operator chain here
+
+  const dispatch = useDispatch();
+  const shippingData = props.shippingData;
+  const { data, loading } = shippingData;
+
+  const getRates = () => {
+    if (data) {
+      setRate(data.rates[0].amount_local);
+    }
+  };
+  // const rate = data.rates[0].amount_local;
+
+  console.log("DATA CONNECT");
+  console.log(shippingData);
+  console.log("data");
+  console.log(data);
 
   const controls = useAnimation();
 
@@ -137,51 +158,39 @@ const PaymentsDetail = ({}) => {
     user_country: country,
   };
 
-  const areaSwitch = async () => {
-    setStep(false);
-    setStep2(true);
-    // const { data } = await axios.post(`${API_URL}/api/ship`);
-  };
-  const shipSwitch = async () => {
-    setStep2(false);
-    setStep3(true);
-    // const { data } = await axios.post(`${API_URL}/api/ship`);
-  };
-
   const testData = async () => {
     console.log(user_data);
     setStep(false);
     setStep2(true);
-    const { data } = await axios.post(`${API_URL}/api/ship`, user_data);
 
+    dispatch(shipping(user_data));
+    // dispatch(validate(id));
     //req needs to be object
-    const validation = {
-      validate: data.address_to.object_id,
-    };
+    // const validation = {
+    //   validate: data.address_to.object_id,
+    // };
 
-    console.log("validate");
-    console.log(validation);
+    // console.log("validate");
+    // console.log(validation);
 
-    const { data: dataValidate } = await axios.post(
-      `${API_URL}/api/ship/validate`,
-      validation
-    );
-    const rate = data.rates[0].amount_local;
+    // console.log("rate");
+    // console.log(rate);
 
-    console.log("rate");
-    console.log(rate);
-    console.log("VALIDATE");
-    console.log(dataValidate);
+    // console.log("VALIDATE");
+    // console.log(dataValidate);
     setRate(rate);
 
-    console.log("FROM SERVER");
-    console.log(data);
-    return rate;
+    // console.log("FROM SERVER");
+    // console.log(data);
+    // return rate;
   };
 
   useEffect(() => {
     addressAutoComplete();
   }, [value]);
+  useEffect(() => {
+    getRates();
+  }, [data]);
 
   //change on posta
 
@@ -287,6 +296,8 @@ const PaymentsDetail = ({}) => {
             Submit
           </Button>
         </Card>
+      ) : loading ? (
+        <Loader />
       ) : (
         step2 && (
           <motion.div
@@ -328,4 +339,6 @@ const PaymentsDetail = ({}) => {
   );
 };
 
-export default PaymentsDetail;
+const mapStateToProps = (state) => ({ shippingData: state.shipping });
+
+export default connect(mapStateToProps)(PaymentsDetail);

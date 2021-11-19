@@ -3,6 +3,8 @@ import thunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
 import { createWrapper, Context, HYDRATE } from "next-redux-wrapper";
 import { computerLeadsReducer } from "./reducers/computerReducers";
+import { shippingReducer } from "./reducers/shippingReducers";
+import { validationReducer } from "./reducers/validationReducers";
 import { qualifyReducers } from "./reducers/qualifyReducers";
 import { paymentsReducer } from "./reducers/paymentsReducers";
 import { productReducers } from "./reducers/productReducers";
@@ -10,6 +12,8 @@ import ProductOneReducer from "./ProductData/ProductOne";
 
 const reducer = combineReducers({
   computerLeads: computerLeadsReducer,
+  shipping: shippingReducer,
+  validation: validationReducer,
   qualify: qualifyReducers,
   payments: paymentsReducer,
   product: productReducers,
