@@ -118,10 +118,10 @@ const Qualify = () => {
                       Identifying the usage determines the types of parts
                       requied.
                       <br></br>
-                      For example, most work related computers do not require an
-                      additional graphics card, however a gaming computer will
-                      most likely need a graphic card to function. <br></br>Both
-                      of which affect price and effectiveness of your machine!
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                      sed do eiusmod tempor incididunt ut labore et dolore magna
+                      aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                      ullamco laboris <br></br>
                     </text>
                   </Col>
                 </Row>
@@ -170,14 +170,12 @@ const Qualify = () => {
                 <Row style={{ textAlign: "center" }}>
                   <Col className="text-center py-2">
                     <text>
-                      Tab usage determines the amount and type of RAM is
-                      required.
-                      <br></br>
-                      This can be more complex to determine however, someone who
-                      uses 24 tabs and multiple application will require more
-                      RAM
-                      <br></br>to be efficient than someone who operates in a
-                      minimalistic fashion with their machine.
+                      Sed ut perspiciatis unde omnis iste natus error sit
+                      voluptatem accusantium doloremque laudantium, totam rem
+                      aperiam, eaque ipsa quae ab illo inventore veritatis et
+                      quasi architecto beatae vitae dicta sunt explicabo. Nemo
+                      enim ipsam voluptatem quia voluptas sit aspernatur aut
+                      odit aut fugit, sed quia
                     </text>
                   </Col>
                 </Row>
@@ -226,11 +224,14 @@ const Qualify = () => {
                 <Row style={{ textAlign: "center" }}>
                   <Col className="text-center py-2">
                     <text>
-                      Application usage determines the type of cpu required,
-                      which affects how efficient the machine runs. <br></br>For
-                      example, an Executive Assistant would require multiple
-                      application running during an online board meeting
-                      presentation than a video producer.
+                      magni dolores eos qui ratione voluptatem sequi nesciunt.
+                      Neque porro quisquam est, qui dolorem ipsum quia dolor sit
+                      amet, consectetur, adipisci velit, sed quia non numquam
+                      eius modi tempora incidunt ut labore et dolore magnam
+                      aliquam quaerat voluptatem. Ut enim ad minima veniam, quis
+                      nostrum exercitationem ullam corporis suscipit laboriosam,
+                      nisi ut aliquid ex ea commodi consequatur? Quis autem vel
+                      eum iure
                     </text>
                   </Col>
                 </Row>
