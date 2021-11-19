@@ -25,6 +25,7 @@ const PaymentsDetail = ({}) => {
   const [address, setAddress] = useState("");
   const [city, setCity] = useState("");
   const [province, setProvince] = useState("");
+  const [country, setCountry] = useState("");
   const [phone, setPhone] = useState("");
   const [postal, setPostal] = useState("");
   const [rate, setRate] = useState("");
@@ -45,7 +46,7 @@ const PaymentsDetail = ({}) => {
     if (value !== null) {
       console.log(value);
       //return object that shows the address nicely
-      let address = value.value.structured_formatting.main_text;
+      let addressText = value.value.structured_formatting.main_text;
 
       // let cityValue = value.value.terms[1].value;
       // let provinceValue = value.value.terms[2].value;
@@ -58,7 +59,7 @@ const PaymentsDetail = ({}) => {
       console.log(provinceValue);
 
       //key label is responsible for the input values of auto complete component
-      value["label"] = address;
+      value["label"] = addressText;
 
       //Get postal code/ zipcode, needs to be asyncronous
 
@@ -89,9 +90,16 @@ const PaymentsDetail = ({}) => {
         ) || {};
       let provinceValue = provinceName.long_name;
 
+      let countryName =
+        place[0].address_components.find((c) => c.types.includes("country")) ||
+        {};
+      let countryValue = countryName.short_name;
+
+      setAddress(addressText);
       setCity(cityValue);
       setProvince(provinceValue);
       setPostal(postalCode);
+      setCountry(countryValue);
 
       console.log(postalCode);
       console.log("FUNCTION CITY");
@@ -126,6 +134,7 @@ const PaymentsDetail = ({}) => {
     user_city: city,
     user_province: province,
     user_email: email,
+    user_country: country,
   };
 
   const areaSwitch = async () => {
@@ -144,9 +153,25 @@ const PaymentsDetail = ({}) => {
     setStep(false);
     setStep2(true);
     const { data } = await axios.post(`${API_URL}/api/ship`, user_data);
+
+    //req needs to be object
+    const validation = {
+      validate: data.address_to.object_id,
+    };
+
+    console.log("validate");
+    console.log(validation);
+
+    const { data: dataValidate } = await axios.post(
+      `${API_URL}/api/ship/validate`,
+      validation
+    );
     const rate = data.rates[0].amount_local;
+
     console.log("rate");
     console.log(rate);
+    console.log("VALIDATE");
+    console.log(dataValidate);
     setRate(rate);
 
     console.log("FROM SERVER");
