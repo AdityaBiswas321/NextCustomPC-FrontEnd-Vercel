@@ -247,9 +247,13 @@ const PaymentsDetail = (props) => {
     <>
       <>
         {validity === false || error ? (
-          <Message variant="danger">Incorrect Address</Message>
+          <Message variant="danger" className="thumb">
+            Incorrect Address
+          </Message>
         ) : (
-          validity === true && <Message>Address Validated & Servicable</Message>
+          validity === true && (
+            <Message className="thumb">Address Validated & Servicable</Message>
+          )
         )}
       </>
       {step1 ? (
