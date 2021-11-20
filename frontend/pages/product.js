@@ -10,7 +10,6 @@ const product = () => {
 
   // const productTest = useSelector((state) => state.productOne);
   console.log(productData);
-  console.log("HELLO");
 
   //quasi neural network sorting algorithm
 
@@ -50,7 +49,7 @@ const product = () => {
           Des7={test4[len].Des7}
         />
       ) : (
-        <p>HELLO</p>
+        <p>algorithm still in development, click top left</p>
       )}
     </>
   );

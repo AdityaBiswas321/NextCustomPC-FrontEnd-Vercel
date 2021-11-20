@@ -1,4 +1,5 @@
 export const productData = [
+  // budget 500, 1200, 3000
   {
     id: 1,
     Img: "https://secondbucketforcustompc.s3.us-east-2.amazonaws.com/TestPC1.jpg",
@@ -59,7 +60,7 @@ export const productData = [
   },
   {
     id: 4,
-    Img: "https://secondbucketforcustompc.s3.us-east-2.amazonaws.com/TestPC1.jpg",
+    Img: "https://secondbucketforcustompc.s3.us-east-2.amazonaws.com/TestPC2.jpg",
     Des: "TEST DATA4",
     Des2: "Designed for light application usage, Curated for maximum performance and economic modality",
     Img2: "https://secondbucketforcustompc.s3.us-east-2.amazonaws.com/SSD.jpg",
@@ -72,13 +73,13 @@ export const productData = [
     Img5: "https://secondbucketforcustompc.s3.us-east-2.amazonaws.com/Ram2.1.jpg",
     Des7: "16GB RAM DDR4 Vengeance, enjoy strong performance while running multiple tasks",
     type: "Home Office",
-    tab: 1,
-    app: 2,
+    tab: 3,
+    app: 3,
     budget: 1200,
   },
   {
     id: 5,
-    Img: "https://secondbucketforcustompc.s3.us-east-2.amazonaws.com/TestPC1.jpg",
+    Img: "https://secondbucketforcustompc.s3.us-east-2.amazonaws.com/TestPC2.jpg",
     Des: "TEST DATA5",
     Des2: "Designed for light application usage, Curated for maximum performance and economic modality",
     Img2: "https://secondbucketforcustompc.s3.us-east-2.amazonaws.com/SSD.jpg",
@@ -93,6 +94,25 @@ export const productData = [
     type: "Content Creation",
     tab: 3,
     app: 3,
-    budget: 3000,
+    budget: 500,
+  },
+  {
+    id: 6,
+    Img: "https://secondbucketforcustompc.s3.us-east-2.amazonaws.com/TestPC2.jpg",
+    Des: "TEST DATA6",
+    Des2: "Designed for light application usage, Curated for maximum performance and economic modality",
+    Img2: "https://secondbucketforcustompc.s3.us-east-2.amazonaws.com/SSD.jpg",
+    Des3: "Colossal Storage",
+    Des4: "enjoy seamless transitions between application, effortless browsing and increased productivity with our latest ssd",
+    Img3: "https://secondbucketforcustompc.s3.us-east-2.amazonaws.com/i57500.jpg",
+    Des5: "NPX computers features the robust Processors from Intel, the i5-7500",
+    Img4: "https://secondbucketforcustompc.s3.us-east-2.amazonaws.com/GTX1060.jpg",
+    Des6: "Enjoy mega smooth, stutter free, tear free gaming with9 NVIDIA GTX 1060",
+    Img5: "https://secondbucketforcustompc.s3.us-east-2.amazonaws.com/Ram2.1.jpg",
+    Des7: "16GB RAM DDR4 Vengeance, enjoy strong performance while running multiple tasks",
+    type: "Gaming",
+    tab: 3,
+    app: 3,
+    budget: 500,
   },
 ];
