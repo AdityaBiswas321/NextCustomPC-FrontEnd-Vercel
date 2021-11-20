@@ -13,7 +13,8 @@ import GooglePlacesAutocomplete, {
 } from "react-google-places-autocomplete";
 import { validate } from "../../actions/validationActions";
 import { shipping } from "../../actions/shippingActions";
-import Loader from "../Loader";
+import LoaderShipping from "../Loaders/LoaderShipping";
+import LoaderValidation from "../Loaders/LoaderValidation";
 
 const PaymentsDetail = (props) => {
   // build ternary operator chain here
@@ -22,17 +23,29 @@ const PaymentsDetail = (props) => {
   const shippingData = props.shippingData;
   const { data, loading } = shippingData;
 
+  const validateData = props.validateData;
+  const { data: dataValidate, loading: loadingValidate } = validateData;
+
   const getRates = () => {
     if (data) {
       setRate(data.rates[0].amount_local);
+      console.log("OBJECT ID");
+      console.log(data.object_id);
+      dispatch(validate({ validate: data.object_id }));
     }
   };
   // const rate = data.rates[0].amount_local;
 
-  console.log("DATA CONNECT");
+  console.log("DATA CONNECT SHIP");
   console.log(shippingData);
   console.log("data");
   console.log(data);
+
+  console.log("DATA CONNECT VALIDATE");
+  console.log(validateData);
+  console.log("Data Validate");
+  console.log(dataValidate);
+  console.log(loadingValidate);
 
   const controls = useAnimation();
 
@@ -164,7 +177,7 @@ const PaymentsDetail = (props) => {
     setStep2(true);
 
     dispatch(shipping(user_data));
-    // dispatch(validate(id));
+
     //req needs to be object
     // const validation = {
     //   validate: data.address_to.object_id,
@@ -297,7 +310,9 @@ const PaymentsDetail = (props) => {
           </Button>
         </Card>
       ) : loading ? (
-        <Loader />
+        <LoaderShipping />
+      ) : loadingValidate ? (
+        <LoaderValidation />
       ) : (
         step2 && (
           <motion.div
@@ -339,6 +354,9 @@ const PaymentsDetail = (props) => {
   );
 };
 
-const mapStateToProps = (state) => ({ shippingData: state.shipping });
+const mapStateToProps = (state) => ({
+  shippingData: state.shipping,
+  validateData: state.validation,
+});
 
 export default connect(mapStateToProps)(PaymentsDetail);

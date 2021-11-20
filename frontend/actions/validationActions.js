@@ -11,6 +11,7 @@ export const validate = (id) => async (dispatch) => {
   try {
     dispatch({ type: VALIDATION_REQUEST });
     const { data } = await axios.post(`${API_URL}/api/ship/validate`, id);
+    console.log("redux validation data");
     console.log(data);
     dispatch({ type: VALIDATION_SUCCESS, payload: data });
   } catch (error) {
