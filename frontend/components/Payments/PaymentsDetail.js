@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Card, Form, Button } from "react-bootstrap";
+import { Card, Form, Button, Alert } from "react-bootstrap";
 import { connect } from "react-redux";
 import { useSelector, useDispatch } from "react-redux";
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
@@ -15,13 +15,17 @@ import { validate } from "../../actions/validationActions";
 import { shipping } from "../../actions/shippingActions";
 import LoaderShipping from "../Loaders/LoaderShipping";
 import LoaderValidation from "../Loaders/LoaderValidation";
+import { VALIDATION_RESET } from "../../constants/validationConstants.js";
+import Message from "../Message/Message.js";
+import { SHIPPING_RESET } from "../../constants/shippingConstants.js";
 
 const PaymentsDetail = (props) => {
   // build ternary operator chain here
 
   const dispatch = useDispatch();
   const shippingData = props.shippingData;
-  const { data, loading } = shippingData;
+  //if completly messed up address fields are inputted, only the error here will catch it
+  const { data, loading, error } = shippingData;
 
   const validateData = props.validateData;
   const { data: dataValidate, loading: loadingValidate } = validateData;
@@ -31,7 +35,19 @@ const PaymentsDetail = (props) => {
       setRate(data.rates[0].amount_local);
       console.log("OBJECT ID");
       console.log(data.object_id);
-      dispatch(validate({ validate: data.object_id }));
+
+      dispatch(validate({ validate: data.address_to.object_id }));
+    }
+  };
+
+  const getValidation = () => {
+    if (dataValidate) {
+      const validity = dataValidate.validation_results.is_valid;
+      setValid(validity);
+      console.log("VALIDITY");
+      console.log(validity);
+    } else {
+      setValid(null);
     }
   };
   // const rate = data.rates[0].amount_local;
@@ -63,6 +79,7 @@ const PaymentsDetail = (props) => {
   const [phone, setPhone] = useState("");
   const [postal, setPostal] = useState("");
   const [rate, setRate] = useState("");
+  const [validity, setValid] = useState(null);
 
   const [area, setArea] = useState("");
   const [step1, setStep] = useState(true);
@@ -160,21 +177,30 @@ const PaymentsDetail = (props) => {
     },
   };
 
-  let user_data = {
-    user_name: name,
-    user_phone: phone,
-    user_postal: postal,
-    user_address: address,
-    user_city: city,
-    user_province: province,
-    user_email: email,
-    user_country: country,
+  const validFalse = () => {
+    if (validity === false || error) {
+      setStep(true);
+      setStep2(false);
+      console.log("VALID FALSE TRIGGER");
+    }
   };
 
   const testData = async () => {
-    console.log(user_data);
     setStep(false);
     setStep2(true);
+
+    let user_data = {
+      user_name: name,
+      user_phone: phone,
+      user_postal: postal,
+      user_address: address,
+      user_city: city,
+      user_province: province,
+      user_email: email,
+      user_country: country,
+    };
+    console.log("USER DATA");
+    console.log(user_data);
 
     dispatch(shipping(user_data));
 
@@ -200,21 +226,40 @@ const PaymentsDetail = (props) => {
 
   useEffect(() => {
     addressAutoComplete();
+    dispatch({ type: VALIDATION_RESET });
   }, [value]);
   useEffect(() => {
     getRates();
+    //GET RID OF THIS ALLOW ALLOW SHIPPING DATA PRESISTENCE, [pass shipping data into forms]-> or save stepstate to redux
+    dispatch({ type: SHIPPING_RESET });
   }, [data]);
+  useEffect(() => {
+    getValidation();
+  }, [dataValidate]);
+  useEffect(() => {
+    validFalse();
+  }, [validity, error]);
+  useEffect(() => {});
 
   //change on posta
 
   return (
     <>
+      <>
+        {validity === false || error ? (
+          <Message variant="danger">Incorrect Address</Message>
+        ) : (
+          validity === true && <Message>Address Validated & Servicable</Message>
+        )}
+      </>
       {step1 ? (
         <Card className="thumb">
           <Card.Title className="text-center ship">
             <u>CALCULATE SHIPPING</u>
           </Card.Title>
+
           <Form.Label>Name</Form.Label>
+
           <Form.Control
             name="name"
             type="text"
