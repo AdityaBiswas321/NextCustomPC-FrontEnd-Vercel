@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import Image from "next/image";
 import Product from "../components/Product/Product";
-import ProductData, { productData } from "../ProductData/ProductOne.js";
+import { productData } from "../ProductData/ProductOne.js";
 
 const product = () => {
   const productType = useSelector((state) => state.product);
@@ -34,6 +34,7 @@ const product = () => {
     <>
       {test4.length !== 0 ? (
         <Product
+          Price={test4[len].Price}
           Img={test4[len].Img}
           Img2={test4[len].Img2}
           id={test4[len].id}

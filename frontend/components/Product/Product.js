@@ -7,6 +7,7 @@ import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
 const Product = ({
+  Price,
   Img,
   Img2,
   Img3,
@@ -45,6 +46,8 @@ const Product = ({
     stripe,
   } = useQualifyData();
 
+  console.log("ALGORITHM PRICE");
+  console.log(Price);
   const controls = useAnimation();
   //can use multiple ref if using array destructuring
   const [ref, inView] = useInView({ threshold: 0.2 });
@@ -238,14 +241,7 @@ const Product = ({
           variants={boxVariants5}
           ref={ref5}
         >
-          <Payments
-            setEmail={setEmail}
-            setName={setName}
-            setPostal={setPostal}
-            setAddress={setAddress}
-            setCity={setCity}
-            setProvince={setProvince}
-          />
+          <Payments Price={Price} />
         </motion.div>
       </Card>
     </motion.div>

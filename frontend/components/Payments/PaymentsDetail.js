@@ -18,17 +18,38 @@ import LoaderValidation from "../Loaders/LoaderValidation";
 import { VALIDATION_RESET } from "../../constants/validationConstants.js";
 import Message from "../Message/Message.js";
 import { SHIPPING_RESET } from "../../constants/shippingConstants.js";
+import { createConfirmCardPayment } from "../../actions/paymentsActions.js";
 
 const PaymentsDetail = (props) => {
   // build ternary operator chain here
 
   const dispatch = useDispatch();
+
+  const stripe = useStripe();
+  const elements = useElements();
+
+  const {
+    clientSecret,
+    paymentMethodReq,
+    confirmCardPayment,
+    loading: loadingPayments,
+  } = props.paymentsData;
+
+  console.log("Details payment method");
+  console.log(paymentMethodReq);
   const shippingData = props.shippingData;
   //if completly messed up address fields are inputted, only the error here will catch it
   const { data, loading, error } = shippingData;
 
   const validateData = props.validateData;
   const { data: dataValidate, loading: loadingValidate } = validateData;
+
+  console.log("PRICE HERE");
+  console.log(props.Price);
+
+  const Price = props.Price;
+
+  const { submit } = useQualifyData();
 
   const getRates = () => {
     if (data) {
@@ -199,6 +220,14 @@ const PaymentsDetail = (props) => {
       user_email: email,
       user_country: country,
     };
+
+    // const createConfirmCardPayment = () => {
+    //   if (paymentMethodReq) {
+    //     console.log("CREATE CONFIRM");
+    //     console.log(paymentMethodReq);
+
+    //   }
+    // };
     console.log("USER DATA");
     console.log(user_data);
 
@@ -240,6 +269,10 @@ const PaymentsDetail = (props) => {
     validFalse();
   }, [validity, error]);
   useEffect(() => {});
+
+  useEffect(() => {
+    dispatch(createConfirmCardPayment(clientSecret, paymentMethodReq, stripe));
+  }, [paymentMethodReq]);
 
   //change on posta
 
@@ -390,6 +423,12 @@ const PaymentsDetail = (props) => {
                     hidePostalCode: true,
                   }}
                 />
+
+                <Button
+                  type="button"
+                  className="btn-block"
+                  onClick={() => submit(name, email, postal, Price)}
+                ></Button>
               </Form.Group>
             </Card>
           </motion.div>
@@ -402,6 +441,7 @@ const PaymentsDetail = (props) => {
 const mapStateToProps = (state) => ({
   shippingData: state.shipping,
   validateData: state.validation,
+  paymentsData: state.payments,
 });
 
 export default connect(mapStateToProps)(PaymentsDetail);

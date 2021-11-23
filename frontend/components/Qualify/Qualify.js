@@ -54,9 +54,9 @@ const Qualify = () => {
 
   const { step1, step2, step3, step4, step5 } = useStepsAndPhases();
 
-  const payments = useSelector((state) => state.payments);
-  const { clientSecret, paymentMethodReq, confirmCardPayment, loading } =
-    payments;
+  // const payments = useSelector((state) => state.payments);
+  // const { clientSecret, paymentMethodReq, confirmCardPayment, loading } =
+  //   payments;
   //Local state data collected from form, functions which update local state and steps (steps alter ternary to change what is rendered)
 
   const {
@@ -83,9 +83,9 @@ const Qualify = () => {
     stripe,
   } = useQualifyData();
 
-  useEffect(() => {
-    dispatch(createConfirmCardPayment(clientSecret, paymentMethodReq, stripe));
-  }, [paymentMethodReq]);
+  // useEffect(() => {
+  //   dispatch(createConfirmCardPayment(clientSecret, paymentMethodReq, stripe));
+  // }, [paymentMethodReq]);
 
   return (
     <>

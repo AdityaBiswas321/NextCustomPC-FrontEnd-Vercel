@@ -74,32 +74,33 @@ const useQualify = () => {
   const [type, setType] = useState("");
   const [tab, setTab] = useState("");
   const [app, setApp] = useState("");
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [address, setAddress] = useState("");
-  const [city, setCity] = useState("");
-  const [province, setProvince] = useState("");
-  const [phone, setPhone] = useState("");
-  const [postal, setPostal] = useState("");
+  // const [name, setName] = useState("");
+  // const [email, setEmail] = useState("");
+  // const [address, setAddress] = useState("");
+  // const [city, setCity] = useState("");
+  // const [province, setProvince] = useState("");
+  // const [phone, setPhone] = useState("");
+  // const [postal, setPostal] = useState("");
   const [Ctype, setCtype] = useState("");
 
-  const price = 30;
+  // const price = 30;
 
-  const submitHandler = async (e) => {
-    e.preventDefault();
+  const submit = async (name, email, postal, Price) => {
     console.log(type);
     console.log(tab);
     console.log(app);
-    console.log(name);
-    console.log(email);
-    console.log(phone);
-    console.log(postal);
+    // console.log(name);
+    // console.log(email);
+    // console.log(phone);
+    // console.log(postal);
     console.log(Ctype);
+    console.log("QUALIFY PRICE");
+    console.log(Price);
 
     //Save data to global state
-    dispatch(
-      saveLeadForm({ type, tab, app, name, email, phone, postal, Ctype })
-    );
+    // dispatch(
+    //   saveLeadForm({ type, tab, app, name, email, phone, postal, Ctype })
+    // );
 
     const billingDetails = {
       name: name,
@@ -110,7 +111,7 @@ const useQualify = () => {
     };
     const cardElement = elements.getElement(CardElement);
 
-    dispatch(makePayment(price));
+    dispatch(makePayment(Price));
     dispatch(createPaymentMethod(cardElement, billingDetails, stripe));
   };
 
@@ -120,23 +121,23 @@ const useQualify = () => {
     type,
     tab,
     app,
-    name,
-    email,
-    phone,
-    postal,
+    // name,
+    // email,
+    // phone,
+    // postal,
     Ctype,
     alertclick,
     alertclick2,
     alertclick3,
     alertclick4,
-    setEmail,
-    setName,
-    setPhone,
-    setPostal,
-    setAddress,
-    setCity,
-    setProvince,
-    submitHandler,
+    // setEmail,
+    // setName,
+    // setPhone,
+    // setPostal,
+    // setAddress,
+    // setCity,
+    // setProvince,
+    submit,
     stripe,
   };
 };

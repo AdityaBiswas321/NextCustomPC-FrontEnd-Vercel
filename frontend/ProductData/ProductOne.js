@@ -19,6 +19,7 @@ export const productData = [
     tab: 1,
     app: 1,
     budget: 500,
+    Price: 350,
   },
   {
     id: 2,
@@ -38,6 +39,7 @@ export const productData = [
     tab: 1,
     app: 1,
     budget: 500,
+    Price: 450,
   },
   {
     id: 3,
@@ -57,6 +59,7 @@ export const productData = [
     tab: 1,
     app: 1,
     budget: 500,
+    Price: 450,
   },
   {
     id: 4,
@@ -76,6 +79,7 @@ export const productData = [
     tab: 3,
     app: 3,
     budget: 1200,
+    Price: 800,
   },
   {
     id: 5,
@@ -95,6 +99,7 @@ export const productData = [
     tab: 3,
     app: 3,
     budget: 500,
+    Price: 490,
   },
   {
     id: 6,
@@ -114,5 +119,6 @@ export const productData = [
     tab: 3,
     app: 3,
     budget: 500,
+    Price: 490,
   },
 ];
