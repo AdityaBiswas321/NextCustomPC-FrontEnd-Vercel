@@ -85,7 +85,7 @@ const useQualify = () => {
 
   // const price = 30;
 
-  const submit = async (name, email, postal, Price) => {
+  const submit = async (name, email, postal, total) => {
     console.log(type);
     console.log(tab);
     console.log(app);
@@ -95,7 +95,7 @@ const useQualify = () => {
     // console.log(postal);
     console.log(Ctype);
     console.log("QUALIFY PRICE");
-    console.log(Price);
+    // console.log(Price);
 
     //Save data to global state
     // dispatch(
@@ -111,7 +111,7 @@ const useQualify = () => {
     };
     const cardElement = elements.getElement(CardElement);
 
-    dispatch(makePayment(Price));
+    dispatch(makePayment(total));
     dispatch(createPaymentMethod(cardElement, billingDetails, stripe));
   };
 

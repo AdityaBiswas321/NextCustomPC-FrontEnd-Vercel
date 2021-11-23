@@ -100,6 +100,7 @@ const PaymentsDetail = (props) => {
   const [phone, setPhone] = useState("");
   const [postal, setPostal] = useState("");
   const [rate, setRate] = useState("");
+  const [total, setTotal] = useState("");
   const [validity, setValid] = useState(null);
 
   const [area, setArea] = useState("");
@@ -264,6 +265,7 @@ const PaymentsDetail = (props) => {
   }, [data]);
   useEffect(() => {
     getValidation();
+    setTotal(parseInt(Price) + parseInt(rate));
   }, [dataValidate]);
   useEffect(() => {
     validFalse();
@@ -401,7 +403,10 @@ const PaymentsDetail = (props) => {
           >
             <Card className="thumb">
               <Form.Group>
+                <Card.Title className="ship">Price:${props.Price}</Card.Title>
                 <Card.Title className="ship">Shipping:${rate}</Card.Title>
+                <hr />
+                <Card.Title className="ship">Total:${total}</Card.Title>
                 <Form.Label>Card Details</Form.Label>
 
                 <CardElement
@@ -427,7 +432,7 @@ const PaymentsDetail = (props) => {
                 <Button
                   type="button"
                   className="btn-block"
-                  onClick={() => submit(name, email, postal, Price)}
+                  onClick={() => submit(name, email, postal, total)}
                 ></Button>
               </Form.Group>
             </Card>

@@ -173,6 +173,7 @@ const Product = ({
           <Card className="thumb">
             <Image src={Img} width={25} height={25} layout="responsive" />
 
+            <Card.Title>Price:${Price}</Card.Title>
             <Card.Title>{Des}</Card.Title>
             <Card.Body>{Des2}</Card.Body>
           </Card>
