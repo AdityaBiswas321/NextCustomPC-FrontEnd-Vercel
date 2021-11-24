@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+
 import { Card, Form, Button, Alert } from "react-bootstrap";
 import { connect } from "react-redux";
 import { useSelector, useDispatch } from "react-redux";
@@ -19,6 +20,7 @@ import { VALIDATION_RESET } from "../../constants/validationConstants.js";
 import Message from "../Message/Message.js";
 import { SHIPPING_RESET } from "../../constants/shippingConstants.js";
 import { createConfirmCardPayment } from "../../actions/paymentsActions.js";
+import Router from "next/router";
 
 const PaymentsDetail = (props) => {
   // build ternary operator chain here
@@ -275,6 +277,12 @@ const PaymentsDetail = (props) => {
   useEffect(() => {
     dispatch(createConfirmCardPayment(clientSecret, paymentMethodReq, stripe));
   }, [paymentMethodReq]);
+
+  useEffect(() => {
+    if (confirmCardPayment) {
+      Router.push("/");
+    }
+  }, [history, loadingPayments]);
 
   //change on posta
 
