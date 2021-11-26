@@ -6,7 +6,9 @@ import { useSelector } from "react-redux";
 
 const confirmCheckout = () => {
   const payment = useSelector((state) => state.payments);
-  const { status, id } = payment.confirmCardPayment.paymentIntent;
+  if (payment) {
+    const { status, id } = payment.confirmCardPayment.paymentIntent;
+  }
 
   const variants = {
     exit: {
