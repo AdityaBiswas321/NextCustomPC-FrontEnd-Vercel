@@ -6,9 +6,6 @@ import { useSelector } from "react-redux";
 
 const confirmCheckout = () => {
   const payment = useSelector((state) => state.payments);
-  if (payment) {
-    const { status, id } = payment.confirmCardPayment.paymentIntent;
-  }
 
   const variants = {
     exit: {
@@ -23,6 +20,12 @@ const confirmCheckout = () => {
       opacity: 1,
     },
   };
+
+  useEffect(() => {
+    if (payment) {
+      const { status, id } = payment.confirmCardPayment.paymentIntent;
+    }
+  });
 
   return (
     <Card className="thumb">
