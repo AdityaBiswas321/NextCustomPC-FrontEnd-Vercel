@@ -1,4 +1,4 @@
-import React from "react";
+import { useEffect } from "react";
 import { Card, Alert } from "react-bootstrap";
 import { motion, useAnimation } from "framer-motion";
 
