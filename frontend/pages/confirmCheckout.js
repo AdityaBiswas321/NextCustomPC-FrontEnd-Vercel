@@ -5,7 +5,14 @@ import { motion, useAnimation } from "framer-motion";
 import { useSelector } from "react-redux";
 
 const confirmCheckout = () => {
-  const payment = useSelector((state) => state.payments);
+  let status;
+  let id;
+  try {
+    const payment = useSelector((state) => state.payments);
+    const { status, id } = payment.confirmCardPayment.paymentIntent;
+  } catch (error) {
+    //confirmCardPayment is undefined when building, is populated after api call
+  }
 
   const variants = {
     exit: {
@@ -23,7 +30,6 @@ const confirmCheckout = () => {
 
   useEffect(() => {
     if (payment) {
-      const { status, id } = payment.confirmCardPayment.paymentIntent;
     }
   });
 
