@@ -28,11 +28,6 @@ const confirmCheckout = () => {
     },
   };
 
-  useEffect(() => {
-    if (payment) {
-    }
-  });
-
   return (
     <Card className="thumb">
       <motion.div
