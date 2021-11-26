@@ -8,6 +8,7 @@ import {
   CONFIRM_PAYMENT_REQUEST,
   CONFIRM_PAYMENT_SUCCESS,
   CONFIRM_PAYMENT_FAIL,
+  CONFIRM_PAYMENT_RESET,
 } from "../constants/paymentConstants";
 
 export const paymentsReducer = (state = {}, action) => {
@@ -43,6 +44,8 @@ export const paymentsReducer = (state = {}, action) => {
       };
     case CONFIRM_PAYMENT_FAIL:
       return { ...state, loading: false, error: action.payload };
+    case CONFIRM_PAYMENT_RESET:
+      return {};
 
     default:
       return state;

@@ -25,6 +25,7 @@ import PaymentsDetail from "../Payments/PaymentsDetail";
 import Payments from "../Payments/Payments";
 
 import { AnimatePresence, motion } from "framer-motion";
+import { CONFIRM_PAYMENT_RESET } from "../../constants/paymentConstants";
 
 //animate: defines animation
 //initial: defines initial state
@@ -83,9 +84,9 @@ const Qualify = () => {
     stripe,
   } = useQualifyData();
 
-  // useEffect(() => {
-  //   dispatch(createConfirmCardPayment(clientSecret, paymentMethodReq, stripe));
-  // }, [paymentMethodReq]);
+  useEffect(() => {
+    dispatch({ type: CONFIRM_PAYMENT_RESET });
+  }, []);
 
   return (
     <>
