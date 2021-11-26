@@ -65,3 +65,10 @@ a {
 .css-tlfecz-indicatorContainer {
   display: none;
 }
+
+.lightgrey {
+  background-color: rgb(245, 245, 245);
+}
+.darkgrey {
+  background-color: rgb(232, 232, 232);
+}

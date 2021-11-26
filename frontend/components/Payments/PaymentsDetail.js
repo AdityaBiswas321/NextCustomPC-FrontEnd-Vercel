@@ -280,7 +280,7 @@ const PaymentsDetail = (props) => {
 
   useEffect(() => {
     if (confirmCardPayment) {
-      Router.push("/");
+      Router.push("/confirmCheckout");
     }
   }, [history, loadingPayments]);
 
