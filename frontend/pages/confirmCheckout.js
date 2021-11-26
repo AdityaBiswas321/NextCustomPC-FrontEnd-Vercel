@@ -1,18 +1,22 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Card, Alert } from "react-bootstrap";
 import { motion, useAnimation } from "framer-motion";
+import { connect } from "react-redux";
 
 import { useSelector } from "react-redux";
 
-const confirmCheckout = () => {
-  let status;
-  let id;
-  try {
-    const payment = useSelector((state) => state.payments);
-    const { status, id } = payment.confirmCardPayment.paymentIntent;
-  } catch (error) {
-    //confirmCardPayment is undefined when building, is populated after api call
-  }
+const confirmCheckout = (props) => {
+  const [status, setStatus] = useState("");
+  const [id, setId] = useState("");
+
+  const payments = props.payments;
+
+  const payment = () => {
+    if (payments) {
+      setStatus(props.payments.confirmCardPayment.paymentIntent.status);
+      setId(props.payments.confirmCardPayment.paymentIntent.id);
+    }
+  };
 
   const variants = {
     exit: {
@@ -27,6 +31,10 @@ const confirmCheckout = () => {
       opacity: 1,
     },
   };
+
+  useEffect(() => {
+    payment();
+  }, [payments]);
 
   return (
     <Card className="thumb">
@@ -60,4 +68,8 @@ const confirmCheckout = () => {
   );
 };
 
-export default confirmCheckout;
+const mapStateToProps = (state) => ({
+  payments: state.payments,
+});
+
+export default connect(mapStateToProps)(confirmCheckout);
