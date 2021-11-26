@@ -38,6 +38,10 @@ const initialState = {
     app: 1,
     ctype: 500,
   },
+  payments: {
+    status: null,
+    id: null,
+  },
 };
 
 const middleware = [thunk];
