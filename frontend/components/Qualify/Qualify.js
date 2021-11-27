@@ -36,12 +36,13 @@ const variants = {
     opacity: 0,
   },
   initial: {
+    x: 200,
     opacity: 0,
   },
   animate: {
+    x: 0,
     opacity: 1,
   },
-  // You can do whatever you want here, if you just want it to stop completely use `rotate: 0`
 };
 
 const Qualify = () => {
