@@ -54,7 +54,7 @@ const Product = ({
   const [ref2, inView2] = useInView({ threshold: 0.2 });
   const [ref3, inView3] = useInView({ threshold: 0.2 });
   const [ref4, inView4] = useInView({ threshold: 0.2 });
-  const [ref5, inView5] = useInView({ threshold: 0.2 });
+  const [ref5, inView5] = useInView({ threshold: 0.1 });
 
   const variants = {
     exit: {
