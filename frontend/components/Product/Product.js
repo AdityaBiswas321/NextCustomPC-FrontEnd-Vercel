@@ -242,7 +242,7 @@ const Product = ({
           variants={boxVariants5}
           ref={ref5}
         >
-          <Payments Price={Price} />
+          <Payments Price={Price} img={Img} />
         </motion.div>
       </Card>
     </motion.div>

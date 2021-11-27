@@ -1,6 +1,15 @@
 import { useEffect, useState } from "react";
 
-import { Card, Form, Button, Alert } from "react-bootstrap";
+import {
+  Card,
+  Form,
+  Button,
+  Alert,
+  ListGroup,
+  ListGroupItem,
+} from "react-bootstrap";
+import Image from "next/image";
+
 import { connect } from "react-redux";
 import { useSelector, useDispatch } from "react-redux";
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
@@ -415,7 +424,22 @@ const PaymentsDetail = (props) => {
                 <Card.Title className="ship">Shipping:${rate}</Card.Title>
                 <hr />
                 <Card.Title className="ship">Total:${total}</Card.Title>
-                <Form.Label>Card Details</Form.Label>
+                <Image
+                  src={props.img}
+                  width={25}
+                  height={25}
+                  layout="responsive"
+                />
+                <Card.Title>Features</Card.Title>
+                <ListGroup>
+                  <ListGroup.Item>:Graphics</ListGroup.Item>
+                  <ListGroup.Item>:Ram</ListGroup.Item>
+                  <ListGroup.Item>:CPU</ListGroup.Item>
+                  <ListGroup.Item>:PowerSupply</ListGroup.Item>
+                  <ListGroup.Item>:MotherBoard</ListGroup.Item>
+                  <ListGroup.Item>:Storage</ListGroup.Item>
+                </ListGroup>
+                <Form.Label className="ship">Card Details</Form.Label>
 
                 <CardElement
                   options={{
@@ -439,9 +463,11 @@ const PaymentsDetail = (props) => {
 
                 <Button
                   type="button"
-                  className="btn-block"
+                  className="btn-block ship"
                   onClick={() => submit(name, email, postal, total)}
-                ></Button>
+                >
+                  Buy Now !
+                </Button>
               </Form.Group>
             </Card>
           </motion.div>
