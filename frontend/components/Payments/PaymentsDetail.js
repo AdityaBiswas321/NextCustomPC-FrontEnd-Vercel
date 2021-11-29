@@ -7,6 +7,7 @@ import {
   Alert,
   ListGroup,
   ListGroupItem,
+  Modal,
 } from "react-bootstrap";
 import Image from "next/image";
 
@@ -61,6 +62,13 @@ const PaymentsDetail = (props) => {
   const Price = props.Price;
 
   const { submit } = useQualifyData();
+
+  //modal logic
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+  //
 
   const getRates = () => {
     if (data) {
@@ -464,10 +472,28 @@ const PaymentsDetail = (props) => {
                 <Button
                   type="button"
                   className="btn-block ship"
-                  onClick={() => submit(name, email, postal, total)}
+                  onClick={handleShow}
                 >
                   Buy Now !
                 </Button>
+
+                <Modal show={show} onHide={handleClose}>
+                  <Modal.Header closeButton>
+                    <Modal.Title>Modal heading</Modal.Title>
+                  </Modal.Header>
+                  <Modal.Body>Confirm purchase?</Modal.Body>
+                  <Modal.Footer>
+                    <Button variant="secondary" onClick={handleClose}>
+                      Close
+                    </Button>
+                    <Button
+                      variant="primary"
+                      onClick={() => submit(name, email, postal, total)}
+                    >
+                      Confirm Purchase
+                    </Button>
+                  </Modal.Footer>
+                </Modal>
               </Form.Group>
             </Card>
           </motion.div>
