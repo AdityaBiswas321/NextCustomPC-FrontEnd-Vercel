@@ -10,6 +10,7 @@ const Product = ({
   Price,
   Img,
   Img2,
+  ImgB,
   Img3,
   Img4,
   Img5,
@@ -179,61 +180,99 @@ const Product = ({
           </Card>
         </motion.div>
 
-        <motion.div
-          key="1"
-          initial="hidden"
-          animate={controls}
-          variants={boxVariants}
-        >
-          <Card ref={ref} className="thumb">
-            <Image src={Img2} width={25} height={25} layout="responsive" />
+        <Card ref={ref} className="thumb ">
+          <Image
+            src={ImgB}
+            layout="fill"
+            objectFit="cover"
+            objectPosition="center"
+            className="LandingImage"
+          />
 
-            <Card.Title>{Des3}</Card.Title>
-            <Card.Body>{Des4}</Card.Body>
-          </Card>
-        </motion.div>
+          <motion.div
+            key="1"
+            initial="hidden"
+            animate={controls}
+            variants={boxVariants}
+          >
+            <Image
+              src={Img2}
+              width={25}
+              height={25}
+              layout="responsive"
+              className=""
+            />
 
-        <motion.div
-          key="2"
-          initial="hidden"
-          animate={controls}
-          variants={boxVariants2}
-        >
-          <Card ref={ref2} className="thumb">
+            <Card.Title className="absolute">{Des3}</Card.Title>
+
+            <Card.Body className="absolute">{Des4}</Card.Body>
+          </motion.div>
+        </Card>
+
+        <Card ref={ref2} className="thumb">
+          <Image
+            src={ImgB}
+            layout="fill"
+            objectFit="cover"
+            objectPosition="center"
+            className="LandingImage"
+          />
+          <motion.div
+            key="2"
+            initial="hidden"
+            animate={controls}
+            variants={boxVariants2}
+          >
             <Image src={Img3} width={25} height={25} layout="responsive" />
 
-            <Card.Title>{Des}</Card.Title>
-            <Card.Body>{Des5}</Card.Body>
-          </Card>
-        </motion.div>
+            <Card.Title className="absolute">{Des}</Card.Title>
+            <Card.Body className="absolute">{Des5}</Card.Body>
+          </motion.div>
+        </Card>
 
-        <motion.div
-          key="3"
-          initial="hidden"
-          animate={controls}
-          variants={boxVariants3}
-        >
-          <Card ref={ref3} className="thumb">
+        <Card ref={ref3} className="thumb">
+          <Image
+            src={ImgB}
+            layout="fill"
+            objectFit="cover"
+            objectPosition="center"
+            className="LandingImage"
+          />
+
+          <motion.div
+            key="3"
+            initial="hidden"
+            animate={controls}
+            variants={boxVariants3}
+          >
             <Image src={Img4} width={25} height={25} layout="responsive" />
 
-            <Card.Title>{Des}</Card.Title>
-            <Card.Body>{Des6}</Card.Body>
-          </Card>
-        </motion.div>
+            <Card.Title className="absolute">{Des}</Card.Title>
+            <Card.Body className="absolute">{Des6}</Card.Body>
+          </motion.div>
+        </Card>
 
-        <motion.div
-          key="3"
-          initial="hidden"
-          animate={controls}
-          variants={boxVariants4}
-        >
-          <Card ref={ref4} className="thumb">
+        <Card ref={ref4} className="thumb">
+          <Image
+            src={ImgB}
+            layout="fill"
+            objectFit="cover"
+            objectPosition="center"
+            className="LandingImage"
+          />
+
+          <motion.div
+            key="3"
+            initial="hidden"
+            animate={controls}
+            variants={boxVariants4}
+          >
             <Image src={Img5} width={25} height={25} layout="responsive" />
 
-            <Card.Title>{Des}</Card.Title>
-            <Card.Body>{Des7}</Card.Body>
-          </Card>
-        </motion.div>
+            <Card.Title className="absolute">{Des}</Card.Title>
+            <Card.Body className="absolute">{Des7}</Card.Body>
+          </motion.div>
+        </Card>
 
         <motion.div
           key="4"

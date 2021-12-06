@@ -36,6 +36,7 @@ const product = () => {
         <Product
           Price={test4[len].Price}
           Img={test4[len].Img}
+          ImgB={test4[len].ImgB}
           Img2={test4[len].Img2}
           id={test4[len].id}
           Des={test4[len].Des}
