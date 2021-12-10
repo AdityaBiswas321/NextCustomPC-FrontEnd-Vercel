@@ -8,6 +8,12 @@ body {
   overflow-x: hidden;
 }
 
+.background {
+  background-image: url("https://secondbucketforcustompc.s3.us-east-2.amazonaws.com/GreyBackGround.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 #gh {
   background: black;
 }

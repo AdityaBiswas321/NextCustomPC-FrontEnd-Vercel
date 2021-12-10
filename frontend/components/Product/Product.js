@@ -159,107 +159,110 @@ const Product = ({
   }, [controls, inView, inView2, inView3, inView4, inView5]);
 
   return (
-    <motion.div
-      exit={{ opacity: 0 }}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-    >
-      <Card className="thumb">
-        <Image
-          src={ImgB}
-          layout="fill"
-          objectFit="cover"
-          objectPosition="center"
-        />
-        <motion.div
-          initial="initial"
-          animate="animate"
-          exit="exit"
-          variants={variants}
-        >
-          <Card className="thumbCard ">
-            <Image src={Img} width={25} height={25} layout="responsive" />
+    <div className="background">
+      <motion.div
+        exit={{ opacity: 0 }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+      >
+        <Card className="thumb">
+          <Image
+            src={ImgB}
+            layout="fill"
+            objectFit="cover"
+            objectPosition="center"
+          />
 
-            <Card.Title>Price:${Price}</Card.Title>
-            <Card.Title>{Des}</Card.Title>
-            <Card.Body>{Des2}</Card.Body>
-          </Card>
-        </motion.div>
-
-        <Col ref={ref} className="thumb ">
           <motion.div
-            key="1"
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            variants={variants}
+          >
+            <Card className="thumbCard ">
+              <Image src={Img} width={25} height={25} layout="responsive" />
+
+              <Card.Title>Price:${Price}</Card.Title>
+              <Card.Title>{Des}</Card.Title>
+              <Card.Body>{Des2}</Card.Body>
+            </Card>
+          </motion.div>
+
+          <Col ref={ref} className="thumb ">
+            <motion.div
+              key="1"
+              initial="hidden"
+              animate={controls}
+              variants={boxVariants}
+            >
+              <Image
+                src={Img2}
+                width={25}
+                height={25}
+                layout="responsive"
+                className=""
+              />
+
+              <Card.Title className="absolute">{Des3}</Card.Title>
+
+              <Card.Body className="absolute">{Des4}</Card.Body>
+            </motion.div>
+          </Col>
+
+          <Col ref={ref2} className="thumb">
+            <motion.div
+              key="2"
+              initial="hidden"
+              animate={controls}
+              variants={boxVariants2}
+            >
+              <Image src={Img3} width={25} height={25} layout="responsive" />
+
+              <Card.Title className="absolute">{Des}</Card.Title>
+              <Card.Body className="absolute">{Des5}</Card.Body>
+            </motion.div>
+          </Col>
+
+          <Col ref={ref3} className="thumb">
+            <motion.div
+              key="3"
+              initial="hidden"
+              animate={controls}
+              variants={boxVariants3}
+            >
+              <Image src={Img4} width={25} height={25} layout="responsive" />
+
+              <Card.Title className="absolute">{Des}</Card.Title>
+              <Card.Body className="absolute">{Des6}</Card.Body>
+            </motion.div>
+          </Col>
+
+          <Col ref={ref4} className="thumb">
+            <motion.div
+              key="3"
+              initial="hidden"
+              animate={controls}
+              variants={boxVariants4}
+            >
+              <Image src={Img5} width={25} height={25} layout="responsive" />
+
+              <Card.Title className="absolute">{Des}</Card.Title>
+              <Card.Body className="absolute">{Des7}</Card.Body>
+            </motion.div>
+          </Col>
+
+          <motion.div
+            key="4"
             initial="hidden"
             animate={controls}
-            variants={boxVariants}
+            variants={boxVariants5}
+            ref={ref5}
           >
-            <Image
-              src={Img2}
-              width={25}
-              height={25}
-              layout="responsive"
-              className=""
-            />
-
-            <Card.Title className="absolute">{Des3}</Card.Title>
-
-            <Card.Body className="absolute">{Des4}</Card.Body>
+            <Payments Price={Price} img={Img} />
           </motion.div>
-        </Col>
-
-        <Col ref={ref2} className="thumb">
-          <motion.div
-            key="2"
-            initial="hidden"
-            animate={controls}
-            variants={boxVariants2}
-          >
-            <Image src={Img3} width={25} height={25} layout="responsive" />
-
-            <Card.Title className="absolute">{Des}</Card.Title>
-            <Card.Body className="absolute">{Des5}</Card.Body>
-          </motion.div>
-        </Col>
-
-        <Col ref={ref3} className="thumb">
-          <motion.div
-            key="3"
-            initial="hidden"
-            animate={controls}
-            variants={boxVariants3}
-          >
-            <Image src={Img4} width={25} height={25} layout="responsive" />
-
-            <Card.Title className="absolute">{Des}</Card.Title>
-            <Card.Body className="absolute">{Des6}</Card.Body>
-          </motion.div>
-        </Col>
-
-        <Col ref={ref4} className="thumb">
-          <motion.div
-            key="3"
-            initial="hidden"
-            animate={controls}
-            variants={boxVariants4}
-          >
-            <Image src={Img5} width={25} height={25} layout="responsive" />
-
-            <Card.Title className="absolute">{Des}</Card.Title>
-            <Card.Body className="absolute">{Des7}</Card.Body>
-          </motion.div>
-        </Col>
-
-        <motion.div
-          key="4"
-          initial="hidden"
-          animate={controls}
-          variants={boxVariants5}
-          ref={ref5}
-        >
-          <Payments Price={Price} img={Img} />
-        </motion.div>
-      </Card>
-    </motion.div>
+        </Card>
+      </motion.div>
+    </div>
   );
 };
 
