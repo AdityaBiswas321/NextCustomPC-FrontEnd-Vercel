@@ -7,6 +7,7 @@ import Layout from "../components/Layout/Layout";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import { AnimatePresence } from "framer-motion";
+import { ParallaxProvider } from "react-scroll-parallax";
 
 const stripePromise = loadStripe(
   "pk_test_51JYnmdLGF4kichPFTGiaPYHrXX6PYQZ3TkGeU8UA3pk9hwxuff6sxTp4BtmEunnWw8K74s6KQtivj4E0KSbT42Ov00K5LpCIM2"
@@ -22,7 +23,9 @@ function MyApp({ Component, pageProps }) {
       <Layout>
         <Elements stripe={stripePromise}>
           <AnimatePresence exitBeforeEnter>
-            <Component {...pageProps} />
+            <ParallaxProvider>
+              <Component {...pageProps} />
+            </ParallaxProvider>
           </AnimatePresence>
         </Elements>
       </Layout>

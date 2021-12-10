@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import Image from "next/image";
 import Payments from "../Payments/Payments";
 import useQualifyData from "../Qualify/useQualifyData";
-import { Card } from "react-bootstrap";
+import { Card, Col } from "react-bootstrap";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
@@ -165,6 +165,13 @@ const Product = ({
       animate={{ opacity: 1 }}
     >
       <Card>
+        <Image
+          src={ImgB}
+          layout="fill"
+          objectFit="cover"
+          objectPosition="center"
+          className="LandingImage"
+        />
         <motion.div
           initial="initial"
           animate="animate"
@@ -180,15 +187,7 @@ const Product = ({
           </Card>
         </motion.div>
 
-        <Card ref={ref} className="thumb ">
-          <Image
-            src={ImgB}
-            layout="fill"
-            objectFit="cover"
-            objectPosition="center"
-            className="LandingImage"
-          />
-
+        <Col ref={ref} className="thumb ">
           <motion.div
             key="1"
             initial="hidden"
@@ -207,16 +206,9 @@ const Product = ({
 
             <Card.Body className="absolute">{Des4}</Card.Body>
           </motion.div>
-        </Card>
+        </Col>
 
-        <Card ref={ref2} className="thumb">
-          <Image
-            src={ImgB}
-            layout="fill"
-            objectFit="cover"
-            objectPosition="center"
-            className="LandingImage"
-          />
+        <Col ref={ref2} className="thumb">
           <motion.div
             key="2"
             initial="hidden"
@@ -228,17 +220,9 @@ const Product = ({
             <Card.Title className="absolute">{Des}</Card.Title>
             <Card.Body className="absolute">{Des5}</Card.Body>
           </motion.div>
-        </Card>
+        </Col>
 
-        <Card ref={ref3} className="thumb">
-          <Image
-            src={ImgB}
-            layout="fill"
-            objectFit="cover"
-            objectPosition="center"
-            className="LandingImage"
-          />
-
+        <Col ref={ref3} className="thumb">
           <motion.div
             key="3"
             initial="hidden"
@@ -250,17 +234,9 @@ const Product = ({
             <Card.Title className="absolute">{Des}</Card.Title>
             <Card.Body className="absolute">{Des6}</Card.Body>
           </motion.div>
-        </Card>
+        </Col>
 
-        <Card ref={ref4} className="thumb">
-          <Image
-            src={ImgB}
-            layout="fill"
-            objectFit="cover"
-            objectPosition="center"
-            className="LandingImage"
-          />
-
+        <Col ref={ref4} className="thumb">
           <motion.div
             key="3"
             initial="hidden"
@@ -272,7 +248,7 @@ const Product = ({
             <Card.Title className="absolute">{Des}</Card.Title>
             <Card.Body className="absolute">{Des7}</Card.Body>
           </motion.div>
-        </Card>
+        </Col>
 
         <motion.div
           key="4"

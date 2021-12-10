@@ -96,8 +96,12 @@ a {
   border: 1px green solid;
 }
 .LandingImage {
-  height: 500px;
   z-index: 0;
+}
+
+.parallax {
+  position: relative;
+  height: 100vh;
 }
 
 .absolute {

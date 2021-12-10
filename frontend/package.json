@@ -28,6 +28,7 @@
     "react-motion": "^0.5.2",
     "react-redux": "^7.2.4",
     "react-responsive-carousel": "^3.2.20",
+    "react-scroll-parallax": "^2.4.0",
     "react-spinners-kit": "^1.9.1",
     "react-thunk": "^1.0.0",
     "redux": "^4.1.0",
