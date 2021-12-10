@@ -164,13 +164,12 @@ const Product = ({
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
     >
-      <Card>
+      <Card className="thumb">
         <Image
           src={ImgB}
           layout="fill"
           objectFit="cover"
           objectPosition="center"
-          className="LandingImage"
         />
         <motion.div
           initial="initial"
@@ -178,7 +177,7 @@ const Product = ({
           exit="exit"
           variants={variants}
         >
-          <Card className="thumb">
+          <Card className="thumbCard ">
             <Image src={Img} width={25} height={25} layout="responsive" />
 
             <Card.Title>Price:${Price}</Card.Title>
