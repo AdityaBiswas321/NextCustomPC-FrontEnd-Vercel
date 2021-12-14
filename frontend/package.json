@@ -26,6 +26,7 @@
     "react-intersection-observer": "^8.32.2",
     "react-livechat": "^1.1.1",
     "react-motion": "^0.5.2",
+    "react-parallax": "^3.3.0",
     "react-redux": "^7.2.4",
     "react-responsive-carousel": "^3.2.20",
     "react-scroll-parallax": "^2.4.0",

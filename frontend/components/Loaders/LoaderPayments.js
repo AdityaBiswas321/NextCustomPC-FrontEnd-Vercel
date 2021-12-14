@@ -17,7 +17,7 @@ const Loader = () => {
         <span className="sr-only">Loading...</span>
       </Spinner>
       <Card.Body className="text-center absolute" style={{ marginTop: "5px" }}>
-        Getting Rates...
+        Processing...
       </Card.Body>
     </>
   );

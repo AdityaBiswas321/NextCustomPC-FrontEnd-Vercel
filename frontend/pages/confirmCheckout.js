@@ -2,8 +2,9 @@ import { useEffect, useState } from "react";
 import { Card, Alert } from "react-bootstrap";
 import { motion, useAnimation } from "framer-motion";
 import { connect } from "react-redux";
-
-import { useSelector } from "react-redux";
+import Router from "next/router";
+import { useSelector, useDispatch } from "react-redux";
+import { CONFIRM_PAYMENT_RESET } from "../constants/paymentConstants";
 
 const confirmCheckout = (props) => {
   const [status, setStatus] = useState("");
@@ -12,9 +13,13 @@ const confirmCheckout = (props) => {
   const payments = props.payments;
 
   const payment = () => {
-    if (payments) {
-      setStatus(props.payments.confirmCardPayment.paymentIntent.status);
-      setId(props.payments.confirmCardPayment.paymentIntent.id);
+    try {
+      if (payments) {
+        setStatus(props.payments.confirmCardPayment.paymentIntent.status);
+        setId(props.payments.confirmCardPayment.paymentIntent.id);
+      }
+    } catch (error) {
+      Router.push("/");
     }
   };
 

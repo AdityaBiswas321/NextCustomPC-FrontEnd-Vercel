@@ -3,6 +3,7 @@ import Image from "next/image";
 import Payments from "../Payments/Payments";
 import useQualifyData from "../Qualify/useQualifyData";
 import { Card, Col } from "react-bootstrap";
+import { Parallax } from "react-parallax";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
@@ -159,7 +160,7 @@ const Product = ({
   }, [controls, inView, inView2, inView3, inView4, inView5]);
 
   return (
-    <div className="background">
+    <div className="darkgrey">
       <motion.div
         exit={{ opacity: 0 }}
         initial={{ opacity: 0 }}
@@ -195,17 +196,24 @@ const Product = ({
               animate={controls}
               variants={boxVariants}
             >
-              <Image
-                src={Img2}
-                width={25}
-                height={25}
-                layout="responsive"
-                className=""
-              />
+              <Parallax
+                blur={0}
+                bgImage="https://secondbucketforcustompc.s3.us-east-2.amazonaws.com/GreyBackGround.jpeg"
+                bgImageAlt="the cat"
+                strength={200}
+              >
+                <Image
+                  src={Img2}
+                  width={25}
+                  height={25}
+                  layout="responsive"
+                  className=""
+                />
 
-              <Card.Title className="absolute">{Des3}</Card.Title>
+                <Card.Title className="">{Des3}</Card.Title>
 
-              <Card.Body className="absolute">{Des4}</Card.Body>
+                <Card.Body className="">{Des4}</Card.Body>
+              </Parallax>
             </motion.div>
           </Col>
 
@@ -216,10 +224,17 @@ const Product = ({
               animate={controls}
               variants={boxVariants2}
             >
-              <Image src={Img3} width={25} height={25} layout="responsive" />
+              <Parallax
+                blur={0}
+                bgImage="https://secondbucketforcustompc.s3.us-east-2.amazonaws.com/GreyBackGround.jpeg"
+                bgImageAlt="the cat"
+                strength={200}
+              >
+                <Image src={Img3} width={25} height={25} layout="responsive" />
 
-              <Card.Title className="absolute">{Des}</Card.Title>
-              <Card.Body className="absolute">{Des5}</Card.Body>
+                <Card.Title className="">{Des}</Card.Title>
+                <Card.Body className="">{Des5}</Card.Body>
+              </Parallax>
             </motion.div>
           </Col>
 
@@ -232,8 +247,8 @@ const Product = ({
             >
               <Image src={Img4} width={25} height={25} layout="responsive" />
 
-              <Card.Title className="absolute">{Des}</Card.Title>
-              <Card.Body className="absolute">{Des6}</Card.Body>
+              <Card.Title className="">{Des}</Card.Title>
+              <Card.Body className="">{Des6}</Card.Body>
             </motion.div>
           </Col>
 
@@ -246,8 +261,8 @@ const Product = ({
             >
               <Image src={Img5} width={25} height={25} layout="responsive" />
 
-              <Card.Title className="absolute">{Des}</Card.Title>
-              <Card.Body className="absolute">{Des7}</Card.Body>
+              <Card.Title className="">{Des}</Card.Title>
+              <Card.Body className="">{Des7}</Card.Body>
             </motion.div>
           </Col>
 

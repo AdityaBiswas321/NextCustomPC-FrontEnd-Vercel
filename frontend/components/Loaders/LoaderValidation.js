@@ -16,9 +16,9 @@ const Loader = () => {
       >
         <span className="sr-only">Loading...</span>
       </Spinner>
-      <p className="text-center" style={{ marginTop: "5px" }}>
+      <Card.Body className="text-center absolute" style={{ marginTop: "5px" }}>
         Validating Address...
-      </p>
+      </Card.Body>
     </>
   );
 };

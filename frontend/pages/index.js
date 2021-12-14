@@ -9,6 +9,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a lo
 
 import { Row, Col, Button, Card, Navbar } from "react-bootstrap";
 import { Carousel } from "react-responsive-carousel";
+
 import { useDispatch } from "react-redux";
 import axios from "axios";
 
@@ -43,7 +44,7 @@ export default function HomeScreen() {
                 <img src="https://secondbucketforcustompc.s3.us-east-2.amazonaws.com/TestPC1.jpg" />
               </div>
               <div>
-                <img src="https://secondbucketforcustompc.s3.us-east-2.amazonaws.com/TestPC1.jpg" />
+                <img src="https://secondbucketforcustompc.s3.us-east-2.amazonaws.com/WhitePC.jpeg" />
               </div>
               <div>
                 <img src="https://secondbucketforcustompc.s3.us-east-2.amazonaws.com/TestPC1.jpg" />

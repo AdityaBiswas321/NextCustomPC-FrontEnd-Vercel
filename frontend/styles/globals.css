@@ -125,7 +125,13 @@ a {
   position: relative;
   z-index: 1;
 }
+.relative {
+  position: relative;
+  height: 200px;
+}
 
 .height {
-  margin-bottom: 63px;
+  height: 100px;
+  position: relative;
+  left: 100px;
 }

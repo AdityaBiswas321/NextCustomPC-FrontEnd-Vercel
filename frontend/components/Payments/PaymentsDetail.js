@@ -25,6 +25,7 @@ import GooglePlacesAutocomplete, {
 import { validate } from "../../actions/validationActions";
 import { shipping } from "../../actions/shippingActions";
 import LoaderShipping from "../Loaders/LoaderShipping";
+import LoaderPayments from "../Loaders/LoaderPayments";
 import LoaderValidation from "../Loaders/LoaderValidation";
 import { VALIDATION_RESET } from "../../constants/validationConstants.js";
 import Message from "../Message/Message.js";
@@ -426,12 +427,11 @@ const PaymentsDetail = (props) => {
             animate={step2 && "animate"}
             variants={boxVariants}
           >
-            <Card className="thumb">
+            <Card className="thumbCard">
               <Form.Group>
                 <Card.Title className="ship">Price:${props.Price}</Card.Title>
                 <Card.Title className="ship">Shipping:${rate}</Card.Title>
                 <hr />
-                <Card.Title className="ship">Total:${total}</Card.Title>
                 <Image
                   src={props.img}
                   width={25}
@@ -447,6 +447,9 @@ const PaymentsDetail = (props) => {
                   <ListGroup.Item>:MotherBoard</ListGroup.Item>
                   <ListGroup.Item>:Storage</ListGroup.Item>
                 </ListGroup>
+                <hr />
+                <Card.Title className="ship">Total:${total}</Card.Title>
+                <hr />
                 <Form.Label className="ship">Card Details</Form.Label>
 
                 <CardElement
@@ -479,20 +482,32 @@ const PaymentsDetail = (props) => {
 
                 <Modal show={show} onHide={handleClose}>
                   <Modal.Header closeButton>
-                    <Modal.Title>Modal heading</Modal.Title>
+                    <Modal.Title>Make Purchase</Modal.Title>
                   </Modal.Header>
-                  <Modal.Body>Confirm purchase?</Modal.Body>
-                  <Modal.Footer>
-                    <Button variant="secondary" onClick={handleClose}>
-                      Close
-                    </Button>
-                    <Button
-                      variant="primary"
-                      onClick={() => submit(name, email, postal, total)}
-                    >
-                      Confirm Purchase
-                    </Button>
-                  </Modal.Footer>
+                  {loadingPayments ? (
+                    <Modal.Body>
+                      <LoaderPayments />
+                    </Modal.Body>
+                  ) : (
+                    <>
+                      <Modal.Body>Confirm purchase?</Modal.Body>
+
+                      <Modal.Footer>
+                        <Button variant="secondary" onClick={handleClose}>
+                          Close
+                        </Button>
+                        <Button
+                          variant="primary"
+                          onClick={() => submit(name, email, postal, total)}
+                          disabled={confirmCardPayment}
+                        >
+                          {confirmCardPayment
+                            ? "Loading..."
+                            : "Confirm Purchase"}
+                        </Button>
+                      </Modal.Footer>
+                    </>
+                  )}
                 </Modal>
               </Form.Group>
             </Card>
