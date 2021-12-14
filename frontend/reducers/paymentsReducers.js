@@ -17,6 +17,7 @@ export const paymentsReducer = (state = {}, action) => {
       return { loading: true };
     case PAYMENT_SUCCESS:
       return {
+        ...state,
         loading: true,
         successClient: true,
         clientSecret: action.payload,

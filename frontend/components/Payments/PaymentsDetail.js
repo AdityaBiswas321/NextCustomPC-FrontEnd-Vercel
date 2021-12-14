@@ -490,6 +490,11 @@ const PaymentsDetail = (props) => {
                     </Modal.Body>
                   ) : (
                     <>
+                      {paymentMethodReq?.error && (
+                        <Message variant="danger">
+                          {paymentMethodReq?.error?.message}
+                        </Message>
+                      )}
                       <Modal.Body>Confirm purchase?</Modal.Body>
 
                       <Modal.Footer>

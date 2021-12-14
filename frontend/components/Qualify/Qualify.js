@@ -42,6 +42,7 @@ const variants = {
   animate: {
     x: 0,
     opacity: 1,
+    transition: { type: "spring", duration: 0.9, bounce: 0.4 },
   },
 };
 
@@ -242,21 +243,21 @@ const Qualify = () => {
                   className="btn-block"
                   onClick={() => alertclick3(1)}
                 >
-                  Couple Applications - ex chrome, word
+                  Couple Applications - chrome, word
                 </Button>
                 <Button
                   type="button"
                   className="btn-block"
                   onClick={() => alertclick3(2)}
                 >
-                  Few Applications - ex chrome, word, zoom
+                  Few Applications - chrome, word, zoom
                 </Button>
                 <Button
                   type="button"
                   className="btn-block"
                   onClick={() => alertclick3(3)}
                 >
-                  Many Applications - ex more than 4
+                  Many Applications - more than 4
                 </Button>
               </ListGroup.Item>
             </ListGroup>

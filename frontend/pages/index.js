@@ -47,7 +47,7 @@ export default function HomeScreen() {
                 <img src="https://secondbucketforcustompc.s3.us-east-2.amazonaws.com/WhitePC.jpeg" />
               </div>
               <div>
-                <img src="https://secondbucketforcustompc.s3.us-east-2.amazonaws.com/TestPC1.jpg" />
+                <img src="https://secondbucketforcustompc.s3.us-east-2.amazonaws.com/BluePc.jpg" />
               </div>
             </Carousel>
           </Col>
@@ -107,7 +107,7 @@ export default function HomeScreen() {
               <Link href="computer1">
                 <Image
                   src={
-                    "https://secondbucketforcustompc.s3.us-east-2.amazonaws.com/TestPC1.jpg"
+                    "https://secondbucketforcustompc.s3.us-east-2.amazonaws.com/WhitePC.jpeg"
                   }
                   width={25}
                   height={25}
@@ -128,7 +128,7 @@ export default function HomeScreen() {
               <Link href="computer1">
                 <Image
                   src={
-                    "https://secondbucketforcustompc.s3.us-east-2.amazonaws.com/TestPC1.jpg"
+                    "https://secondbucketforcustompc.s3.us-east-2.amazonaws.com/BluePc.jpg"
                   }
                   width={25}
                   height={25}
