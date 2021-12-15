@@ -56,7 +56,6 @@ a {
 }
 
 .thumb {
-  border: 1px solid #ddd;
   border-radius: 4px;
   padding: 5px;
   width: 360px;
@@ -134,4 +133,9 @@ a {
   height: 100px;
   position: relative;
   left: 100px;
+}
+
+.backgroundColour {
+  background-color: rgba(46, 38, 32, 0.801);
+  color: #ddd;
 }

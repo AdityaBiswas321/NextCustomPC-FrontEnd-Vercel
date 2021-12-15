@@ -189,18 +189,18 @@ const Product = ({
             </Card>
           </motion.div>
 
-          <Col ref={ref} className="thumb ">
-            <motion.div
-              key="1"
-              initial="hidden"
-              animate={controls}
-              variants={boxVariants}
-            >
-              <Parallax
-                blur={0}
-                bgImage="https://secondbucketforcustompc.s3.us-east-2.amazonaws.com/GreyBackGround.jpeg"
-                bgImageAlt="the cat"
-                strength={200}
+          <Parallax
+            blur={0}
+            bgImage="https://secondbucketforcustompc.s3.us-east-2.amazonaws.com/ParallaxBg1.jpg"
+            bgImageAlt="the cat"
+            strength={200}
+          >
+            <Col ref={ref} className="thumb ">
+              <motion.div
+                key="1"
+                initial="hidden"
+                animate={controls}
+                variants={boxVariants}
               >
                 <Image
                   src={Img2}
@@ -209,34 +209,34 @@ const Product = ({
                   layout="responsive"
                   className=""
                 />
+                <Col className="backgroundColour thumb">
+                  <Card.Title className="">{Des3}</Card.Title>
 
-                <Card.Title className="">{Des3}</Card.Title>
-
-                <Card.Body className="">{Des4}</Card.Body>
-              </Parallax>
-            </motion.div>
-          </Col>
-
-          <Col ref={ref2} className="thumb">
-            <motion.div
-              key="2"
-              initial="hidden"
-              animate={controls}
-              variants={boxVariants2}
-            >
-              <Parallax
-                blur={0}
-                bgImage="https://secondbucketforcustompc.s3.us-east-2.amazonaws.com/GreyBackGround.jpeg"
-                bgImageAlt="the cat"
-                strength={200}
+                  <Card.Body className="">{Des4}</Card.Body>
+                </Col>
+              </motion.div>
+            </Col>
+          </Parallax>
+          <Parallax
+            blur={0}
+            bgImage="https://secondbucketforcustompc.s3.us-east-2.amazonaws.com/GreyBackGround.jpeg"
+            bgImageAlt="the cat"
+            strength={200}
+          >
+            <Col ref={ref2} className="thumb">
+              <motion.div
+                key="2"
+                initial="hidden"
+                animate={controls}
+                variants={boxVariants2}
               >
                 <Image src={Img3} width={25} height={25} layout="responsive" />
 
                 <Card.Title className="">{Des}</Card.Title>
                 <Card.Body className="">{Des5}</Card.Body>
-              </Parallax>
-            </motion.div>
-          </Col>
+              </motion.div>
+            </Col>
+          </Parallax>
 
           <Col ref={ref3} className="thumb">
             <motion.div
