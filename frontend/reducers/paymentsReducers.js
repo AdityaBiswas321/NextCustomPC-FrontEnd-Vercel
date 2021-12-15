@@ -18,7 +18,7 @@ export const paymentsReducer = (state = {}, action) => {
     case PAYMENT_SUCCESS:
       return {
         ...state,
-        loading: true,
+        loading: false,
         successClient: true,
         clientSecret: action.payload,
       };
@@ -29,22 +29,13 @@ export const paymentsReducer = (state = {}, action) => {
     case MAKE_PAYMENT_METHOD_SUCCESS:
       return {
         ...state,
+        loading: false,
         successMethod: true,
         paymentMethodReq: action.payload,
       };
     case MAKE_PAYMENT_METHOD_FAIL:
       return { loading: false, error: action.payload };
-    case CONFIRM_PAYMENT_REQUEST:
-      return { ...state };
-    case CONFIRM_PAYMENT_SUCCESS:
-      return {
-        ...state,
-        loading: false,
-        confirmCardPayment: action.payload,
-        successConfirm: true,
-      };
-    case CONFIRM_PAYMENT_FAIL:
-      return { ...state, loading: false, error: action.payload };
+
     case CONFIRM_PAYMENT_RESET:
       return {};
 

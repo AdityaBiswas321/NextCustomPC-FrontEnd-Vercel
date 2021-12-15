@@ -10,13 +10,13 @@ const confirmCheckout = (props) => {
   const [status, setStatus] = useState("");
   const [id, setId] = useState("");
 
-  const payments = props.payments;
+  const confirmData = props.confirmData;
 
   const payment = () => {
     try {
-      if (payments) {
-        setStatus(props.payments.confirmCardPayment.paymentIntent.status);
-        setId(props.payments.confirmCardPayment.paymentIntent.id);
+      if (confirmData) {
+        setStatus(props.confirmData.confirmCardPayment.paymentIntent.status);
+        setId(props.confirmData.confirmCardPayment.paymentIntent.id);
       }
     } catch (error) {
       Router.push("/");
@@ -39,7 +39,7 @@ const confirmCheckout = (props) => {
 
   useEffect(() => {
     payment();
-  }, [payments]);
+  }, [confirmData]);
 
   return (
     <Card className="thumb">
@@ -74,6 +74,7 @@ const confirmCheckout = (props) => {
 };
 
 const mapStateToProps = (state) => ({
+  confirmData: state.confirm,
   payments: state.payments,
 });
 

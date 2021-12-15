@@ -32,6 +32,10 @@ import Message from "../Message/Message.js";
 import { SHIPPING_RESET } from "../../constants/shippingConstants.js";
 import { createConfirmCardPayment } from "../../actions/paymentsActions.js";
 import Router from "next/router";
+import {
+  CONFIRM_PAYMENT_RESET,
+  CONFIRM_RESET,
+} from "../../constants/paymentConstants.js";
 
 const PaymentsDetail = (props) => {
   // build ternary operator chain here
@@ -44,9 +48,11 @@ const PaymentsDetail = (props) => {
   const {
     clientSecret,
     paymentMethodReq,
-    confirmCardPayment,
     loading: loadingPayments,
+    successMethod,
   } = props.paymentsData;
+
+  const { confirmCardPayment } = props.confirmData;
 
   console.log("Details payment method");
   console.log(paymentMethodReq);
@@ -68,7 +74,11 @@ const PaymentsDetail = (props) => {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const handleShow = () => {
+    setShow(true);
+    dispatch({ type: CONFIRM_RESET });
+    dispatch({ type: CONFIRM_PAYMENT_RESET });
+  };
   //
 
   const getRates = () => {
@@ -300,7 +310,7 @@ const PaymentsDetail = (props) => {
     if (confirmCardPayment) {
       Router.push("/confirmCheckout");
     }
-  }, [history, loadingPayments]);
+  }, [history, confirmCardPayment]);
 
   //change on posta
 
@@ -504,11 +514,9 @@ const PaymentsDetail = (props) => {
                         <Button
                           variant="primary"
                           onClick={() => submit(name, email, postal, total)}
-                          disabled={confirmCardPayment}
+                          disabled={successMethod}
                         >
-                          {confirmCardPayment
-                            ? "Loading..."
-                            : "Confirm Purchase"}
+                          {successMethod ? "Loading..." : "Confirm Purchase"}
                         </Button>
                       </Modal.Footer>
                     </>
@@ -527,6 +535,7 @@ const mapStateToProps = (state) => ({
   shippingData: state.shipping,
   validateData: state.validation,
   paymentsData: state.payments,
+  confirmData: state.confirm,
 });
 
 export default connect(mapStateToProps)(PaymentsDetail);

@@ -60,7 +60,7 @@ export const createConfirmCardPayment =
       console.log("CONFIRM CARD PAYMENT");
       console.log(confirmCardPayment);
       dispatch({ type: CONFIRM_PAYMENT_SUCCESS, payload: confirmCardPayment });
-    } catch (error) {
-      dispatch({ type: CONFIRM_PAYMENT_FAIL, payload: error.response });
+    } catch (confirmCardPayment) {
+      dispatch({ type: CONFIRM_PAYMENT_FAIL, payload: confirmCardPayment });
     }
   };

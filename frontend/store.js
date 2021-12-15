@@ -7,6 +7,7 @@ import { shippingReducer } from "./reducers/shippingReducers";
 import { validationReducer } from "./reducers/validationReducers";
 import { qualifyReducers } from "./reducers/qualifyReducers";
 import { paymentsReducer } from "./reducers/paymentsReducers";
+import { confirmReducer } from "./reducers/confirmationReducers";
 import { productReducers } from "./reducers/productReducers";
 import ProductOneReducer from "./ProductData/ProductOne";
 
@@ -17,6 +18,7 @@ const reducer = combineReducers({
   qualify: qualifyReducers,
   payments: paymentsReducer,
   product: productReducers,
+  confirm: confirmReducer,
 });
 
 const initialState = {
