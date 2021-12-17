@@ -191,7 +191,7 @@ const Product = ({
 
           <Parallax
             blur={0}
-            bgImage="https://secondbucketforcustompc.s3.us-east-2.amazonaws.com/ParallaxBg1.jpg"
+            bgImage="https://i.pinimg.com/736x/d8/0f/aa/d80faaccc549eef16005ec3fa1ea2999.jpg"
             bgImageAlt="the cat"
             strength={200}
           >
@@ -202,13 +202,14 @@ const Product = ({
                 animate={controls}
                 variants={boxVariants}
               >
-                <Image
-                  src={Img2}
-                  width={25}
-                  height={25}
-                  layout="responsive"
-                  className=""
-                />
+                <div className="sizing">
+                  <Image
+                    src={Img2}
+                    width={200}
+                    height={200}
+                    layout="intrinsic"
+                  />
+                </div>
                 <Col className="backgroundColour thumb">
                   <Card.Title className="">{Des3}</Card.Title>
 
@@ -219,7 +220,7 @@ const Product = ({
           </Parallax>
           <Parallax
             blur={0}
-            bgImage="https://secondbucketforcustompc.s3.us-east-2.amazonaws.com/GreyBackGround.jpeg"
+            bgImage="https://cdn2.vectorstock.com/i/1000x1000/82/46/circuit-board-technology-background-vector-13208246.jpg"
             bgImageAlt="the cat"
             strength={200}
           >
@@ -231,40 +232,57 @@ const Product = ({
                 variants={boxVariants2}
               >
                 <Image src={Img3} width={25} height={25} layout="responsive" />
-
-                <Card.Title className="">{Des}</Card.Title>
-                <Card.Body className="">{Des5}</Card.Body>
+                <Col className="backgroundColour thumb">
+                  <Card.Title className="">{Des}</Card.Title>
+                  <Card.Body className="">{Des5}</Card.Body>
+                </Col>
               </motion.div>
             </Col>
           </Parallax>
 
-          <Col ref={ref3} className="thumb">
-            <motion.div
-              key="3"
-              initial="hidden"
-              animate={controls}
-              variants={boxVariants3}
-            >
-              <Image src={Img4} width={25} height={25} layout="responsive" />
+          <Parallax
+            blur={0}
+            bgImage="https://cdn.wccftech.com/wp-content/uploads/2018/10/AORUS-GeForce-RTX-2080-Ti-Xtreme_1-740x493.jpg"
+            bgImageAlt="the cat"
+            strength={200}
+          >
+            <Col ref={ref3} className="thumb">
+              <motion.div
+                key="3"
+                initial="hidden"
+                animate={controls}
+                variants={boxVariants3}
+              >
+                <Image src={Img4} width={25} height={25} layout="responsive" />
+                <Col className="backgroundColour thumb">
+                  <Card.Title className="">{Des}</Card.Title>
+                  <Card.Body className="">{Des6}</Card.Body>
+                </Col>
+              </motion.div>
+            </Col>
+          </Parallax>
 
-              <Card.Title className="">{Des}</Card.Title>
-              <Card.Body className="">{Des6}</Card.Body>
-            </motion.div>
-          </Col>
-
-          <Col ref={ref4} className="thumb">
-            <motion.div
-              key="3"
-              initial="hidden"
-              animate={controls}
-              variants={boxVariants4}
-            >
-              <Image src={Img5} width={25} height={25} layout="responsive" />
-
-              <Card.Title className="">{Des}</Card.Title>
-              <Card.Body className="">{Des7}</Card.Body>
-            </motion.div>
-          </Col>
+          <Parallax
+            blur={0}
+            bgImage="https://cdn2.vox-cdn.com/uploads/chorus_asset/file/7684353/2861_5858e530b782c.jpg"
+            bgImageAlt="the cat"
+            strength={200}
+          >
+            <Col ref={ref4} className="thumb">
+              <motion.div
+                key="3"
+                initial="hidden"
+                animate={controls}
+                variants={boxVariants4}
+              >
+                <Image src={Img5} width={25} height={25} layout="responsive" />
+                <Col className="backgroundColour thumb">
+                  <Card.Title className="">{Des}</Card.Title>
+                  <Card.Body className="">{Des7}</Card.Body>
+                </Col>
+              </motion.div>
+            </Col>
+          </Parallax>
 
           <motion.div
             key="4"

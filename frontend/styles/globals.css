@@ -139,3 +139,8 @@ a {
   background-color: rgba(46, 38, 32, 0.801);
   color: #ddd;
 }
+
+.sizing {
+  position: relative;
+  left: 50px;
+}
