@@ -23,31 +23,8 @@ const Product = ({
   Des5,
   Des6,
   Des7,
+  Components,
 }) => {
-  const {
-    type,
-    tab,
-    app,
-    name,
-    email,
-    phone,
-    postal,
-    Ctype,
-    alertclick,
-    alertclick2,
-    alertclick3,
-    alertclick4,
-    setEmail,
-    setName,
-    setPhone,
-    setAddress,
-    setCity,
-    setProvince,
-    setPostal,
-    submitHandler,
-    stripe,
-  } = useQualifyData();
-
   console.log("ALGORITHM PRICE");
   console.log(Price);
   const controls = useAnimation();
@@ -72,6 +49,8 @@ const Product = ({
     },
     // You can do whatever you want here, if you just want it to stop completely use `rotate: 0`
   };
+  console.log("COMPONENTS Products.js");
+  console.log(Components);
 
   const boxVariants = {
     hidden: { x: 200, opacity: 0 },
@@ -291,7 +270,7 @@ const Product = ({
             variants={boxVariants5}
             ref={ref5}
           >
-            <Payments Price={Price} img={Img} />
+            <Payments Price={Price} img={Img} Components={Components} />
           </motion.div>
         </Card>
       </motion.div>

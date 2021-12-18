@@ -49,6 +49,7 @@ const product = () => {
           Des6={test4[len].Des6}
           Img5={test4[len].Img5}
           Des7={test4[len].Des7}
+          Components={test4[len].Components}
         />
       ) : (
         <p>Product Model Unavailable, please check back soon</p>

@@ -45,6 +45,9 @@ const PaymentsDetail = (props) => {
   const stripe = useStripe();
   const elements = useElements();
 
+  console.log("COMPONENTS PAYMENT DETAILS");
+  console.log(props.Components);
+
   const {
     clientSecret,
     paymentMethodReq,
@@ -435,12 +438,30 @@ const PaymentsDetail = (props) => {
                 />
                 <Card.Title className="mt-3">Features</Card.Title>
                 <ListGroup className="">
-                  <ListGroup.Item>:Graphics</ListGroup.Item>
-                  <ListGroup.Item>:Ram</ListGroup.Item>
-                  <ListGroup.Item>:CPU</ListGroup.Item>
-                  <ListGroup.Item>:PowerSupply</ListGroup.Item>
-                  <ListGroup.Item>:MotherBoard</ListGroup.Item>
-                  <ListGroup.Item>:Storage</ListGroup.Item>
+                  <ListGroup.Item>
+                    <strong className="font-weight-bold">Graphics:</strong>{" "}
+                    {props?.Components?.graphics}
+                  </ListGroup.Item>
+                  <ListGroup.Item>
+                    <strong className="font-weight-bold">RAM:</strong>{" "}
+                    {props?.Components?.ram}
+                  </ListGroup.Item>
+                  <ListGroup.Item>
+                    <strong className="font-weight-bold">CPU:</strong>{" "}
+                    {props?.Components?.cpu}
+                  </ListGroup.Item>
+                  <ListGroup.Item>
+                    <strong className="font-weight-bold">PowerSupply:</strong>{" "}
+                    {props?.Components?.powersupply}
+                  </ListGroup.Item>
+                  <ListGroup.Item>
+                    <strong className="font-weight-bold">MotherBoard:</strong>{" "}
+                    {props?.Components?.mobo}
+                  </ListGroup.Item>
+                  <ListGroup.Item>
+                    <strong className="font-weight-bold">Storage:</strong>{" "}
+                    {props?.Components?.storage}
+                  </ListGroup.Item>
                 </ListGroup>
                 <hr />
                 <Card.Title className="ship">Total:${total}</Card.Title>

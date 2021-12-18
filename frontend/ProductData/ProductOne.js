@@ -21,6 +21,14 @@ export const productData = [
     app: 1,
     budget: 500,
     Price: 350,
+    Components: {
+      graphics: "GTX 1060 6GB",
+      ram: "Vengeance ddr4",
+      cpu: "i5 7500",
+      powersupply: "EVGA SuperNOVA 550W",
+      mobo: "b250 d3sh",
+      storage: "Sandisk 250gb SSD",
+    },
   },
   {
     id: 2,
