@@ -91,7 +91,7 @@ const Qualify = () => {
   }, []);
 
   return (
-    <div className="lightgrey" style={{ height: "80vh" }}>
+    <div className="lightgrey thumbIndex" style={{ height: "80vh" }}>
       <Col xl={4} lg={4} style={{ padding: "0" }}>
         {lead && (
           <Message variant="success">{`Success!
