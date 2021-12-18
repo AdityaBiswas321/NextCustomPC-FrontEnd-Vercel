@@ -90,7 +90,7 @@ export default function HomeScreen() {
         </Row>
 
         <Row id="computer">
-          <Col sm={12} md={12} lg={12} xl={12} style={{ padding: "0" }}>
+          <Col sm={12} md={12} lg={12} xl={12}>
             <Card id="gh" type="button" className="btn btn-dark ">
               <Link href="computer1">
                 <a>
@@ -112,7 +112,7 @@ export default function HomeScreen() {
             </Card>
           </Col>
 
-          <Col sm={12} md={12} lg={12} xl={12} style={{ padding: "0" }}>
+          <Col sm={12} md={12} lg={12} xl={12}>
             <Card id="gh" type="button" className="btn btn-dark ">
               <Link href="computer1">
                 <a>
@@ -133,7 +133,7 @@ export default function HomeScreen() {
               </Link>
             </Card>
           </Col>
-          <Col sm={12} md={12} lg={12} xl={12} style={{ padding: "0" }}>
+          <Col sm={12} md={12} lg={12} xl={12}>
             <Card id="gh" type="button" className="btn btn-dark ">
               <Link href="computer1">
                 <a>

@@ -92,7 +92,7 @@ const Qualify = () => {
 
   return (
     <div className="lightgrey" style={{ height: "80vh" }}>
-      <Card className="thumbQualify">
+      <Col xl={4} lg={4} style={{ padding: "0" }}>
         {lead && (
           <Message variant="success">{`Success!
          Your ID is ${lead._id}`}</Message>
@@ -272,7 +272,7 @@ const Qualify = () => {
             )
           )}
         </AnimatePresence>
-      </Card>
+      </Col>
     </div>
   );
 };
