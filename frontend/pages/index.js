@@ -47,6 +47,7 @@ export default function HomeScreen() {
                 src="https://secondbucketforcustompc.s3.us-east-2.amazonaws.com/WhitePC.jpeg"
                 width="400"
                 height="400"
+                loading="lazy"
               />
             </div>
             <div>
@@ -54,6 +55,7 @@ export default function HomeScreen() {
                 src="https://secondbucketforcustompc.s3.us-east-2.amazonaws.com/BluePc.jpg"
                 width="400"
                 height="400"
+                loading="lazy"
               />
             </div>
           </Carousel>
