@@ -61,7 +61,7 @@ const OrderSteps = () => {
           )}
         </Nav.Item>
 
-        <Nav.Item className={styles.width} style={{ marginRight: "0" }}>
+        <Nav.Item className={styles.width} style={{ marginRight: "2px" }}>
           {phase4 ? (
             <Button
               onClick={() => {
