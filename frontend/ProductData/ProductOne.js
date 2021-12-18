@@ -50,6 +50,14 @@ export const productData = [
     app: 1,
     budget: 500,
     Price: 450,
+    Components: {
+      graphics: "GTX 1060 6GB",
+      ram: "Vengeance ddr4",
+      cpu: "i5 7500",
+      powersupply: "EVGA SuperNOVA 550W",
+      mobo: "b250 d3sh",
+      storage: "Sandisk 250gb SSD",
+    },
   },
   {
     id: 3,
@@ -71,6 +79,14 @@ export const productData = [
     app: 1,
     budget: 500,
     Price: 450,
+    Components: {
+      graphics: "GTX 1060 6GB",
+      ram: "Vengeance ddr4",
+      cpu: "i5 7500",
+      powersupply: "EVGA SuperNOVA 550W",
+      mobo: "b250 d3sh",
+      storage: "Sandisk 250gb SSD",
+    },
   },
   {
     id: 4,
@@ -92,6 +108,14 @@ export const productData = [
     app: 3,
     budget: 1200,
     Price: 800,
+    Components: {
+      graphics: "GTX 1060 6GB",
+      ram: "Vengeance ddr4",
+      cpu: "i5 7500",
+      powersupply: "EVGA SuperNOVA 550W",
+      mobo: "b250 d3sh",
+      storage: "Sandisk 250gb SSD",
+    },
   },
   {
     id: 5,
@@ -113,6 +137,14 @@ export const productData = [
     app: 3,
     budget: 500,
     Price: 490,
+    Components: {
+      graphics: "GTX 1060 6GB",
+      ram: "Vengeance ddr4",
+      cpu: "i5 7500",
+      powersupply: "EVGA SuperNOVA 550W",
+      mobo: "b250 d3sh",
+      storage: "Sandisk 250gb SSD",
+    },
   },
   {
     id: 6,
@@ -134,5 +166,13 @@ export const productData = [
     app: 3,
     budget: 500,
     Price: 490,
+    Components: {
+      graphics: "GTX 1060 6GB",
+      ram: "Vengeance ddr4",
+      cpu: "i5 7500",
+      powersupply: "EVGA SuperNOVA 550W",
+      mobo: "b250 d3sh",
+      storage: "Sandisk 250gb SSD",
+    },
   },
 ];
