@@ -51,7 +51,7 @@ const product = () => {
           Des7={test4[len].Des7}
         />
       ) : (
-        <p>algorithm still in development, click top left</p>
+        <p>Product Model Unavailable, please check back soon</p>
       )}
     </>
   );
