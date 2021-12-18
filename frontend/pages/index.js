@@ -41,7 +41,7 @@ export default function HomeScreen() {
           <Col id="caro" sm={12} md={12} lg={6} xl={6}>
             <Carousel showStatus={false} showThumbs={false}>
               <div>
-                <img src="https://secondbucketforcustompc.s3.us-east-2.amazonaws.com/TestPC1.jpg" />
+                <img src="https://secondbucketforcustompc.s3.us-east-2.amazonaws.com/TestPC1.png" />
               </div>
               <div>
                 <img src="https://secondbucketforcustompc.s3.us-east-2.amazonaws.com/WhitePC.jpeg" />
@@ -85,7 +85,7 @@ export default function HomeScreen() {
               <Link href="computer1">
                 <Image
                   src={
-                    "https://secondbucketforcustompc.s3.us-east-2.amazonaws.com/TestPC1.jpg"
+                    "https://secondbucketforcustompc.s3.us-east-2.amazonaws.com/TestPC1.png"
                   }
                   width={25}
                   height={25}

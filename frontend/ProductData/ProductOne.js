@@ -2,7 +2,7 @@ export const productData = [
   // budget 500, 1200, 3000
   {
     id: 1,
-    Img: "https://secondbucketforcustompc.s3.us-east-2.amazonaws.com/TestPC1.jpg",
+    Img: "https://secondbucketforcustompc.s3.us-east-2.amazonaws.com/TestPC1.png",
     Des: "TEST DATA",
     Des2: "Designed for light application usage, Curated for maximum performance and economic modality",
     Img2: "https://secondbucketforcustompc.s3.us-east-2.amazonaws.com/SSDEdit.png",
@@ -24,7 +24,7 @@ export const productData = [
   },
   {
     id: 2,
-    Img: "https://secondbucketforcustompc.s3.us-east-2.amazonaws.com/TestPC1.jpg",
+    Img: "https://secondbucketforcustompc.s3.us-east-2.amazonaws.com/TestPC1.png",
     Des: "TEST DATA2",
     Des2: "Designed for light application usage, Curated for maximum performance and economic modality",
     Img2: "https://secondbucketforcustompc.s3.us-east-2.amazonaws.com/SSDEdit.png",
@@ -45,7 +45,7 @@ export const productData = [
   },
   {
     id: 3,
-    Img: "https://secondbucketforcustompc.s3.us-east-2.amazonaws.com/TestPC1.jpg",
+    Img: "https://secondbucketforcustompc.s3.us-east-2.amazonaws.com/TestPC1.png",
     Des: "TEST DATA3",
     Des2: "Designed for light application usage, Curated for maximum performance and economic modality",
     Img2: "https://secondbucketforcustompc.s3.us-east-2.amazonaws.com/SSDEdit.png",

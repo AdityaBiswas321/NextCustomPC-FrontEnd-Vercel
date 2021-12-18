@@ -109,23 +109,10 @@ const Qualify = () => {
               <OrderSteps />
               <ListGroup.Item>
                 <Row>
-                  <Col className="text-center py-2">
-                    <h5>
+                  <Col className="text-center">
+                    <h5 className="my-2">
                       <strong>Select usage</strong>
                     </h5>
-                  </Col>
-                </Row>
-                <Row style={{ textAlign: "center" }}>
-                  <Col className="text-center py-2">
-                    <text>
-                      Identifying the usage determines the types of parts
-                      requied.
-                      <br></br>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                      sed do eiusmod tempor incididunt ut labore et dolore magna
-                      aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                      ullamco laboris <br></br>
-                    </text>
                   </Col>
                 </Row>
               </ListGroup.Item>
@@ -166,20 +153,8 @@ const Qualify = () => {
               <OrderSteps />
               <ListGroup.Item>
                 <Row>
-                  <Col className="text-center py-2">
-                    <h5>Select Tab Usage</h5>
-                  </Col>
-                </Row>
-                <Row style={{ textAlign: "center" }}>
-                  <Col className="text-center py-2">
-                    <text>
-                      Sed ut perspiciatis unde omnis iste natus error sit
-                      voluptatem accusantium doloremque laudantium, totam rem
-                      aperiam, eaque ipsa quae ab illo inventore veritatis et
-                      quasi architecto beatae vitae dicta sunt explicabo. Nemo
-                      enim ipsam voluptatem quia voluptas sit aspernatur aut
-                      odit aut fugit, sed quia
-                    </text>
+                  <Col className="text-center">
+                    <h5 className="my-2">Select Tab Usage</h5>
                   </Col>
                 </Row>
               </ListGroup.Item>
@@ -220,20 +195,8 @@ const Qualify = () => {
               <OrderSteps />
               <ListGroup.Item>
                 <Row>
-                  <Col className="text-center py-2">
-                    <h5>Select Application Usage</h5>
-                  </Col>
-                </Row>
-                <Row style={{ textAlign: "center" }}>
-                  <Col className="text-center py-2">
-                    <text>
-                      magni dolores eos qui ratione voluptatem sequi nesciunt.
-                      Neque porro quisquam est, qui dolorem ipsum quia dolor sit
-                      amet, consectetur, adipisci velit, sed quia non numquam
-                      eius modi tempora incidunt ut labore et dolore magnam
-                      aliquam quaerat voluptatem. Ut enim ad minima veniam, quis
-                      eum iure
-                    </text>
+                  <Col className="text-center">
+                    <h5 className="my-2">Select Application Usage</h5>
                   </Col>
                 </Row>
               </ListGroup.Item>
@@ -275,16 +238,8 @@ const Qualify = () => {
                 <OrderSteps />
                 <ListGroup.Item>
                   <Row>
-                    <Col className="text-center py-2">
-                      <h5>Select Budget</h5>
-                    </Col>
-                  </Row>
-                  <Row style={{ textAlign: "center" }}>
-                    <Col className="text-center py-2">
-                      <text>
-                        To determine types of parts we can build the machine
-                        with
-                      </text>
+                    <Col className="text-center">
+                      <h5 className="my-2">Select Budget</h5>
                     </Col>
                   </Row>
                 </ListGroup.Item>

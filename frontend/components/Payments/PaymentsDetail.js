@@ -329,23 +329,6 @@ const PaymentsDetail = (props) => {
             <u>CALCULATE SHIPPING</u>
           </Card.Title>
 
-          <Form.Label>Name</Form.Label>
-
-          <Form.Control
-            name="name"
-            type="text"
-            placeholder="Jane Doe"
-            required
-            onChange={(e) => setName(e.target.value)}
-          />
-          <Form.Label>Email</Form.Label>
-          <Form.Control
-            name="email"
-            type="email"
-            placeholder="jane.doe@example.com"
-            required
-            onChange={(e) => setEmail(e.target.value)}
-          />
           <Form.Label>Address</Form.Label>
           <GooglePlacesAutocomplete
             apiKey="AIzaSyDKfd2R00uZLdD5IJkoGxJo8VxQoIeWxdE"
@@ -437,8 +420,9 @@ const PaymentsDetail = (props) => {
             animate={step2 && "animate"}
             variants={boxVariants}
           >
-            <Card className="thumbCard">
-              <Form.Group>
+            <Card className="thumbCard ">
+              <Form.Group className="">
+                <hr />
                 <Card.Title className="ship">Price:${props.Price}</Card.Title>
                 <Card.Title className="ship">Shipping:${rate}</Card.Title>
                 <hr />
@@ -447,9 +431,10 @@ const PaymentsDetail = (props) => {
                   width={25}
                   height={25}
                   layout="responsive"
+                  className="darkgrey"
                 />
-                <Card.Title>Features</Card.Title>
-                <ListGroup>
+                <Card.Title className="mt-3">Features</Card.Title>
+                <ListGroup className="">
                   <ListGroup.Item>:Graphics</ListGroup.Item>
                   <ListGroup.Item>:Ram</ListGroup.Item>
                   <ListGroup.Item>:CPU</ListGroup.Item>
@@ -460,6 +445,24 @@ const PaymentsDetail = (props) => {
                 <hr />
                 <Card.Title className="ship">Total:${total}</Card.Title>
                 <hr />
+                <Form.Label>Name</Form.Label>
+
+                <Form.Control
+                  name="name"
+                  type="text"
+                  placeholder="Jane Doe"
+                  required
+                  onChange={(e) => setName(e.target.value)}
+                />
+
+                <Form.Label>Email</Form.Label>
+                <Form.Control
+                  name="email"
+                  type="email"
+                  placeholder="jane.doe@example.com"
+                  required
+                  onChange={(e) => setEmail(e.target.value)}
+                />
                 <Form.Label className="ship">Card Details</Form.Label>
 
                 <CardElement
