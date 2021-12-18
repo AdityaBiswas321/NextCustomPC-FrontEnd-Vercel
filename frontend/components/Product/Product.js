@@ -139,7 +139,7 @@ const Product = ({
   }, [controls, inView, inView2, inView3, inView4, inView5]);
 
   return (
-    <div className="darkgrey">
+    <div className="lightgrey">
       <motion.div
         exit={{ opacity: 0 }}
         initial={{ opacity: 0 }}

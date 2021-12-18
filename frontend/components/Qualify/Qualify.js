@@ -91,155 +91,29 @@ const Qualify = () => {
   }, []);
 
   return (
-    <>
-      {lead && (
-        <Message variant="success">{`Success!
+    <div className="lightgrey" style={{ height: "80vh" }}>
+      <Card className="thumbQualify">
+        {lead && (
+          <Message variant="success">{`Success!
          Your ID is ${lead._id}`}</Message>
-      )}
-      <AnimatePresence>
-        {step1 ? (
-          <motion.div
-            variants={variants}
-            key="1"
-            exit={step1 === false && "exit"}
-            initial="initial"
-            animate={step1 ? "animate" : "exit"}
-          >
-            <ListGroup>
-              <OrderSteps />
-              <ListGroup.Item>
-                <Row>
-                  <Col className="text-center">
-                    <h5 className="my-2">
-                      <strong>Select usage</strong>
-                    </h5>
-                  </Col>
-                </Row>
-              </ListGroup.Item>
-              <ListGroup.Item>
-                <Button
-                  type="button"
-                  className="btn-block"
-                  onClick={() => alertclick("Home Office")}
-                >
-                  Home Office
-                </Button>
-                <Button
-                  type="button"
-                  className="btn-block"
-                  onClick={() => alertclick("Content Creation")}
-                >
-                  Content Creation
-                </Button>
-                <Button
-                  type="button"
-                  className="btn-block"
-                  onClick={() => alertclick("Gaming")}
-                >
-                  Gaming
-                </Button>
-              </ListGroup.Item>
-            </ListGroup>
-          </motion.div>
-        ) : step2 ? (
-          <motion.div
-            variants={variants}
-            key="2"
-            exit={step2 === false && "exit"}
-            initial="initial"
-            animate={step2 ? "animate" : "exit"}
-          >
-            <ListGroup>
-              <OrderSteps />
-              <ListGroup.Item>
-                <Row>
-                  <Col className="text-center">
-                    <h5 className="my-2">Select Tab Usage</h5>
-                  </Col>
-                </Row>
-              </ListGroup.Item>
-              <ListGroup.Item>
-                <Button
-                  type="button"
-                  className="btn-block"
-                  onClick={() => alertclick2(1)}
-                >
-                  Few Tabs - less than 5
-                </Button>
-                <Button
-                  type="button"
-                  className="btn-block"
-                  onClick={() => alertclick2(2)}
-                >
-                  Moderate Tabs - between 5 - 10
-                </Button>
-                <Button
-                  type="button"
-                  className="btn-block"
-                  onClick={() => alertclick2(3)}
-                >
-                  Many Tabs - more than 10
-                </Button>
-              </ListGroup.Item>
-            </ListGroup>
-          </motion.div>
-        ) : step3 ? (
-          <motion.div
-            variants={variants}
-            key="3"
-            exit={step3 === false && "exit"}
-            initial="initial"
-            animate={step3 && "animate"}
-          >
-            <ListGroup>
-              <OrderSteps />
-              <ListGroup.Item>
-                <Row>
-                  <Col className="text-center">
-                    <h5 className="my-2">Select Application Usage</h5>
-                  </Col>
-                </Row>
-              </ListGroup.Item>
-              <ListGroup.Item>
-                <Button
-                  type="button"
-                  className="btn-block"
-                  onClick={() => alertclick3(1)}
-                >
-                  Couple Applications - chrome, word
-                </Button>
-                <Button
-                  type="button"
-                  className="btn-block"
-                  onClick={() => alertclick3(2)}
-                >
-                  Few Applications - chrome, word, zoom
-                </Button>
-                <Button
-                  type="button"
-                  className="btn-block"
-                  onClick={() => alertclick3(3)}
-                >
-                  Many Applications - more than 4
-                </Button>
-              </ListGroup.Item>
-            </ListGroup>
-          </motion.div>
-        ) : (
-          step4 && (
+        )}
+        <AnimatePresence>
+          {step1 ? (
             <motion.div
               variants={variants}
-              key="4"
-              exit={step4 === false && "exit"}
+              key="1"
+              exit={step1 === false && "exit"}
               initial="initial"
-              animate={step4 && "animate"}
+              animate={step1 ? "animate" : "exit"}
             >
               <ListGroup>
                 <OrderSteps />
                 <ListGroup.Item>
                   <Row>
                     <Col className="text-center">
-                      <h5 className="my-2">Select Budget</h5>
+                      <h5 className="my-2">
+                        <strong>Select usage</strong>
+                      </h5>
                     </Col>
                   </Row>
                 </ListGroup.Item>
@@ -247,31 +121,159 @@ const Qualify = () => {
                   <Button
                     type="button"
                     className="btn-block"
-                    onClick={() => alertclick4(500)}
+                    onClick={() => alertclick("Home Office")}
                   >
-                    Budget: $150 - $500
+                    Home Office
                   </Button>
                   <Button
                     type="button"
                     className="btn-block"
-                    onClick={() => alertclick4(1200)}
+                    onClick={() => alertclick("Content Creation")}
                   >
-                    Mid-Tier: $500 - $1200
+                    Content Creation
                   </Button>
                   <Button
                     type="button"
                     className="btn-block"
-                    onClick={() => alertclick4(3000)}
+                    onClick={() => alertclick("Gaming")}
                   >
-                    High-End: +$1200
+                    Gaming
                   </Button>
                 </ListGroup.Item>
               </ListGroup>
             </motion.div>
-          )
-        )}
-      </AnimatePresence>
-    </>
+          ) : step2 ? (
+            <motion.div
+              variants={variants}
+              key="2"
+              exit={step2 === false && "exit"}
+              initial="initial"
+              animate={step2 ? "animate" : "exit"}
+            >
+              <ListGroup>
+                <OrderSteps />
+                <ListGroup.Item>
+                  <Row>
+                    <Col className="text-center">
+                      <h5 className="my-2">Select Tab Usage</h5>
+                    </Col>
+                  </Row>
+                </ListGroup.Item>
+                <ListGroup.Item>
+                  <Button
+                    type="button"
+                    className="btn-block"
+                    onClick={() => alertclick2(1)}
+                  >
+                    Few Tabs - less than 5
+                  </Button>
+                  <Button
+                    type="button"
+                    className="btn-block"
+                    onClick={() => alertclick2(2)}
+                  >
+                    Moderate Tabs - between 5 - 10
+                  </Button>
+                  <Button
+                    type="button"
+                    className="btn-block"
+                    onClick={() => alertclick2(3)}
+                  >
+                    Many Tabs - more than 10
+                  </Button>
+                </ListGroup.Item>
+              </ListGroup>
+            </motion.div>
+          ) : step3 ? (
+            <motion.div
+              variants={variants}
+              key="3"
+              exit={step3 === false && "exit"}
+              initial="initial"
+              animate={step3 && "animate"}
+            >
+              <ListGroup>
+                <OrderSteps />
+                <ListGroup.Item>
+                  <Row>
+                    <Col className="text-center">
+                      <h5 className="my-2">Select Application Usage</h5>
+                    </Col>
+                  </Row>
+                </ListGroup.Item>
+                <ListGroup.Item>
+                  <Button
+                    type="button"
+                    className="btn-block"
+                    onClick={() => alertclick3(1)}
+                  >
+                    Couple Apps - chrome, word
+                  </Button>
+                  <Button
+                    type="button"
+                    className="btn-block"
+                    onClick={() => alertclick3(2)}
+                  >
+                    Few Apps - chrome, word, zoom
+                  </Button>
+                  <Button
+                    type="button"
+                    className="btn-block"
+                    onClick={() => alertclick3(3)}
+                  >
+                    Many Apps - more than 4
+                  </Button>
+                </ListGroup.Item>
+              </ListGroup>
+            </motion.div>
+          ) : (
+            step4 && (
+              <motion.div
+                variants={variants}
+                key="4"
+                exit={step4 === false && "exit"}
+                initial="initial"
+                animate={step4 && "animate"}
+              >
+                <ListGroup>
+                  <OrderSteps />
+                  <ListGroup.Item>
+                    <Row>
+                      <Col className="text-center">
+                        <h5 className="my-2">Select Budget</h5>
+                      </Col>
+                    </Row>
+                  </ListGroup.Item>
+                  <ListGroup.Item>
+                    <Button
+                      type="button"
+                      className="btn-block"
+                      onClick={() => alertclick4(500)}
+                    >
+                      Budget: $150 - $500
+                    </Button>
+                    <Button
+                      type="button"
+                      className="btn-block"
+                      onClick={() => alertclick4(1200)}
+                    >
+                      Mid-Tier: $500 - $1200
+                    </Button>
+                    <Button
+                      type="button"
+                      className="btn-block"
+                      onClick={() => alertclick4(3000)}
+                    >
+                      High-End: +$1200
+                    </Button>
+                  </ListGroup.Item>
+                </ListGroup>
+              </motion.div>
+            )
+          )}
+        </AnimatePresence>
+      </Card>
+    </div>
   );
 };
 
