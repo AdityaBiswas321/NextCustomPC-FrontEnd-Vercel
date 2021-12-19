@@ -19,14 +19,14 @@
 
 
 **Third-Party Libraries:**
-- framer-motion
-- react-parallax
-- react-intersection-observer
-- next-redux-wrapper (NextJS Redux support)
-- react-responsive-carousel
-- react-livechat
-- redux-thunk (for async dispatching)
-- axios
+- Framer-Motion
+- React-Parallax
+- React-Intersection-Observer
+- Next-Redux-Wrapper (NextJS Redux support)
+- React-Responsive-Carousel
+- React-Livechat
+- Redux-Thunk (for async dispatching)
+- Axios
 
 
 **API:**
