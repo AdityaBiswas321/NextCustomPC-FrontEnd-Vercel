@@ -2,9 +2,7 @@
 
 **Target:** To connect non tech-savvy professionals with tailor made Computers by way of an algorithm
 
-
 **Production:** www.npxcomputers.com
-**Version1:** https://custompcversion1.herokuapp.com/ **NOT PROJECT**
 
 **Backend:** https://github.com/AdityaBiswas321/NextCustomPC-Backend-Heroku
 
@@ -37,4 +35,7 @@
 - GooglePlacesAutocomplete API
 - geocodeByPlaceId API
 - Amazon Web Services (AWS) S3 (cloud image storage)
+
+
+**Version1:** https://custompcversion1.herokuapp.com/ 
 
