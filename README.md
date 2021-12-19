@@ -1,6 +1,6 @@
 # NextCustomPC-FrontEnd-Vercel
 
-**Target:** To connect non tech-savvy professionals with tailor made Computers by way of an algorithm
+**Target:** To connect non tech-savvy professionals with tailor made computers by way of an algorithm
 
 **Production:** www.npxcomputers.com
 
