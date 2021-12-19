@@ -5,6 +5,8 @@ import {
   SHIPPING_RESET,
 } from "../constants/shippingConstants";
 
+//Shipping reducer storing shipping data in global state
+
 export const shippingReducer = (state = {}, action) => {
   switch (action.type) {
     case SHIPPING_REQUEST:

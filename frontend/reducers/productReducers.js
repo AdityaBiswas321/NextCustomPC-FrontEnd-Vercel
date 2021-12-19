@@ -5,6 +5,7 @@ import {
   SET_C_TYPE,
 } from "../constants/productConstants";
 
+//Stores information later used by the algorithm to determine PC
 export const productReducers = (state = {}, action) => {
   switch (action.type) {
     case SET_TYPE:

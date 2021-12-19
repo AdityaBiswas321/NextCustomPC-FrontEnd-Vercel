@@ -11,6 +11,9 @@ import {
   CONFIRM_PAYMENT_RESET,
 } from "../constants/paymentConstants";
 
+//Payments reducer to obtain all prerequisities to complete payments
+//Prerequisite information stored in state and used by confirmCardPayments
+
 export const paymentsReducer = (state = {}, action) => {
   switch (action.type) {
     case PAYMENT_REQUEST:

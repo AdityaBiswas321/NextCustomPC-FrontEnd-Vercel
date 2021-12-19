@@ -4,6 +4,9 @@ import dynamic from "next/dynamic";
 
 import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
 
+//Header
+//DynamicComponentWithNoSSR is needed for the livechat as it does not work with SSR
+
 const Header = () => {
   const DynamicComponentWithNoSSR = dynamic(() => import("react-livechat"), {
     ssr: false,

@@ -13,6 +13,8 @@ const stripePromise = loadStripe(
   "pk_test_51JYnmdLGF4kichPFTGiaPYHrXX6PYQZ3TkGeU8UA3pk9hwxuff6sxTp4BtmEunnWw8K74s6KQtivj4E0KSbT42Ov00K5LpCIM2"
 );
 
+//Layout/Stripe/AnimatePresence/ParallaxProvider(another library used, remove in future)
+
 function MyApp({ Component, pageProps }) {
   return (
     <>
@@ -33,4 +35,5 @@ function MyApp({ Component, pageProps }) {
   );
 }
 
+//Needed to use Redux with NextJS, wrapper specifically.
 export default wrapper.withRedux(MyApp);

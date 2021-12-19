@@ -40,14 +40,19 @@ import {
 const PaymentsDetail = (props) => {
   // build ternary operator chain here
 
+  //Dispatch to use actions
   const dispatch = useDispatch();
 
+  //stripe variables
   const stripe = useStripe();
   const elements = useElements();
 
   console.log("COMPONENTS PAYMENT DETAILS");
   console.log(props.Components);
 
+  //Obtain prerequisite data from makePayment and createPayment action from reducer
+  //Data passed into confirmCardPayment action to complete payments
+  //Mapped to props with connect(), rerenders on this specific redux state change, view bottom of page
   const {
     clientSecret,
     paymentMethodReq,
@@ -55,22 +60,30 @@ const PaymentsDetail = (props) => {
     successMethod,
   } = props.paymentsData;
 
+  //Data from confirmCardPayments reducer, populates after payments is completed(or failed)
   const { confirmCardPayment } = props.confirmData;
 
   console.log("Details payment method");
   console.log(paymentMethodReq);
+
+  //Shipping data, populates after shipping api executes
   const shippingData = props.shippingData;
-  //if completly messed up address fields are inputted, only the error here will catch it
+  //if illegible address inputted, error will be thrown
   const { data, loading, error } = shippingData;
 
+  //if slight error in address(google places bug), validation api will indicate below to correct
+  //if successful will also indicate as success
   const validateData = props.validateData;
   const { data: dataValidate, loading: loadingValidate } = validateData;
 
   console.log("PRICE HERE");
   console.log(props.Price);
 
+  //Not redux state,
+  //Price passed down from product.js after algorithm determines PC and corresponding price
   const Price = props.Price;
 
+  //submit handler, dispatches all actions necessary to complete payments in useQualifyData.js
   const { submit } = useQualifyData();
 
   //modal logic
@@ -84,6 +97,10 @@ const PaymentsDetail = (props) => {
   };
   //
 
+  //if data from shipping api is true, set the rate accordingly
+  //dispatch the validation api to validate the shipping data
+  //Refactor with optional chaining to remove conditional in the future
+  //conditional added to prevent type error as data is undefined until api call
   const getRates = () => {
     if (data) {
       setRate(data.rates[0].amount_local);
@@ -94,6 +111,7 @@ const PaymentsDetail = (props) => {
     }
   };
 
+  //if validation data is true set validaty as true or false
   const getValidation = () => {
     if (dataValidate) {
       const validity = dataValidate.validation_results.is_valid;
@@ -117,13 +135,8 @@ const PaymentsDetail = (props) => {
   console.log(dataValidate);
   console.log(loadingValidate);
 
-  const controls = useAnimation();
-
+  //Local states
   const [value, setValue] = useState(null);
-
-  const [cityText, setCityText] = useState("");
-  const [ProvinceText, setProvinceText] = useState("");
-
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [address, setAddress] = useState("");
@@ -146,7 +159,9 @@ const PaymentsDetail = (props) => {
   let cityValue;
   let provinceValue;
 
-  //value is null until api is called
+  //Address auto complete logic,
+  //parsing google places api and geocode api to obtain address
+  //Again refactor with optional chaining in the future
 
   const addressAutoComplete = async () => {
     if (value !== null) {
@@ -165,6 +180,8 @@ const PaymentsDetail = (props) => {
       console.log(provinceValue);
 
       //key label is responsible for the input values of auto complete component
+      //This is important, ensures what is displayed on the input as just the address and not the whole address object
+      //other parts of the address will populate other input fields
       value["label"] = addressText;
 
       //Get postal code/ zipcode, needs to be asyncronous
@@ -214,6 +231,8 @@ const PaymentsDetail = (props) => {
     }
   };
 
+  //Framer motion variants for sliding transitions
+
   const boxVariants = {
     hidden: { x: 200, opacity: 0 },
     animate: {
@@ -232,6 +251,8 @@ const PaymentsDetail = (props) => {
     },
   };
 
+  //if validity of the address is false keep user on the calculate shipping page
+  //if validity is false, message component will fire with variant danger and the error message
   const validFalse = () => {
     if (validity === false || error) {
       setStep(true);
@@ -239,6 +260,9 @@ const PaymentsDetail = (props) => {
       console.log("VALID FALSE TRIGGER");
     }
   };
+
+  //Submits user data into the Shipping API
+  //
 
   const testData = async () => {
     setStep(false);
@@ -287,6 +311,8 @@ const PaymentsDetail = (props) => {
     // return rate;
   };
 
+  //UseEffect separated to differentiate functionality
+
   useEffect(() => {
     addressAutoComplete();
     dispatch({ type: VALIDATION_RESET });
@@ -303,19 +329,18 @@ const PaymentsDetail = (props) => {
   useEffect(() => {
     validFalse();
   }, [validity, error]);
-  useEffect(() => {});
 
+  //if paymentMethod action returns data, pass all required data into ConfirmCardPayment action to finish payments
   useEffect(() => {
     dispatch(createConfirmCardPayment(clientSecret, paymentMethodReq, stripe));
   }, [paymentMethodReq]);
 
+  //if ConfirmCardPayment is true push user to confirmcheckout (payment completed)
   useEffect(() => {
     if (confirmCardPayment) {
       Router.push("/confirmCheckout");
     }
   }, [history, confirmCardPayment]);
-
-  //change on posta
 
   return (
     <>
@@ -555,6 +580,8 @@ const PaymentsDetail = (props) => {
   );
 };
 
+//Necessary to connect redux state object to component
+//Triggers rerender on state change of redux objects
 const mapStateToProps = (state) => ({
   shippingData: state.shipping,
   validateData: state.validation,

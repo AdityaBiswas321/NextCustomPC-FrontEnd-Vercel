@@ -5,6 +5,8 @@ import {
   VALIDATION_RESET,
 } from "../constants/validationConstants";
 
+//Validation reducer storing validation data in global state
+//needed to reduce prop drilling
 export const validationReducer = (state = {}, action) => {
   switch (action.type) {
     case VALIDATION_REQUEST:

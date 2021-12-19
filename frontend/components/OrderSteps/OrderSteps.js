@@ -11,6 +11,8 @@ import {
 import styles from "./OrderSteps.module.css";
 import useStepsAndPhases from "../../GlobalHooks/useStepsAndPhases";
 
+//Bread Crumb component in Qualify.js to show ones placement in the form.
+
 const OrderSteps = () => {
   const dispatch = useDispatch();
 

@@ -12,6 +12,8 @@ const confirmCheckout = (props) => {
 
   const confirmData = props.confirmData;
 
+  //Confirm thta data is true
+  //redirect confirmData is false
   const payment = () => {
     try {
       if (confirmData) {

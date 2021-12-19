@@ -11,6 +11,7 @@ import { confirmReducer } from "./reducers/confirmationReducers";
 import { productReducers } from "./reducers/productReducers";
 import ProductOneReducer from "./ProductData/ProductOne";
 
+//Combine Reducer
 const reducer = combineReducers({
   computerLeads: computerLeadsReducer,
   shipping: shippingReducer,
@@ -21,6 +22,7 @@ const reducer = combineReducers({
   confirm: confirmReducer,
 });
 
+//Initial State
 const initialState = {
   qualify: {
     step1: true,
@@ -42,6 +44,7 @@ const initialState = {
   },
 };
 
+//Needed to use Redux with NextJS
 const middleware = [thunk];
 const makeStore = (context) =>
   createStore(
@@ -50,4 +53,5 @@ const makeStore = (context) =>
     composeWithDevTools(applyMiddleware(...middleware))
   );
 
+//Need wrapper to use NextJs with redux
 export const wrapper = createWrapper(makeStore, { debug: true });

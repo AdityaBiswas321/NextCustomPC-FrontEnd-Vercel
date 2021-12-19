@@ -7,6 +7,18 @@ import {
   VALIDATION_RESET,
 } from "../constants/validationConstants";
 
+//Very Important
+
+//Validation API to validate shipping data based on its id from shippo servers
+
+//If address is writted incorrectly validaton api indicate as success: false in return object
+
+//Since incorrect address will still pass into shippo api to obtain stock shipping data, validation is necessary
+
+//100% accuracy
+
+//Axios post
+//Response: Validation data, true or false
 export const validate = (id) => async (dispatch) => {
   try {
     dispatch({ type: VALIDATION_REQUEST });

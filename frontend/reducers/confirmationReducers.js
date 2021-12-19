@@ -5,6 +5,7 @@ import {
   CONFIRM_RESET,
 } from "../constants/paymentConstants";
 
+//Confirmation of payments reducer
 export const confirmReducer = (state = {}, action) => {
   switch (action.type) {
     case CONFIRM_PAYMENT_REQUEST:

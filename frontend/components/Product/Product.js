@@ -27,7 +27,10 @@ const Product = ({
 }) => {
   console.log("ALGORITHM PRICE");
   console.log(Price);
+
+  //Framer Motion logic, sliding scroll animation
   const controls = useAnimation();
+
   //can use multiple ref if using array destructuring
   const [ref, inView] = useInView({ threshold: 0.2 });
   const [ref2, inView2] = useInView({ threshold: 0.2 });
@@ -47,7 +50,6 @@ const Product = ({
       x: 0,
       opacity: 1,
     },
-    // You can do whatever you want here, if you just want it to stop completely use `rotate: 0`
   };
   console.log("COMPONENTS Products.js");
   console.log(Components);

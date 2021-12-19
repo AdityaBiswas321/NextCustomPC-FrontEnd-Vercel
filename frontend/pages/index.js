@@ -29,6 +29,9 @@ import { Motion } from "react-motion";
 //   }
 // }
 
+//Carousel Component
+//Next Images
+
 export default function HomeScreen() {
   return (
     <div className="lightgrey">

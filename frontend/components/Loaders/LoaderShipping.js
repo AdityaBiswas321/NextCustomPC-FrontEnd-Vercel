@@ -1,5 +1,7 @@
 import { Spinner, Card, Row } from "react-bootstrap";
 
+//Loading Animation, shipping api from request to success or fail
+
 const Loader = () => {
   return (
     <>

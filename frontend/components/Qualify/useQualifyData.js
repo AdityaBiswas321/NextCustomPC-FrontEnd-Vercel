@@ -67,7 +67,7 @@ const useQualify = () => {
     dispatch({ type: STEPONE_CONVERT });
   };
 
-  //Data collection for ideal computer generation logic (in progress), or lead form
+  //Data collection for ideal computer generation logic (in progress)
 
   //Local state until Qualify.js lead form is submitted. Data transfers to global state, see ../Hooks/useLead.js
 

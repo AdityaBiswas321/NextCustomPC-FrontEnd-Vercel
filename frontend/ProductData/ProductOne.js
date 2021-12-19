@@ -1,3 +1,5 @@
+//Products in an Object, move to db later
+
 export const productData = [
   // budget 500, 1200, 3000
   {

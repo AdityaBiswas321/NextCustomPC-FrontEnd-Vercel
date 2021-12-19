@@ -12,6 +12,14 @@ import {
   CONFIRM_PAYMENT_FAIL,
 } from "../constants/paymentConstants";
 
+//Payments Action
+
+//Contains all payments api calls
+
+//Axios post
+//Create payment intent
+//obtain client secret, integral to building a payment system
+
 export const makePayment = (price) => async (dispatch) => {
   try {
     dispatch({ type: PAYMENT_REQUEST });
@@ -28,6 +36,8 @@ export const makePayment = (price) => async (dispatch) => {
   }
 };
 
+//create payment method
+//connect to stripe directly
 export const createPaymentMethod =
   (cardElement, billingDetails, stripe) => async (dispatch) => {
     try {
@@ -48,6 +58,9 @@ export const createPaymentMethod =
     }
   };
 
+//Axios Post to server
+//Final Api call to confirm payment
+//Notes the parameters are returns of the previous actions above
 export const createConfirmCardPayment =
   (clientSecret, paymentMethodReq, stripe) => async (dispatch) => {
     try {

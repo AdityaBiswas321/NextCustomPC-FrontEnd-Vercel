@@ -1,5 +1,8 @@
 import { Spinner, Card, Row } from "react-bootstrap";
 
+//Loading Animation for when Validation has begun and ended
+//After shipping api is successful and shipping loader completes
+
 const Loader = () => {
   return (
     <>

@@ -7,6 +7,14 @@ import {
   SHIPPING_RESET,
 } from "../constants/shippingConstants";
 
+//Extreamly important
+
+//Api call to Node.js server to obtain shipping data
+
+//Takes Address Information
+
+//Axios post to Node.js Server
+//Response: shipping data
 export const shipping = (user) => async (dispatch) => {
   try {
     dispatch({ type: SHIPPING_REQUEST });

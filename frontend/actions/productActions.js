@@ -5,6 +5,9 @@ import {
   SET_C_TYPE,
 } from "../constants/productConstants";
 
+//actions to store selection values from the algorithm
+//Important to perform algorithm logic to determine type of PC
+
 export const setType = (type) => (dispatch) => {
   try {
     dispatch({ type: SET_TYPE, payload: type });

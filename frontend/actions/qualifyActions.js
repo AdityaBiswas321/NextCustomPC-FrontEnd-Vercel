@@ -6,6 +6,9 @@ import {
   STEPFIVE_CONVERT,
 } from "../constants/qualifyConstants";
 
+//Actions to store placement in the algorithm
+//Important to conditionally show components based of placement
+
 export const stepOne = () => (dispatch) => {
   try {
     dispatch({ type: STEPONE_CONVERT });

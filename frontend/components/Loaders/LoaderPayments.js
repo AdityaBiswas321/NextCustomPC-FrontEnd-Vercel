@@ -1,5 +1,8 @@
 import { Spinner, Card, Row } from "react-bootstrap";
 
+//Loader Animation when payments intent began to
+//when confirmCardPayment action successfully completes
+
 const Loader = () => {
   return (
     <>

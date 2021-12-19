@@ -4,6 +4,8 @@ import Image from "next/image";
 import Product from "../components/Product/Product";
 import { productData } from "../ProductData/ProductOne.js";
 
+//Product Reccomendation algorithm
+
 const product = () => {
   const productType = useSelector((state) => state.product);
   const { type, tab, app, ctype } = productType;

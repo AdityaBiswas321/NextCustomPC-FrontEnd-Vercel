@@ -6,6 +6,11 @@ import {
   STEPFIVE_CONVERT,
 } from "../constants/qualifyConstants";
 
+//Stores information of progression in the form in qualify.js
+//Phase signifies the progression in the progress bar
+//Phase progressively becomes true to enable links in progressionbar to prior steps in the form but not after
+
+//Steps signifies placement in form, used to switch components based on boolean
 export const qualifyReducers = (state = {}, action) => {
   switch (action.type) {
     case STEPONE_CONVERT:
