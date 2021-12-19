@@ -15,7 +15,7 @@
 - MongoDB
 - Javascript
 - CSS3
-- HTML
+- HTML5
 
 
 **Third-Party Libraries:**
