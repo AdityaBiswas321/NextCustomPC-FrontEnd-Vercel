@@ -7,15 +7,15 @@ www.npxcomputers.com
 **Backend:** https://github.com/AdityaBiswas321/NextCustomPC-Backend-Heroku
 
 **TechStack:**
--NextJS
--React
--Redux
--React-Bootstrap(bootswatch lux cdn)
--NodeJS
--MongoDB
--Javascript
--CSS3
--HTML
+- NextJS
+- React
+- Redux
+- React-Bootstrap(bootswatch lux cdn)
+- NodeJS
+- MongoDB
+- Javascript
+- CSS3
+- HTML
 
 
 **Third-Party Libraries:**
