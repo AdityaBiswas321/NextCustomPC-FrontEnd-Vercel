@@ -47,10 +47,7 @@ export default function HomeScreen() {
       <Col className="thumbIndex" xl={4} lg={4} style={{ padding: "0" }}>
         <Row className="w">
           <Col id="caro">
-            <div style={{ display: loading ? "block" : "none" }}>
-              ...Loadingy
-            </div>
-            <div style={{ display: loading ? "none" : "block" }}>
+            <div>
               <Carousel showStatus={false} showThumbs={false}>
                 <div>
                   <img
@@ -58,6 +55,7 @@ export default function HomeScreen() {
                       "https://secondbucketforcustompc.s3.us-east-2.amazonaws.com/TestPC1.png"
                     }
                     ref={image}
+                    style={{ opacity: loading ? 0 : 1 }}
                     onLoad={() => setLoading(false)}
                   />
                 </div>
