@@ -9,7 +9,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a lo
 
 import { Row, Col, Button, Card, Navbar, Container } from "react-bootstrap";
 import { Carousel } from "react-responsive-carousel";
-import { useState, useRef, useEffect } from "react";
+
 import { useDispatch } from "react-redux";
 import axios from "axios";
 
@@ -17,8 +17,6 @@ import { saveLeadForm } from "../actions/computerActions";
 import { API_URL } from "../config/index";
 import { motion } from "framer-motion";
 import { Motion } from "react-motion";
-
-import LoaderPayments from "../components/Loaders/LoaderPayments";
 
 // cont fadeInUp = {
 //   inital: {
@@ -35,50 +33,43 @@ import LoaderPayments from "../components/Loaders/LoaderPayments";
 //Next Images
 
 export default function HomeScreen() {
-  const [loading, setLoading] = useState(true);
-  const image = useRef();
-  console.log("LOADING");
-  console.log(loading);
-  useEffect(() => {
-    if (image.current.complete) setLoading(false);
-  }, []);
   return (
     <div className="lightgrey">
       <Col className="thumbIndex" xl={4} lg={4} style={{ padding: "0" }}>
         <Row className="w">
           <Col id="caro">
-            <div>
-              <Carousel showStatus={false} showThumbs={false}>
-                <div>
-                  <img
-                    src={
-                      "https://secondbucketforcustompc.s3.us-east-2.amazonaws.com/TestPC1.png"
-                    }
-                    ref={image}
-                    style={{ opacity: loading ? 0 : 1 }}
-                    onLoad={() => setLoading(false)}
-                  />
-                </div>
-                <div>
-                  <Image
-                    src={
-                      "https://secondbucketforcustompc.s3.us-east-2.amazonaws.com/WhitePC.jpeg"
-                    }
-                    width={25}
-                    height={25}
-                  />
-                </div>
-                <div>
-                  <Image
-                    src={
-                      "https://secondbucketforcustompc.s3.us-east-2.amazonaws.com/BluePc.jpg"
-                    }
-                    width={25}
-                    height={25}
-                  />
-                </div>
-              </Carousel>
-            </div>
+            <Carousel showStatus={false} showThumbs={false}>
+              <div>
+                <Image
+                  src={
+                    "https://secondbucketforcustompc.s3.us-east-2.amazonaws.com/TestPC1.png"
+                  }
+                  width={25}
+                  height={25}
+                  layout="responsive"
+                />
+              </div>
+              <div>
+                <Image
+                  src={
+                    "https://secondbucketforcustompc.s3.us-east-2.amazonaws.com/WhitePC.jpeg"
+                  }
+                  width={25}
+                  height={25}
+                  layout="responsive"
+                />
+              </div>
+              <div>
+                <Image
+                  src={
+                    "https://secondbucketforcustompc.s3.us-east-2.amazonaws.com/BluePc.jpg"
+                  }
+                  width={25}
+                  height={25}
+                  layout="responsive"
+                />
+              </div>
+            </Carousel>
           </Col>
         </Row>
 
