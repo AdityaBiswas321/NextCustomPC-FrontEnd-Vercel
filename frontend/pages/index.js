@@ -40,24 +40,33 @@ export default function HomeScreen() {
           <Col id="caro">
             <Carousel showStatus={false} showThumbs={false}>
               <div>
-                <img
+                <Image
                   src={
-                    "https://secondbucketforcustompc.s3.us-east-2.amazonaws.com/TestPC1Unedited.webp"
+                    "https://secondbucketforcustompc.s3.us-east-2.amazonaws.com/TestPC1Unedited.jpg"
                   }
+                  width={25}
+                  height={25}
+                  layout="responsive"
                 />
               </div>
               <div>
-                <img
+                <Image
                   src={
                     "https://secondbucketforcustompc.s3.us-east-2.amazonaws.com/WhitePC.jpeg"
                   }
+                  width={25}
+                  height={25}
+                  layout="responsive"
                 />
               </div>
               <div>
-                <img
+                <Image
                   src={
                     "https://secondbucketforcustompc.s3.us-east-2.amazonaws.com/BluePc.jpg"
                   }
+                  width={25}
+                  height={25}
+                  layout="responsive"
                 />
               </div>
             </Carousel>
@@ -94,10 +103,13 @@ export default function HomeScreen() {
             </Card>
             <Card>
               <Link href="computer1">
-                <img
+                <Image
                   src={
                     "https://secondbucketforcustompc.s3.us-east-2.amazonaws.com/TestPC1Unedited.webp"
                   }
+                  width={25}
+                  height={25}
+                  layout="responsive"
                 />
               </Link>
             </Card>
@@ -113,10 +125,13 @@ export default function HomeScreen() {
             </Card>
             <Card>
               <Link href="computer1">
-                <img
+                <Image
                   src={
                     "https://secondbucketforcustompc.s3.us-east-2.amazonaws.com/WhitePC.jpeg"
                   }
+                  width={25}
+                  height={25}
+                  layout="responsive"
                 />
               </Link>
             </Card>
@@ -131,10 +146,13 @@ export default function HomeScreen() {
             </Card>
             <Card>
               <Link href="computer1">
-                <img
+                <Image
                   src={
                     "https://secondbucketforcustompc.s3.us-east-2.amazonaws.com/BluePc.jpg"
                   }
+                  width={25}
+                  height={25}
+                  layout="responsive"
                 />
               </Link>
             </Card>
