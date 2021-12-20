@@ -60,17 +60,21 @@ export default function HomeScreen() {
                   />
                 </div>
                 <div>
-                  <img
+                  <Image
                     src={
                       "https://secondbucketforcustompc.s3.us-east-2.amazonaws.com/WhitePC.jpeg"
                     }
+                    width={25}
+                    height={25}
                   />
                 </div>
                 <div>
-                  <img
+                  <Image
                     src={
                       "https://secondbucketforcustompc.s3.us-east-2.amazonaws.com/BluePc.jpg"
                     }
+                    width={25}
+                    height={25}
                   />
                 </div>
               </Carousel>
