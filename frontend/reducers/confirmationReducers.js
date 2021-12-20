@@ -17,7 +17,7 @@ export const confirmReducer = (state = {}, action) => {
         successConfirm: true,
       };
     case CONFIRM_PAYMENT_FAIL:
-      return { loading: false, ConfirmError: action.payload };
+      return { loading: false, confirmError: action.payload };
 
     case CONFIRM_RESET:
       return {};

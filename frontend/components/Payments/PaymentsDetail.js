@@ -167,7 +167,7 @@ const PaymentsDetail = (props) => {
     if (value !== null) {
       console.log(value);
       //return object that shows the address nicely
-      let addressText = value.value.structured_formatting.main_text;
+      let addressText = value?.value.structured_formatting.main_text;
 
       // let cityValue = value.value.terms[1].value;
       // let provinceValue = value.value.terms[2].value;
@@ -332,7 +332,11 @@ const PaymentsDetail = (props) => {
 
   //if paymentMethod action returns data, pass all required data into ConfirmCardPayment action to finish payments
   useEffect(() => {
-    dispatch(createConfirmCardPayment(clientSecret, paymentMethodReq, stripe));
+    if (paymentMethodReq) {
+      dispatch(
+        createConfirmCardPayment(clientSecret, paymentMethodReq, stripe)
+      );
+    }
   }, [paymentMethodReq]);
 
   //if ConfirmCardPayment is true push user to confirmcheckout (payment completed)
