@@ -40,33 +40,24 @@ export default function HomeScreen() {
           <Col id="caro">
             <Carousel showStatus={false} showThumbs={false}>
               <div>
-                <Image
+                <img
                   src={
                     "https://secondbucketforcustompc.s3.us-east-2.amazonaws.com/TestPC1Unedited.webp"
                   }
-                  width={25}
-                  height={25}
-                  layout="responsive"
                 />
               </div>
               <div>
-                <Image
+                <img
                   src={
                     "https://secondbucketforcustompc.s3.us-east-2.amazonaws.com/WhitePC.jpeg"
                   }
-                  width={25}
-                  height={25}
-                  layout="responsive"
                 />
               </div>
               <div>
-                <Image
+                <img
                   src={
                     "https://secondbucketforcustompc.s3.us-east-2.amazonaws.com/BluePc.jpg"
                   }
-                  width={25}
-                  height={25}
-                  layout="responsive"
                 />
               </div>
             </Carousel>
