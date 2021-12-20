@@ -42,7 +42,7 @@ export default function HomeScreen() {
               <div>
                 <Image
                   src={
-                    "https://secondbucketforcustompc.s3.us-east-2.amazonaws.com/TestPC1Unedited.jpg"
+                    "https://secondbucketforcustompc.s3.us-east-2.amazonaws.com/TestPC1Unedited.webp"
                   }
                   width={25}
                   height={25}
