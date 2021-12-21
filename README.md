@@ -2,6 +2,8 @@
 
 **Target:** To connect non tech-savvy professionals with tailor made computers by way of an algorithm
 
+**Feature Docs:** https://docs.google.com/document/d/1s_RIsMhvCDWA6UFLGvLFBisiVgt9Jm1uJaSH7F20-vU/edit?usp=sharing
+
 **Production:** www.npxcomputers.com
 
 **Backend:** https://github.com/AdityaBiswas321/NextCustomPC-Backend-Heroku
