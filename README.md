@@ -6,7 +6,7 @@
 
 **Backend:** https://github.com/AdityaBiswas321/NextCustomPC-Backend-Heroku
 
-**Test Card:** 4242 4242 4242 4242 **exp:** anytime in the future **cvc:** any 3 digits
+**Test Credit Card:** 4242 4242 4242 4242 **exp:** anytime in the future **cvc:** any 3 digits
 
 **TechStack:**
 - NextJS
