@@ -344,7 +344,7 @@ const PaymentsDetail = (props) => {
     if (confirmCardPayment) {
       Router.push("/confirmCheckout");
     }
-  }, [history, confirmCardPayment]);
+  }, [confirmCardPayment]);
 
   return (
     <>
