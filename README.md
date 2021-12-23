@@ -1,4 +1,6 @@
 # NextCustomPC-FrontEnd-Vercel
+****Optimized For Mobile View****
+
 
 **Target:** To connect non tech-savvy professionals with tailor made computers by way of an algorithm
 
