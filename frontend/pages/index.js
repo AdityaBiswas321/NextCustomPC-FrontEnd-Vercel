@@ -79,11 +79,11 @@ export default function HomeScreen() {
               <Card.Body>
                 <Card.Text id="bh">
                   Tailor Made Computer Designs <br></br>Products, Specification,
-                  and Installation <br></br>Exact Quotation in Writing and
+                  and Installation <br></br>Exact Quotation<br></br>
                   Gauranteed for 30 days <br></br>
                   <Link href="computer1">
                     <a>
-                      <u className="hello">Book a no obligation quotation</u>
+                      <u className="hello">Select Product</u>
                     </a>
                   </Link>
                 </Card.Text>

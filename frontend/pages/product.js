@@ -19,6 +19,7 @@ const product = () => {
   console.log(test1);
 
   const test2 = test1.filter((test) => test.tab >= tab);
+
   console.log(test2);
 
   const test3 = test2.filter((test) => test.app >= app);
