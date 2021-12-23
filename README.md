@@ -3,6 +3,8 @@
 
 
 
+
+
 **Target:** To connect non tech-savvy professionals with tailor made computers by way of an algorithm
 
 **Production:** www.npxcomputers.com
