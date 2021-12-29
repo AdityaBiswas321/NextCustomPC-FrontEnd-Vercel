@@ -356,7 +356,7 @@ const PaymentsDetail = (props) => {
         )}
       </>
       {step1 ? (
-        <Card className="shippingCard mt-2">
+        <Card className="shippingCard mt-2 ">
           <Card.Title className="text-center ship">
             <u>CALCULATE SHIPPING</u>
           </Card.Title>

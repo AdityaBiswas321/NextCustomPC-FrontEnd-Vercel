@@ -8,6 +8,14 @@ body {
   max-width: 100%;
   overflow-x: hidden;
 }
+.foot {
+  position: relative;
+  z-index: 0;
+}
+.mainbody {
+  position: relative;
+  z-index: 0;
+}
 
 .background {
   background-image: url("https://secondbucketforcustompc.s3.us-east-2.amazonaws.com/GreyBackGround.jpeg");
@@ -65,7 +73,8 @@ a {
 }
 .shippingCard {
   border-radius: 4px;
-  margin: 5px;
+
+  margin: 0px 8px 5px;
   padding: 5px;
 }
 .thumbCard {
@@ -138,7 +147,7 @@ a {
 
 .absolute {
   position: relative;
-  z-index: 1;
+  z-index: 0;
 }
 .relative {
   position: relative;

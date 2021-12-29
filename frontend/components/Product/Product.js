@@ -142,7 +142,12 @@ const Product = ({
 
   return (
     <div className="lightgrey">
-      <Col className="thumbIndex" xl={4} lg={4} style={{ padding: "0" }}>
+      <Col
+        className="thumbIndex"
+        xl={4}
+        lg={4}
+        style={{ padding: "0", marginBottom: "5px" }}
+      >
         <motion.div
           exit={{ opacity: 0 }}
           initial={{ opacity: 0 }}
@@ -273,13 +278,14 @@ const Product = ({
             ref={ref5}
           >
             <Payments
-              className=" pt-2 pb-2"
+              className=" pt-2"
               Price={Price}
               img={Img}
               Components={Components}
             />
           </motion.div>
         </motion.div>
+        <div style={{ height: "3px" }}></div>
       </Col>
     </div>
   );
