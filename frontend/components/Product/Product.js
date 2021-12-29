@@ -142,12 +142,12 @@ const Product = ({
 
   return (
     <div className="lightgrey">
-      <motion.div
-        exit={{ opacity: 0 }}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-      >
-        <Card className="thumb">
+      <Col className="thumbIndex" xl={4} lg={4} style={{ padding: "0" }}>
+        <motion.div
+          exit={{ opacity: 0 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+        >
           <Image
             src={ImgB}
             layout="fill"
@@ -183,12 +183,12 @@ const Product = ({
                 animate={controls}
                 variants={boxVariants}
               >
-                <div className="sizing">
+                <div className="thumb">
                   <Image
                     src={Img2}
-                    width={200}
-                    height={200}
-                    layout="intrinsic"
+                    width={25}
+                    height={25}
+                    layout="responsive"
                   />
                 </div>
                 <Col className="backgroundColour thumb">
@@ -272,10 +272,15 @@ const Product = ({
             variants={boxVariants5}
             ref={ref5}
           >
-            <Payments Price={Price} img={Img} Components={Components} />
+            <Payments
+              className="pt-2"
+              Price={Price}
+              img={Img}
+              Components={Components}
+            />
           </motion.div>
-        </Card>
-      </motion.div>
+        </motion.div>
+      </Col>
     </div>
   );
 };
