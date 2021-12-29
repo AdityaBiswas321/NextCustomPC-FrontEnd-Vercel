@@ -94,6 +94,7 @@ const PaymentsDetail = (props) => {
     setShow(true);
     dispatch({ type: CONFIRM_RESET });
     dispatch({ type: CONFIRM_PAYMENT_RESET });
+    validateInput();
   };
   //
 
@@ -311,7 +312,23 @@ const PaymentsDetail = (props) => {
     // return rate;
   };
 
-  //UseEffect separated to differentiate functionality
+  const [formerrors, setFormErrors] = useState(false);
+
+  const validateInput = () => {
+    //name field
+    if (!name) {
+      setFormErrors(true);
+    } else if (!email) {
+      setFormErrors(true);
+    } else if (!/\S+@\S+\.\S+/.test(email)) {
+      setFormErrors(true);
+    } else {
+      setFormErrors(false);
+    }
+
+    console.log("FORM ERRORS");
+    console.log(formerrors);
+  };
 
   useEffect(() => {
     addressAutoComplete();
@@ -453,129 +470,137 @@ const PaymentsDetail = (props) => {
             variants={boxVariants}
           >
             <Card className="thumbCard ">
-              <Form.Group className="">
-                <hr />
-                <Card.Title className="ship">Price:${props.Price}</Card.Title>
-                <Card.Title className="ship">Shipping:${rate}</Card.Title>
-                <hr />
-                <Image
-                  src={props.img}
-                  width={25}
-                  height={25}
-                  layout="responsive"
-                  className="darkgrey"
-                />
-                <Card.Title className="mt-3">Features</Card.Title>
-                <ListGroup className="">
-                  <ListGroup.Item>
-                    <strong className="font-weight-bold">Graphics:</strong>{" "}
-                    {props?.Components?.graphics}
-                  </ListGroup.Item>
-                  <ListGroup.Item>
-                    <strong className="font-weight-bold">RAM:</strong>{" "}
-                    {props?.Components?.ram}
-                  </ListGroup.Item>
-                  <ListGroup.Item>
-                    <strong className="font-weight-bold">CPU:</strong>{" "}
-                    {props?.Components?.cpu}
-                  </ListGroup.Item>
-                  <ListGroup.Item>
-                    <strong className="font-weight-bold">PowerSupply:</strong>{" "}
-                    {props?.Components?.powersupply}
-                  </ListGroup.Item>
-                  <ListGroup.Item>
-                    <strong className="font-weight-bold">MotherBoard:</strong>{" "}
-                    {props?.Components?.mobo}
-                  </ListGroup.Item>
-                  <ListGroup.Item>
-                    <strong className="font-weight-bold">Storage:</strong>{" "}
-                    {props?.Components?.storage}
-                  </ListGroup.Item>
-                </ListGroup>
-                <hr />
-                <Card.Title className="ship">Total:${total}</Card.Title>
-                <hr />
-                <Form.Label>Name</Form.Label>
+              <>
+                <Form.Group className="">
+                  <hr />
+                  <Card.Title className="ship">Price:${props.Price}</Card.Title>
+                  <Card.Title className="ship">Shipping:${rate}</Card.Title>
+                  <hr />
+                  <Image
+                    src={props.img}
+                    width={25}
+                    height={25}
+                    layout="responsive"
+                    className="darkgrey"
+                  />
+                  <Card.Title className="mt-3">Features</Card.Title>
+                  <ListGroup className="">
+                    <ListGroup.Item>
+                      <strong className="font-weight-bold">Graphics:</strong>{" "}
+                      {props?.Components?.graphics}
+                    </ListGroup.Item>
+                    <ListGroup.Item>
+                      <strong className="font-weight-bold">RAM:</strong>{" "}
+                      {props?.Components?.ram}
+                    </ListGroup.Item>
+                    <ListGroup.Item>
+                      <strong className="font-weight-bold">CPU:</strong>{" "}
+                      {props?.Components?.cpu}
+                    </ListGroup.Item>
+                    <ListGroup.Item>
+                      <strong className="font-weight-bold">PowerSupply:</strong>{" "}
+                      {props?.Components?.powersupply}
+                    </ListGroup.Item>
+                    <ListGroup.Item>
+                      <strong className="font-weight-bold">MotherBoard:</strong>{" "}
+                      {props?.Components?.mobo}
+                    </ListGroup.Item>
+                    <ListGroup.Item>
+                      <strong className="font-weight-bold">Storage:</strong>{" "}
+                      {props?.Components?.storage}
+                    </ListGroup.Item>
+                  </ListGroup>
+                  <hr />
+                  <Card.Title className="ship">Total:${total}</Card.Title>
+                  <hr />
+                  <Form.Label>Name</Form.Label>
 
-                <Form.Control
-                  name="name"
-                  type="text"
-                  placeholder="Jane Doe"
-                  required
-                  onChange={(e) => setName(e.target.value)}
-                />
+                  <Form.Control
+                    name="name"
+                    isInvalid={formerrors}
+                    placeholder="Jane Doe"
+                    required
+                    onChange={(e) => setName(e.target.value)}
+                  />
 
-                <Form.Label>Email</Form.Label>
-                <Form.Control
-                  name="email"
-                  type="email"
-                  placeholder="jane.doe@example.com"
-                  required
-                  onChange={(e) => setEmail(e.target.value)}
-                />
-                <Form.Label className="ship">Card Details</Form.Label>
+                  <Form.Label>Email</Form.Label>
+                  <Form.Control
+                    name="email"
+                    isInvalid={formerrors}
+                    type="email"
+                    placeholder="jane.doe@example.com"
+                    required
+                    onChange={(e) => setEmail(e.target.value)}
+                  />
+                  <Form.Label className="ship">Card Details</Form.Label>
 
-                <CardElement
-                  options={{
-                    style: {
-                      base: {
-                        fontSize: "16px",
-                        color: "#424770",
-                        lineHeight: "48px",
-                        backgroundColor: "#f7f7f9",
-                        "::placeholder": {
-                          color: "#aab7c4",
+                  <CardElement
+                    options={{
+                      style: {
+                        base: {
+                          fontSize: "16px",
+                          color: "#424770",
+                          lineHeight: "48px",
+                          backgroundColor: "#f7f7f9",
+                          "::placeholder": {
+                            color: "#aab7c4",
+                          },
+                        },
+                        invalid: {
+                          color: "#9e2146",
                         },
                       },
-                      invalid: {
-                        color: "#9e2146",
-                      },
-                    },
-                    hidePostalCode: true,
-                  }}
-                />
+                      hidePostalCode: true,
+                    }}
+                  />
 
-                <Button
-                  type="button"
-                  className="btn-block ship"
-                  onClick={handleShow}
-                >
-                  Buy Now !
-                </Button>
+                  <Button
+                    type="submit"
+                    className="btn-block ship"
+                    onClick={handleShow}
+                  >
+                    Buy Now !
+                  </Button>
 
-                <Modal show={show} onHide={handleClose}>
-                  <Modal.Header closeButton>
-                    <Modal.Title>Make Purchase</Modal.Title>
-                  </Modal.Header>
-                  {loadingPayments ? (
-                    <Modal.Body>
-                      <LoaderPayments />
-                    </Modal.Body>
-                  ) : (
-                    <>
-                      {paymentMethodReq?.error && (
-                        <Message variant="danger">
-                          {paymentMethodReq?.error?.message}
-                        </Message>
-                      )}
-                      <Modal.Body>Confirm purchase?</Modal.Body>
+                  <Modal show={show} onHide={handleClose}>
+                    <Modal.Header closeButton>
+                      <Modal.Title>Make Purchase</Modal.Title>
+                    </Modal.Header>
+                    {loadingPayments ? (
+                      <Modal.Body>
+                        <LoaderPayments />
+                      </Modal.Body>
+                    ) : formerrors ? (
+                      <Message variant="danger">
+                        Please fill all required fields
+                      </Message>
+                    ) : (
+                      <>
+                        {paymentMethodReq?.error && (
+                          <Message variant="danger">
+                            {paymentMethodReq?.error?.message}
+                          </Message>
+                        )}
 
-                      <Modal.Footer>
-                        <Button variant="secondary" onClick={handleClose}>
-                          Close
-                        </Button>
-                        <Button
-                          variant="primary"
-                          onClick={() => submit(name, email, postal, total)}
-                          disabled={successMethod}
-                        >
-                          {successMethod ? "Loading..." : "Confirm Purchase"}
-                        </Button>
-                      </Modal.Footer>
-                    </>
-                  )}
-                </Modal>
-              </Form.Group>
+                        <Modal.Body>Confirm purchase?</Modal.Body>
+
+                        <Modal.Footer>
+                          <Button variant="secondary" onClick={handleClose}>
+                            Close
+                          </Button>
+                          <Button
+                            variant="primary"
+                            onClick={() => submit(name, email, postal, total)}
+                            disabled={successMethod}
+                          >
+                            {successMethod ? "Loading..." : "Confirm Purchase"}
+                          </Button>
+                        </Modal.Footer>
+                      </>
+                    )}
+                  </Modal>
+                </Form.Group>
+              </>
             </Card>
           </motion.div>
         )
