@@ -63,6 +63,11 @@ a {
   margin-left: auto;
   margin-right: auto;
 }
+.shippingCard {
+  border-radius: 4px;
+  margin: 5px;
+  padding: 5px;
+}
 .thumbCard {
   border: 1px solid #ddd;
   border-radius: 4px;

@@ -273,7 +273,7 @@ const Product = ({
             ref={ref5}
           >
             <Payments
-              className="pt-2"
+              className=" pt-2 pb-2"
               Price={Price}
               img={Img}
               Components={Components}
