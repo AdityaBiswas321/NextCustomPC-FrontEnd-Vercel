@@ -469,7 +469,7 @@ const PaymentsDetail = (props) => {
             animate={step2 && "animate"}
             variants={boxVariants}
           >
-            <Card className="thumbCard ">
+            <Card className="shippingCard mt-2">
               <>
                 <Form.Group className="">
                   <hr />
@@ -510,7 +510,8 @@ const PaymentsDetail = (props) => {
                       {props?.Components?.storage}
                     </ListGroup.Item>
                   </ListGroup>
-                  <hr />
+                  <hr className="" />
+
                   <Card.Title className="ship">Total:${total}</Card.Title>
                   <hr />
                   <Form.Label>Name</Form.Label>

@@ -4,6 +4,7 @@ import Link from "next/link";
 import Script from "next/script";
 import dynamic from "next/dynamic";
 import LiveChat from "react-livechat";
+import { Parallax } from "react-parallax";
 
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 
@@ -34,7 +35,12 @@ import { Motion } from "react-motion";
 
 export default function HomeScreen() {
   return (
-    <div className="lightgrey">
+    <Parallax
+      blur={0}
+      bgImage="https://static.wikia.nocookie.net/lotr/images/d/d0/Ered_Mithrin_-_LotRO.jpg/revision/latest?cb=20201206050305"
+      bgImageAlt="the cat"
+      strength={400}
+    >
       <Col className="thumbIndex" xl={4} lg={4} style={{ padding: "0" }}>
         <Row className="w">
           <Col id="caro">
@@ -159,6 +165,6 @@ export default function HomeScreen() {
           </Col>
         </Row>
       </Col>
-    </div>
+    </Parallax>
   );
 }

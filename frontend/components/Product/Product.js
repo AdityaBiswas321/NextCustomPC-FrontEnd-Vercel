@@ -141,7 +141,7 @@ const Product = ({
   }, [controls, inView, inView2, inView3, inView4, inView5]);
 
   return (
-    <div className="lightgrey">
+    <div className="background">
       <Col
         className="thumbIndex"
         xl={4}

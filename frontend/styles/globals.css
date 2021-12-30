@@ -18,7 +18,7 @@ body {
 }
 
 .background {
-  background-image: url("https://secondbucketforcustompc.s3.us-east-2.amazonaws.com/GreyBackGround.jpeg");
+  background-image: url("https://images.cdn2.stockunlimited.net/preview1300/technology-wallpaper_1807656.jpg");
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -77,6 +77,7 @@ a {
   margin: 0px 8px 5px;
   padding: 5px;
 }
+
 .thumbCard {
   border: 1px solid #ddd;
   border-radius: 4px;
