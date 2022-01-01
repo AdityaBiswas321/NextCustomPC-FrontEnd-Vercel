@@ -15,9 +15,9 @@ import Message from "../Message/Message";
 
 import { dispatchChaining } from "../../actions/dispatchChaining";
 import OrderSteps from "../OrderSteps/OrderSteps";
-import useLead from "../../GlobalHooks/useLead";
+import useLead from "../../hooks/useLead";
 import useQualifyData from "./useQualifyData";
-import useStepsAndPhases from "../../GlobalHooks/useStepsAndPhases";
+import useStepsAndPhases from "../../hooks/useStepsAndPhases";
 import Script from "next/script";
 
 import { API_URL } from "../../config";

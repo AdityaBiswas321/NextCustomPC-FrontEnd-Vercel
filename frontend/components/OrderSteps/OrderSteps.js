@@ -9,7 +9,7 @@ import {
   stepFive,
 } from "../../actions/qualifyActions";
 import styles from "./OrderSteps.module.css";
-import useStepsAndPhases from "../../GlobalHooks/useStepsAndPhases";
+import useStepsAndPhases from "../../hooks/useStepsAndPhases";
 
 //Bread Crumb component in Qualify.js to show ones placement in the form.
 
