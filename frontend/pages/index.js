@@ -84,8 +84,9 @@ export default function HomeScreen() {
             <Card className="mb-2 mt-2">
               <Card.Body>
                 <Card.Text id="bh">
-                  Tailor Made Computer Designs <br></br>Products, Specification,
-                  and Installation <br></br>Exact Quotation<br></br>
+                  Tailor Made Computer <br></br>Designs <br></br>Products,
+                  Specification, and Installation <br></br>Exact Quotation
+                  <br></br>
                   Gauranteed for 30 days <br></br>
                   <Link href="computer1">
                     <a>
@@ -103,29 +104,7 @@ export default function HomeScreen() {
             <Card id="gh" type="button" className="btn btn-dark ">
               <Link href="computer1">
                 <a>
-                  <span>View Products</span>
-                </a>
-              </Link>
-            </Card>
-            <Card>
-              <Link href="computer1">
-                <Image
-                  src={
-                    "https://secondbucketforcustompc.s3.us-east-2.amazonaws.com/TestPC1Unedited.webp"
-                  }
-                  width={25}
-                  height={25}
-                  layout="responsive"
-                />
-              </Link>
-            </Card>
-          </Col>
-
-          <Col sm={12} md={12} lg={12} xl={12}>
-            <Card id="gh" type="button" className="btn btn-dark ">
-              <Link href="computer1">
-                <a>
-                  <span>About Us</span>
+                  <span> View Product Selector</span>
                 </a>
               </Link>
             </Card>
@@ -142,11 +121,33 @@ export default function HomeScreen() {
               </Link>
             </Card>
           </Col>
+
           <Col sm={12} md={12} lg={12} xl={12}>
             <Card id="gh" type="button" className="btn btn-dark ">
               <Link href="computer1">
                 <a>
-                  <span>Our Design</span>
+                  <span>View All Products</span>
+                </a>
+              </Link>
+            </Card>
+            <Card>
+              <Link href="computer1">
+                <Image
+                  src={
+                    "https://secondbucketforcustompc.s3.us-east-2.amazonaws.com/TestPC1Unedited.webp"
+                  }
+                  width={25}
+                  height={25}
+                  layout="responsive"
+                />
+              </Link>
+            </Card>
+          </Col>
+          <Col sm={12} md={12} lg={12} xl={12}>
+            <Card id="gh" type="button" className="btn btn-dark ">
+              <Link href="computer1">
+                <a>
+                  <span>About Us</span>
                 </a>
               </Link>
             </Card>
