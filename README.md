@@ -1,5 +1,8 @@
 # NextCustomPC-FrontEnd-Vercel
 **Optimized For Mobile View**  
+
+**Please try the shipping and payments API**
+
 &nbsp;
 
 **Target:** To connect non tech-savvy professionals with tailor made computers by way of an algorithm
@@ -10,7 +13,10 @@
 
 **Feature Docs:** https://docs.google.com/document/d/1s_RIsMhvCDWA6UFLGvLFBisiVgt9Jm1uJaSH7F20-vU/edit?usp=sharing
 
-**Test Credit Card:** 4242 4242 4242 4242 **exp:** anytime in the future **cvc:** any 3 digits
+**Test Credit Card:** 4242 4242 4242 4242 
+
+**exp:** anytime in the future 
+**cvc:** any 3 digits
 
 **TechStack:**
 - NextJS
