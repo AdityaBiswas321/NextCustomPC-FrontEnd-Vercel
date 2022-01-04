@@ -1,10 +1,11 @@
 # NextCustomPC-FrontEnd-Vercel
 **Optimized For Mobile View**  
+
+**Please try the shipping and payments API**
+
 &nbsp;
 
 **Target:** To connect non tech-savvy professionals with tailor made computers by way of an algorithm
-
-**Please try the shipping and payments API, most complex feature**
 
 **Production:** www.npxcomputers.com
 
