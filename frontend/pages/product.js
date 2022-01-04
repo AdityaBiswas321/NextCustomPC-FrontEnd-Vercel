@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import Image from "next/image";
 import Product from "../components/Product/Product";
-import { productData } from "../ProductData/ProductOne.js";
+import { productData } from "../productData/ProductOne.js";
 
 //Product Reccomendation algorithm
 

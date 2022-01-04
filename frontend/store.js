@@ -9,7 +9,7 @@ import { qualifyReducers } from "./reducers/qualifyReducers";
 import { paymentsReducer } from "./reducers/paymentsReducers";
 import { confirmReducer } from "./reducers/confirmationReducers";
 import { productReducers } from "./reducers/productReducers";
-import ProductOneReducer from "./ProductData/ProductOne";
+import ProductOneReducer from "./productData/ProductOne";
 
 //Combine Reducer
 const reducer = combineReducers({

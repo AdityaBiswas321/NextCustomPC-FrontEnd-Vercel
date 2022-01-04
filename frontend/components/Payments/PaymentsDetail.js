@@ -533,7 +533,9 @@ const PaymentsDetail = (props) => {
                     required
                     onChange={(e) => setEmail(e.target.value)}
                   />
-                  <Form.Label className="ship">Card Details</Form.Label>
+                  <Form.Label className="ship">
+                    Card Details (Test: 4242 4242 4242 4242 Exp:2222 CVC:222)
+                  </Form.Label>
 
                   <CardElement
                     options={{
