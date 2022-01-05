@@ -49,5 +49,5 @@
 - Amazon Web Services (AWS) S3 (cloud image storage)
 
 
-**Version_1:** https://custompcversion1.herokuapp.com/ 
+**Production** www.npxcomputers.com
 
